@@ -1,0 +1,647 @@
+id: fundamentals
+name: Fundamentals
+description: |
+  TODO: say something cool about fundamentals.
+
+modules:
+
+- id: program-misuse
+  name: Program Misuse
+  description: TODO
+  challenges:
+  - id: level-1
+    name: level1
+    description: Lets you directly read the flag!
+  - id: level-2
+    name: level2
+    description: Lets you directly read the flag!
+  - id: level-3
+    name: level3
+    description: Lets you directly read the flag!
+  - id: level-4
+    name: level4
+    description: Lets you directly read the flag!
+  - id: level-5
+    name: level5
+    description: Lets you directly read the flag!
+  - id: level-6
+    name: level6
+    description: Lets you directly read the flag!
+  - id: level-7
+    name: level7
+    description: Shows you that an over-privileged editor is a very powerful tool!
+  - id: level-8
+    name: level8
+    description: Shows you that an over-privileged editor is a very powerful tool!
+  - id: level-9
+    name: level9
+    description: Shows you that an over-privileged editor is a very powerful tool!
+  - id: level-10
+    name: level10
+    description: Requires you to understand their output to derive the flag from it!
+  - id: level-11
+    name: level11
+    description: Requires you to understand their output to derive the flag from it!
+  - id: level-12
+    name: level12
+    description: Requires you to understand their output to derive the flag from it!
+  - id: level-13
+    name: level13
+    description: Requires you to understand their output to derive the flag from it!
+  - id: level-14
+    name: level14
+    description: Requires you to understand their output to derive the flag from it!
+  - id: level-15
+    name: level15
+    description: Requires you to understand their output to derive the flag from it!
+  - id: level-16
+    name: level16
+    description: Requires you to understand their output to derive the flag from it!
+  - id: level-17
+    name: level17
+    description: Forces you to understand different archive formats!
+  - id: level-18
+    name: level18
+    description: Forces you to understand different archive formats!
+  - id: level-19
+    name: level19
+    description: Forces you to understand different archive formats!
+  - id: level-20
+    name: level20
+    description: Forces you to understand different archive formats!
+  - id: level-21
+    name: level21
+    description: Forces you to understand different archive formats!
+  - id: level-22
+    name: level22
+    description: Forces you to understand different archive formats!
+  - id: level-23
+    name: level23
+    description: Forces you to understand different archive formats!
+  - id: level-24
+    name: level24
+    description: Enables you to read flags by making them execute other commands!
+  - id: level-25
+    name: level25
+    description: Enables you to read flags by making them execute other commands!
+  - id: level-26
+    name: level26
+    description: Enables you to read flags by making them execute other commands!
+  - id: level-27
+    name: level27
+    description: Enables you to read flags by making them execute other commands!
+  - id: level-28
+    name: level28
+    description: Enables you to read flags by making them execute other commands!
+  - id: level-29
+    name: level29
+    description: Enables you to read flags by making them execute other commands!
+  - id: level-30
+    name: level30
+    description: Enables you to read flags by making them execute other commands!
+  - id: level-31
+    name: level31
+    description: Enables you to read flags by making them execute other commands!
+  - id: level-32
+    name: level32
+    description: Enables you to read flags by making them execute other commands!
+  - id: level-33
+    name: level33
+    description: Requires some light programming to read the flag.!
+  - id: level-34
+    name: level34
+    description: Requires some light programming to read the flag.!
+  - id: level-35
+    name: level35
+    description: Requires some light programming to read the flag.!
+  - id: level-36
+    name: level36
+    description: Requires some light programming to read the flag.!
+  - id: level-37
+    name: level37
+    description: Lets you get the flag by doing tricks with permissions!
+  - id: level-38
+    name: level38
+    description: Lets you get the flag by doing tricks with permissions!
+  - id: level-39
+    name: level39
+    description: Lets you get the flag by doing tricks with permissions!
+  - id: level-40
+    name: level40
+    description: Lets you get the flag by doing tricks with permissions!
+  - id: level-41
+    name: level41
+    description: Lets you read the flag because they let you program anything!
+  - id: level-42
+    name: level42
+    description: Lets you read the flag because they let you program anything!
+  - id: level-43
+    name: level43
+    description: Lets you read the flag because they let you program anything!
+  - id: level-44
+    name: level44
+    description: Lets you read the flag because they let you program anything!
+  - id: level-45
+    name: level45
+    description: Just straight up wasn't designed to let you read files!
+  - id: level-46
+    name: level46
+    description: Just straight up wasn't designed to let you read files!
+  - id: level-47
+    name: level47
+    description: Just straight up wasn't designed to let you read files!
+  - id: level-48
+    name: level48
+    description: Just straight up wasn't designed to let you read files!
+  - id: level-49
+    name: level49
+    description: Just straight up wasn't designed to let you read files!
+  - id: level-50
+    name: level50
+    description: Just straight up wasn't designed to let you read files!
+  - id: level-51
+    name: level51
+    description: Shows how dangerous it is to allow users to load their own code as plugins into the program (but figuring out how is the hard part)!
+  resources:
+  - name: "Program Interaction: Linux Command Line"
+    type: lecture
+    video: w7nQFk6bi_k
+    playlist: PL-ymxv0nOtqqQ4NR1JnbWoHNm0Q8EspO1
+    slides: 1aiHdtSm8xoT0u2XcTo3qYGes5GY__-PK-FlVyNBQAfY
+  - name: "Program Misuse: Privilege Escalation"
+    type: lecture
+    video: ZWxYWdiXqD8
+    playlist: PL-ymxv0nOtqoaG9YCGR36tCfRoXqVcE1E
+    slides: 1EB7dL5gx3pQlPDqZSEqTtlDiJRZmHGbqRnwxgm4feuw
+  - name: "Program Misuse: Mitigations"
+    type: lecture
+    video: kzbyvr_PJ9k
+    playlist: PL-ymxv0nOtqoaG9YCGR36tCfRoXqVcE1E
+    slides: 1pvWd6n4UN3lZ1BdRySWDl80iEYGRJj9VC5exbYlGdAg
+
+- id: program-interaction
+  name: Program Interaction
+  description: TODO
+  challenges:
+  - id: level-1
+    name: level1
+    description: TODO
+  - id: level-2
+    name: level2
+    description: TODO
+  - id: level-3
+    name: level3
+    description: TODO
+  - id: level-4
+    name: level4
+    description: TODO
+  - id: level-5
+    name: level5
+    description: TODO
+  - id: level-6
+    name: level6
+    description: TODO
+  - id: level-7
+    name: level7
+    description: TODO
+  - id: level-8
+    name: level8
+    description: TODO
+  - id: level-9
+    name: level9
+    description: TODO
+  - id: level-10
+    name: level10
+    description: TODO
+  - id: level-11
+    name: level11
+    description: TODO
+  - id: level-12
+    name: level12
+    description: TODO
+  - id: level-13
+    name: level13
+    description: TODO
+  - id: level-14
+    name: level14
+    description: TODO
+  - id: level-22
+    name: level22
+    description: TODO
+  - id: level-23
+    name: level23
+    description: TODO
+  - id: level-24
+    name: level24
+    description: TODO
+  - id: level-25
+    name: level25
+    description: TODO
+  - id: level-26
+    name: level26
+    description: TODO
+  - id: level-27
+    name: level27
+    description: TODO
+  - id: level-28
+    name: level28
+    description: TODO
+  - id: level-29
+    name: level29
+    description: TODO
+  - id: level-30
+    name: level30
+    description: TODO
+  - id: level-31
+    name: level31
+    description: TODO
+  - id: level-32
+    name: level32
+    description: TODO
+  - id: level-33
+    name: level33
+    description: TODO
+  - id: level-34
+    name: level34
+    description: TODO
+  - id: level-35
+    name: level35
+    description: TODO
+  - id: level-36
+    name: level36
+    description: TODO
+  - id: level-37
+    name: level37
+    description: TODO
+  - id: level-40
+    name: level40
+    description: TODO
+  - id: level-42
+    name: level42
+    description: TODO
+  - id: level-44
+    name: level44
+    description: TODO
+  - id: level-47
+    name: level47
+    description: TODO
+  - id: level-54
+    name: level54
+    description: TODO
+  - id: level-56
+    name: level56
+    description: TODO
+  - id: level-58
+    name: level58
+    description: TODO
+  - id: level-60
+    name: level60
+    description: TODO
+  - id: level-61
+    name: level61
+    description: TODO
+  - id: level-65
+    name: level65
+    description: TODO
+  - id: level-66
+    name: level66
+    description: TODO
+  - id: level-68
+    name: level68
+    description: TODO
+  - id: level-69
+    name: level69
+    description: TODO
+  - id: level-71
+    name: level71
+    description: TODO
+  - id: level-72
+    name: level72
+    description: TODO
+  - id: level-73
+    name: level73
+    description: TODO
+  - id: level-74
+    name: level74
+    description: TODO
+  - id: level-75
+    name: level75
+    description: TODO
+  - id: level-77
+    name: level77
+    description: TODO
+  - id: level-79
+    name: level79
+    description: TODO
+  - id: level-80
+    name: level80
+    description: TODO
+  - id: level-81
+    name: level81
+    description: TODO
+  - id: level-83
+    name: level83
+    description: TODO
+  - id: level-85
+    name: level85
+    description: TODO
+  - id: level-86
+    name: level86
+    description: TODO
+  - id: level-87
+    name: level87
+    description: TODO
+  - id: level-88
+    name: level88
+    description: TODO
+  - id: level-89
+    name: level89
+    description: TODO
+  - id: level-94
+    name: level94
+    description: TODO
+  - id: level-97
+    name: level97
+    description: TODO
+  - id: level-99
+    name: level99
+    description: TODO
+  - id: level-100
+    name: level100
+    description: TODO
+  - id: level-102
+    name: level102
+    description: TODO
+  - id: level-103
+    name: level103
+    description: TODO
+  - id: level-104
+    name: level104
+    description: TODO
+  - id: level-105
+    name: level105
+    description: TODO
+  - id: level-106
+    name: level106
+    description: TODO
+  - id: level-107
+    name: level107
+    description: TODO
+  - id: level-110
+    name: level110
+    description: TODO
+  - id: level-112
+    name: level112
+    description: TODO
+  - id: level-113
+    name: level113
+    description: TODO
+  - id: level-115
+    name: level115
+    description: TODO
+  - id: level-116
+    name: level116
+    description: TODO
+  - id: level-117
+    name: level117
+    description: TODO
+  - id: level-118
+    name: level118
+    description: TODO
+  - id: level-120
+    name: level120
+    description: TODO
+  - id: level-123
+    name: level123
+    description: TODO
+  - id: level-126
+    name: level126
+    description: TODO
+  - id: level-128
+    name: level128
+    description: TODO
+  - id: level-131
+    name: level131
+    description: TODO
+  - id: level-133
+    name: level133
+    description: TODO
+  - id: level-136
+    name: level136
+    description: TODO
+  - id: level-138
+    name: level138
+    description: TODO
+  - id: level-140
+    name: level140
+    description: TODO
+  - id: level-141
+    name: level141
+    description: TODO
+  - id: level-142
+    name: level142
+    description: TODO
+  resources:
+  - name: "Program Interaction: Linux Command Line"
+    type: lecture
+    video: w7nQFk6bi_k
+    playlist: PL-ymxv0nOtqqQ4NR1JnbWoHNm0Q8EspO1
+    slides: 1aiHdtSm8xoT0u2XcTo3qYGes5GY__-PK-FlVyNBQAfY
+  - name: "Program Interaction: Binary Files"
+    type: lecture
+    video: nKqFeYJ483U
+    playlist: PL-ymxv0nOtqqQ4NR1JnbWoHNm0Q8EspO1
+    slides: 1wrX8tvwaxIEk5hx4OtQmPqps-MScIaDO-9bTKQqr8vI
+  - name: "Program Interaction: Linux Process Loading"
+    type: lecture
+    video: kUMCAzSOY-o
+    playlist: PL-ymxv0nOtqqQ4NR1JnbWoHNm0Q8EspO1
+    slides: 1TwM5WLWnTqrNkpXjGKkaXYbKZEpatEQYA7ckBVXAOhs
+  - name: "Program Interaction: Linux Process Execution"
+    type: lecture
+    video: Vtb5wIlthRg
+    playlist: PL-ymxv0nOtqqQ4NR1JnbWoHNm0Q8EspO1
+    slides: 1ezY9Q8I0tzDD-7ZDXMbQM5RQ7z1dvB9-U_nDEhc6qdE
+  - name: Helpful Resources
+    type: markdown
+    content: |
+      - For launching programs from Python, we recommend using [pwntools](https://docs.pwntools.com/en/stable/intro.html), but [subprocess](https://docs.python.org/3/library/subprocess.html) should work as well. If you are not using one of these two, you will suffer heavily when you get to input redirection (for that, check out the `stdin` and `stdout` arguments to `pwn.process` or `subprocess.Popen`).
+      - For reading and writing directly to file descriptors in bash, check out the `read` and `echo` builtins.
+      - You will find the `env` command useful, and the `exec` bash builtin.
+      - Quick refreshers on `fork()` versus `exec*()` [here](https://www.geeksforgeeks.org/difference-fork-exec/) and [here](https://linuxhint.com/linux-exec-system-call/) and [here](https://iximiuz.com/en/posts/how-to-on-processes/).
+      - Remember to `wait()` on your children! If you use `subprocess.Popen`, `pwn.process`, or good old `fork()`, your parent will keep executing and, unless it waits for the child in some way, will just terminate! This is almost never what you want.
+      - Some [documentation](https://www.binarytides.com/socket-programming-c-linux-tutorial/) on networking in C.
+      - Useful resource for [pipes in C](https://jameshfisher.com/2017/02/17/how-do-i-call-a-program-in-c-with-pipes/).
+      - Useful resource for [FIFOs in C](https://www.geeksforgeeks.org/named-pipe-fifo-example-c-program/).
+      - A treatise on I/O redirection in Linux shells, which has applications in this assignment: [https://bencane.com/2012/04/16/unix-shell-the-art-of-io-redirection/](https://bencane.com/2012/04/16/unix-shell-the-art-of-io-redirection/)
+      - A guide on Linux symbolic links. [https://www.nixtutor.com/freebsd/understanding-symbolic-links/](https://www.nixtutor.com/freebsd/understanding-symbolic-links/)
+      - A video tutorial on [FIFOs in C](https://www.youtube.com/watch?v=2hba3etpoJg).
+      - A great [visual guide to I/O redirection in Linux](http://www.rozmichelle.com/pipes-forks-dups/).
+      - An incredible [pwntools cheatsheet](https://gist.github.com/anvbis/64907e4f90974c4bdd930baeb705dedf) by a pwn.college student!
+
+- id: assembly-crash-course
+  name: Assembly Crash Course
+  description: TODO
+  challenges:
+  - id: level-1
+    name: level1
+    description: Set a register
+  - id: level-2
+    name: level2
+    description: Addition
+  - id: level-3
+    name: level3
+    description: Multiplication
+  - id: level-4
+    name: level4
+    description: Division
+  - id: level-5
+    name: level5
+    description: Modulus
+  - id: level-6
+    name: level6
+    description: Register sizes
+  - id: level-7
+    name: level7
+    description: Bitwise shift
+  - id: level-8
+    name: level8
+    description: Bitwise and
+  - id: level-9
+    name: level9
+    description: Bitwise logic
+  - id: level-10
+    name: level10
+    description: Memory reads and writes
+  - id: level-11
+    name: level11
+    description: Data sizes
+  - id: level-12
+    name: level12
+    description: Dynamic address memory writes
+  - id: level-13
+    name: level13
+    description: Consecutive memory reads
+  - id: level-14
+    name: level14
+    description: The stack
+  - id: level-15
+    name: level15
+    description: Swap register values with the stack
+  - id: level-16
+    name: level16
+    description: Memory reads and writes with the stack
+  - id: level-17
+    name: level17
+    description: Control flow
+  - id: level-18
+    name: level18
+    description: Conditional branches
+  - id: level-19
+    name: level19
+    description: Jump tables
+  - id: level-20
+    name: level20
+    description: Computing averages
+  - id: level-21
+    name: level21
+    description: Implementing strlen
+  - id: level-22
+    name: level22
+    description: Using library functions
+  - id: level-23
+    name: level23
+    description: Compute the most common byte
+  resources:
+  - name: "Assembly Crash Course: Computer Architecture"
+    type: lecture
+    video: o_kSgUPJk4c
+    playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
+    slides: 1sVyPL92gbzg_it9aIeC-CjXtF2tpvAmZTKjWc-SlU0c
+  - name: "Assembly Crash Course: Assembly"
+    type: lecture
+    video: TdTOH1GfrWg
+    playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
+    slides: 1sBB34ZUVjT3MDjYvGiZU3z6CTLGvO1hHEdHliPUJ0iw
+  - name: "Assembly Crash Course: Data"
+    type: lecture
+    video: 21MvbpgssU8
+    playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
+    slides: 1SeyZbM_qCDz4t03KDZ8Q0qi1GzsSSSJAkO-KeVlAL7w
+  - name: "Assembly Crash Course: Registers"
+    type: lecture
+    video: IWbIZerH930
+    playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
+    slides: 1U8Rsz7FNTmy-3wGtPB-YCyanIIbox1J90adze9-1cfo
+  - name: "Assembly Crash Course: Memory"
+    type: lecture
+    video: HahXfnOsSUU
+    playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
+    slides: 1lbPbd-jLj7VS7M-ntGhpv4_8WqSfqzLBNWG68_BIRL0
+  - name: "Assembly Crash Course: Control Flow"
+    type: lecture
+    video: 0a8NlF7z7Ro
+    playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
+    slides: 1wX5TH6DQjXw4GJo_T6I9GF7bhC689T52HSHaMUCmj1E
+  - name: "Assembly Crash Course: System Calls"
+    type: lecture
+    video: vspq0u2tvhU
+    playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
+    slides: 1vEuZ1PW8Wvm88INmWbjoKY8srEKSkv2g4o-V42BsN9Y
+  - name: "Assembly Crash Course: Building Programs"
+    type: lecture
+    video: IITocH-WGH4
+    playlist: PL-ymxv0nOtqox6nF4HXtXHnTQFGkRQU_2
+    slides: 1Y35BuIvvG8k3txjcsMXjygzsP7rDaNpbDHz3TMO91Fo
+  - name: Further Reading
+    type: markdown
+    content: |
+      - An awesome intro series that covers some of the fundamentals from [LiveOverflow](https://www.youtube.com/watch?v=iyAyN3GFM7A&list=PLhixgUqwRTjxglIswKp9mpkfPNfHkzyeN&index=1).
+      - A [`Ike: The Systems Hacking Handbook](https://ike.mahaloz.re/1_introduction/introduction.html), an excellent guide to Computer Organization.
+      - A [comprehensive assembly tutorial](https://github.com/mytechnotalent/Reverse-Engineering-Tutorial) for several architectures (amd64 is the relevant one here).
+      - The course ["Architecture 1001: x86-64 Assembly"](https://p.ost2.fyi/courses/course-v1:OpenSecurityTraining2+Arch1001_x86-64_Asm+2021_v1/course/) from OpenSecurityTraining2.
+
+- id: debugging-refresher
+  name: Debugging Refresher
+  description: TODO
+  challenges:
+  - id: level-1
+    name: level1
+    description: TODO
+  - id: level-2
+    name: level2
+    description: TODO
+  - id: level-3
+    name: level3
+    description: TODO
+  - id: level-4
+    name: level4
+    description: TODO
+  - id: level-5
+    name: level5
+    description: TODO
+  - id: level-6
+    name: level6
+    description: TODO
+  - id: level-7
+    name: level7
+    description: TODO
+  - id: level-8
+    name: level8
+    description: TODO
+  resources:
+  - name: Robert's GDB Walkthrough
+    type: lecture
+    video: r185fCzdw8Y
+    playlist: PL-ymxv0nOtqqQzEncNuE6jetlJAiBUda-
+  - name: GDB Help
+    type: markdown
+    content: |
+      There are a number of good gdb crash courses / reference manuals:
+
+      - [GDB's documentation](https://sourceware.org/gdb/onlinedocs/gdb/index.html)
+      - [Tudor's gdb crash course](https://users.umiacs.umd.edu/~tdumitra/courses/ENEE757/Fall15/misc/gdb_tutorial.html)
+      - [gdb debugging full example](https://www.brendangregg.com/blog/2016-08-09/gdb-example-ncurses.html)
+      - [pwndbg: a gdb extension (feature list)](https://github.com/pwndbg/pwndbg/blob/dev/FEATURES.md)
+      - [gef: another gdb extension (feature list)](https://hugsy.github.io/gef/commands/aliases/)
+      - The course [Debuggers 1012: Introductory GDB](https://p.ost2.fyi/courses/course-v1:OpenSecurityTraining2+Dbg1012_GDB_1+2021_v1/course/) from OpenSecurityTraining2.
