@@ -3,6 +3,8 @@ name: Fundamentals
 description: |
   TODO: say something cool about fundamentals.
 
+type: topic
+
 modules:
 
 - id: program-misuse
