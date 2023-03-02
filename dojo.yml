@@ -770,6 +770,7 @@ modules:
       - A [`Ike: The Systems Hacking Handbook](https://ike.mahaloz.re/1_introduction/introduction.html), an excellent guide to Computer Organization.
       - A [comprehensive assembly tutorial](https://github.com/mytechnotalent/Reverse-Engineering-Tutorial) for several architectures (amd64 is the relevant one here).
       - The course ["Architecture 1001: x86-64 Assembly"](https://p.ost2.fyi/courses/course-v1:OpenSecurityTraining2+Arch1001_x86-64_Asm+2021_v1/course/) from OpenSecurityTraining2.
+      - A whole [x86_64 assembly book](https://open.umn.edu/opentextbooks/textbooks/733) to help you out!
 
 - id: debugging-refresher
   name: Debugging Refresher
