@@ -565,8 +565,9 @@ class ASMLevel5(ASMBase):
     Modulo
     """
 
+    init_rax = 0xFFFFFFFFFFFFFFFF
     init_rdi = random.randint(1000000, 1000000000)
-    init_rsi = 2 ** random.randint(1, 10) - 1
+    init_rsi = 2 ** random.randint(2, 16) - 1
 
     registers_use = True
     dynamic_values = True
