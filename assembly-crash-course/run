@@ -254,6 +254,20 @@ class ASMBase:
             print("Please give me your assembly in bytes (up to 0x1000 bytes): ")
             self.asm = sys.stdin.buffer.read1(0x1000)
 
+            # assuming no hex-only assembly challenges
+            if all((c in (string.hexdigits+string.whitespace).encode()) for c in self.asm):
+                print("")
+                print("ERROR: It looks like your input is hex-ecoded! Please provide")
+                print("the actual unencoded bytes!")
+                sys.exit(1)
+
+            if all((c in string.printable.encode()) for c in self.asm):
+                print("")
+                print("WARNING: It looks like your input might not be assembled binary")
+                print("code, but actual assembly source. This challenge needs the")
+                print("raw binary assembled code as input.")
+                print("")
+
         self.create()
 
         print("Executing your code...")
