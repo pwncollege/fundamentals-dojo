@@ -392,9 +392,6 @@ modules:
   - id: level-68
     name: level68
     description: ""
-  - id: level-69
-    name: level69
-    description: ""
   - id: level-70
     name: level70
     description: ""
@@ -410,9 +407,6 @@ modules:
   - id: level-74
     name: level74
     description: ""
-  - id: level-75
-    name: level75
-    description: ""
   - id: level-76
     name: level76
     description: ""
@@ -427,9 +421,6 @@ modules:
     description: ""
   - id: level-80
     name: level80
-    description: ""
-  - id: level-81
-    name: level81
     description: ""
   - id: level-82
     name: level82
