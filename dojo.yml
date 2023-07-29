@@ -765,6 +765,7 @@ modules:
       - A [comprehensive assembly tutorial](https://github.com/mytechnotalent/Reverse-Engineering-Tutorial) for several architectures (amd64 is the relevant one here).
       - The course ["Architecture 1001: x86-64 Assembly"](https://ost2.fyi/Arch1001) from OpenSecurityTraining2.
       - A whole [x86_64 assembly book](https://open.umn.edu/opentextbooks/textbooks/733) to help you out!
+      - A [game](https://squallygame.com/) to teach you x86 assembly and one to [stress test your knowledge](https://oooverflow.io/zero-is-you/)!
 
 - id: debugging-refresher
   name: Debugging Refresher
