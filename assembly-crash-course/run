@@ -1661,7 +1661,7 @@ class ASMLevel22(ASMBase):
         over each performing a conditional operation till a zero byte is reached.
         All of which will be contained in a function!
 
-        A function is a callable segment of code that does not destory control flow.
+        A function is a callable segment of code that does not destroy control flow.
         Functions use the instructions "call" and "ret".
 
         The "call" instruction pushes the memory address of the next instruction onto
