@@ -1770,7 +1770,7 @@ class ASMLevel23(ASMBase):
         First, let's talk about the special register rbp, the Stack Base Pointer. The rbp register is used to tell
         where our stack frame first started. As an example, say we want to construct some list (a contigous space
         of memory) that is only used in our function. The list is 5 elements long, each element is a dword.
-        A list of 5 elements would already take 5 registers, so instead, we can make pace on the stack! The
+        A list of 5 elements would already take 5 registers, so instead, we can make space on the stack! The
         assembly would look like:
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         ; setup the base of the stack as the current top
