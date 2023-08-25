@@ -626,7 +626,7 @@ class ASMLevel6(ASMBase):
     def description(self):
         return f"""
         Another cool concept in x86 is the independent access to lower register bytes.
-        Each register in x86 is 64 bits in size, in the previous levels we have accessed
+        Each register in x86_64 is 64 bits in size, in the previous levels we have accessed
         the full register using rax, rdi or rsi. We can also access the lower bytes of
         each register using different register names. For example the lower
         32 bits of rax can be accessed using eax, lower 16 bits using ax,
@@ -832,7 +832,7 @@ class ASMLevel10(ASMBase):
         mov [rax], rdi         <=>     Moves rdi to the address of what rax holds.
         So if rax was 0xdeadbeef, then rdi would get stored at the address 0xdeadbeef:
         [0xdeadbeef] = rdi
-        Note: memory is linear, and in x86, it goes from 0 - 0xffffffffffffffff (yes, huge).
+        Note: memory is linear, and in x86_64, it goes from 0 - 0xffffffffffffffff (yes, huge).
 
         Please perform the following:
         1. Place the value stored at 0x404000 into rax
