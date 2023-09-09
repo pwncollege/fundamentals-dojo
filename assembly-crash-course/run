@@ -1244,12 +1244,16 @@ class ASMLevel17(ASMBase):
             (
                 self.rdi == self.secret_key,
                 self.rsi == self.init_mem_rsp,
-                self.bb_trace
-                == [
-                    self.CODE_ADDR,
-                    self.CODE_ADDR + self.relative_offset + self.get_size_of_insn_at(0),
-                    self.LIB_ADDR,
-                ],
+                # NOTE: This check is cursed and should be burnt to
+                # the ground and redone. The key problem is that this
+                # means that the student cannot put `int 3` as the
+                # first instruction of the challenge (which kinda
+                # breaks it). However, it's better than the prior
+                # hardcoded 3 locations (as _any_ `int 3` would break
+                # it).
+                self.bb_trace[0] == self.CODE_ADDR,
+                self.bb_trace[1] == self.CODE_ADDR + self.relative_offset + self.get_size_of_insn_at(0),
+                self.bb_trace[-1] == self.LIB_ADDR,
             )
         )
 
