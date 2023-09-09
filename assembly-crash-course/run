@@ -244,6 +244,18 @@ class ASMBase:
             To efficiently solve these problems, first run it once to see what you need
             then craft, assemble, and pipe your bytes to this program.
 
+            For instance, if you write your assembly code in the file asm.S, you can assemble that to an object file with:
+            as -o asm.o asm.S
+
+            Then, you can copy the .text section (your code) to the file asm.bin
+            objcopy -O binary --only-section=.text asm.o asm.bin
+
+            And finally, send that to the challenge:
+            cat ./asm.bin | /challenge/run
+
+            You can even run all that together as one command:
+            as -o asm.o asm.S && objcopy -O binary --only-section=.text ./asm.o ./asm.bin && cat ./asm.bin | /challenge/run
+
             {hints}
             """
         )
