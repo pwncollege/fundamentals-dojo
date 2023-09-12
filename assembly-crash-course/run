@@ -921,10 +921,10 @@ class ASMLevel11(ASMBase):
 
     def trace(self):
         self.start()
-        yield self.rax == int.from_bytes(self[self.DATA_ADDR : self.DATA_ADDR + 1], "little"), f"rax expected to be {hex(int.from_bytes(self[self.DATA_ADDR : self.DATA_ADDR + 1]))}, however was {hex(self.rax)}"
-        yield self.rbx == int.from_bytes(self[self.DATA_ADDR : self.DATA_ADDR + 2], "little"), f"rbx expected to be {hex(int.from_bytes(self[self.DATA_ADDR : self.DATA_ADDR + 2]))}, however was {hex(self.rbx)}"
-        yield self.rcx == int.from_bytes(self[self.DATA_ADDR : self.DATA_ADDR + 4], "little"), f"rcx expected to be {hex(int.from_bytes(self[self.DATA_ADDR : self.DATA_ADDR + 4]))}, however was {hex(self.rcx)}"
-        yield self.rdx == int.from_bytes(self[self.DATA_ADDR : self.DATA_ADDR + 8], "little"), f"rdx expected to be {hex(int.from_bytes(self[self.DATA_ADDR : self.DATA_ADDR + 8]))}, however was {hex(self.rdx)}"
+        yield self.rax == int.from_bytes(self[self.DATA_ADDR : self.DATA_ADDR + 1], "little"), f"rax expected to be {hex(int.from_bytes(self[self.DATA_ADDR : self.DATA_ADDR + 1], 'little'))}, however was {hex(self.rax)}"
+        yield self.rbx == int.from_bytes(self[self.DATA_ADDR : self.DATA_ADDR + 2], "little"), f"rbx expected to be {hex(int.from_bytes(self[self.DATA_ADDR : self.DATA_ADDR + 2], 'little'))}, however was {hex(self.rbx)}"
+        yield self.rcx == int.from_bytes(self[self.DATA_ADDR : self.DATA_ADDR + 4], "little"), f"rcx expected to be {hex(int.from_bytes(self[self.DATA_ADDR : self.DATA_ADDR + 4], 'little'))}, however was {hex(self.rcx)}"
+        yield self.rdx == int.from_bytes(self[self.DATA_ADDR : self.DATA_ADDR + 8], "little"), f"rdx expected to be {hex(int.from_bytes(self[self.DATA_ADDR : self.DATA_ADDR + 8], 'little'))}, however was {hex(self.rdx)}"
 
 
 class ASMLevel12(ASMBase):
