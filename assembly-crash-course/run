@@ -290,7 +290,12 @@ class ASMBase:
         print("--------------------------------------")
 
         try:
-            won = self.trace()
+            won = True
+            for condition, error in self.trace():
+                if not condition:
+                    print(f"Failed in the following way: {error}")
+                    won = False
+                    break
         except Exception as e:
             print(f"ERROR: {e}")
             won = False
@@ -477,7 +482,7 @@ class ASMLevel1(ASMBase):
 
     def trace(self):
         self.start()
-        return self.rdi == 0x1337
+        yield self.rdi == 0x1337, f"rdi was expected to be 0x1337, but was {hex(self.rdi)} instead"
 
 
 class ASMLevel2(ASMBase):
@@ -511,7 +516,8 @@ class ASMLevel2(ASMBase):
 
     def trace(self):
         self.start()
-        return self.rdi == self.init_rdi + 0x331337
+        expected = self.init_rdi + 0x331337
+        yield self.rdi == expected, f"rdi was expected to be {hex(expected)}, but instead was {hex(self.rdi)}"
 
 
 class ASMLevel3(ASMBase):
@@ -543,7 +549,8 @@ class ASMLevel3(ASMBase):
 
     def trace(self):
         self.start()
-        return self.rax == (self.init_rdi * self.init_rsi) + self.init_rdx
+        expected = (self.init_rdi * self.init_rsi) + self.init_rdx
+        yield self.rax == expected, f"rax was expected to be {hex(expected)}, but instead was {hex(self.rax)}"
 
 
 class ASMLevel4(ASMBase):
@@ -583,7 +590,8 @@ class ASMLevel4(ASMBase):
 
     def trace(self):
         self.start()
-        return self.rax == self.init_rdi // self.init_rsi
+        expected = self.init_rdi // self.init_rsi
+        yield self.rax == expected, f"rax was expected to be {hex(expected)}, but instead was {hex(self.rax)}"
 
 
 class ASMLevel5(ASMBase):
@@ -619,7 +627,8 @@ class ASMLevel5(ASMBase):
 
     def trace(self):
         self.start()
-        return self.rax == self.init_rdi % self.init_rsi
+        expected = self.init_rdi % self.init_rsi
+        yield self.rax == expected, f"rax was expected to be {hex(expected)}, but instead was {hex(self.rax)}"
 
 
 class ASMLevel6(ASMBase):
@@ -668,7 +677,8 @@ class ASMLevel6(ASMBase):
 
     def trace(self):
         self.start()
-        return (self.init_rdi % 256) == self.rax and (self.init_rsi % 65536) == self.rbx
+        yield (self.init_rdi % 256) == self.rax, f"rax was expected to be {hex(self.init_rdi % 256)}, but instead was {hex(self.rax)}"
+        yield(self.init_rsi % 65536) == self.rbx, f"rbx was expected to be {hex(self.init_rsi % 65536)}, but instead was {hex(self.rbx)}"
 
 
 class ASMLevel7(ASMBase):
@@ -717,7 +727,8 @@ class ASMLevel7(ASMBase):
 
     def trace(self):
         self.start()
-        return self.rax == (self.init_rdi >> 32) & 0xFF
+        expected = (self.init_rdi >> 32) & 0xFF
+        yield self.rax == expected, f"rax was expected to be {hex(expected)}, but instead was {hex(self.rax)}"
 
 
 class ASMLevel8(ASMBase):
@@ -771,7 +782,8 @@ class ASMLevel8(ASMBase):
 
     def trace(self):
         self.start()
-        return self.rax == self.init_rdi & self.init_rsi
+        expected = self.init_rdi & self.init_rsi 
+        yield self.rax == expected, f"rax was expected to be {hex(expected)}, but instead was {hex(self.rax)}"
 
 
 class ASMLevel9(ASMBase):
@@ -808,7 +820,8 @@ class ASMLevel9(ASMBase):
 
     def trace(self):
         self.start()
-        return self.rax == (self.init_rdi & 0x1) ^ 0x1
+        expected = (self.init_rdi & 0x1) ^ 0x1
+        yield self.rax == expected, f"rax was expected to be {hex(expected)}, but instead was {hex(self.rax)}"
 
 
 class ASMLevel10(ASMBase):
@@ -858,13 +871,10 @@ class ASMLevel10(ASMBase):
 
     def trace(self):
         self.start()
-        return all(
-            (
-                self[self.DATA_ADDR : self.DATA_ADDR + 8]
-                == (self.init_value + 0x1337).to_bytes(8, "little"),
-                self.rax == self.init_value,
-            )
-        )
+        yield self.rax == self.init_value, f"rax was expected to be {hex(self.init_value)}, but instead was {hex(self.rax)}"
+        yield self[self.DATA_ADDR : self.DATA_ADDR + 8] == (self.init_value + 0x1337).to_bytes(8, "little"), f"[{hex(self.DATA_ADDR)}] expected to be {hex(self.init_value + 0x1337)}, instead has {hex(int.from_bytes(self[self.DATA_ADDR : self.DATA_ADDR + 8], 'little'))}"
+
+
 
 
 class ASMLevel11(ASMBase):
@@ -911,18 +921,10 @@ class ASMLevel11(ASMBase):
 
     def trace(self):
         self.start()
-        return all(
-            (
-                self.rax
-                == int.from_bytes(self[self.DATA_ADDR : self.DATA_ADDR + 1], "little"),
-                self.rbx
-                == int.from_bytes(self[self.DATA_ADDR : self.DATA_ADDR + 2], "little"),
-                self.rcx
-                == int.from_bytes(self[self.DATA_ADDR : self.DATA_ADDR + 4], "little"),
-                self.rdx
-                == int.from_bytes(self[self.DATA_ADDR : self.DATA_ADDR + 8], "little"),
-            )
-        )
+        yield self.rax == int.from_bytes(self[self.DATA_ADDR : self.DATA_ADDR + 1], "little"), f"rax expected to be {hex(int.from_bytes(self[self.DATA_ADDR : self.DATA_ADDR + 1]))}, however was {hex(self.rax)}"
+        yield self.rbx == int.from_bytes(self[self.DATA_ADDR : self.DATA_ADDR + 2], "little"), f"rbx expected to be {hex(int.from_bytes(self[self.DATA_ADDR : self.DATA_ADDR + 2]))}, however was {hex(self.rbx)}"
+        yield self.rcx == int.from_bytes(self[self.DATA_ADDR : self.DATA_ADDR + 4], "little"), f"rcx expected to be {hex(int.from_bytes(self[self.DATA_ADDR : self.DATA_ADDR + 4]))}, however was {hex(self.rcx)}"
+        yield self.rdx == int.from_bytes(self[self.DATA_ADDR : self.DATA_ADDR + 8], "little"), f"rdx expected to be {hex(int.from_bytes(self[self.DATA_ADDR : self.DATA_ADDR + 8]))}, however was {hex(self.rdx)}"
 
 
 class ASMLevel12(ASMBase):
@@ -972,14 +974,8 @@ class ASMLevel12(ASMBase):
 
     def trace(self):
         self.start()
-        return all(
-            (
-                self[self.init_rdi : self.init_rdi + 8]
-                == self.target_mem_rdi.to_bytes(8, "little"),
-                self[self.init_rsi : self.init_rsi + 8]
-                == self.target_mem_rsi.to_bytes(8, "little"),
-            )
-        )
+        yield self[self.init_rdi : self.init_rdi + 8] == self.target_mem_rdi.to_bytes(8, "little"), f"[{hex(self.init_rdi)}] expected to be {hex(self.target_mem_rdi)}, instead was {hex(int.from_bytes(self[self.init_rdi : self.init_rdi + 8], 'little'))}"
+        yield self[self.init_rsi : self.init_rsi + 8] == self.target_mem_rsi.to_bytes(8, "little"), f"[{hex(self.init_rsi)}] expected to be {hex(self.target_mem_rsi)}, instead was {hex(int.from_bytes(self[self.init_rsi : self.init_rsi + 8], 'little'))}"
 
 
 class ASMLevel13(ASMBase):
@@ -1035,9 +1031,7 @@ class ASMLevel13(ASMBase):
 
     def trace(self):
         self.start()
-        return self[self.init_rsi : self.init_rsi + 8] == (
-            self.init_mem_rdi + self.init_mem_rdi_next
-        ).to_bytes(8, "little")
+        yield self[self.init_rsi : self.init_rsi + 8] == (self.init_mem_rdi + self.init_mem_rdi_next).to_bytes(8, "little"), f"[{hex(self.init_rsi)}] expected to be {hex(self.init_mem_rdi + self.init_mem_rdi_next)}, but was {hex(int.from_bytes(self[self.init_rsi : self.init_rsi + 8], 'little'))} instead"
 
 
 class ASMLevel14(ASMBase):
@@ -1082,9 +1076,7 @@ class ASMLevel14(ASMBase):
 
     def trace(self):
         self.start()
-        return self[self.init_rsp : self.init_rsp + 8] == (
-            self.init_mem_rsp - self.init_rdi
-        ).to_bytes(8, "little")
+        yield self[self.init_rsp : self.init_rsp + 8] == (self.init_mem_rsp - self.init_rdi).to_bytes(8, "little"), f"[{hex(self.init_rsp)}] expected to be {hex(self.init_mem_rsp - self.init_rdi)}, but was {hex(int.from_bytes(self[self.init_rsp : self.init_rsp + 8], 'little'))} instead"
 
 
 class ASMLevel15(ASMBase):
@@ -1118,7 +1110,8 @@ class ASMLevel15(ASMBase):
 
     def trace(self):
         self.start()
-        return all((self.rsi == self.init_rdi, self.rdi == self.init_rsi))
+        yield self.rsi == self.init_rdi, f"rsi expected to be {hex(self.init_rdi)}, but was {hex(self.rsi)} instead"
+        yield self.rdi == self.init_rsi, f"rdi expected to be {hex(self.init_rsi)}, but was {hex(self.rdi)} instead"
 
 
 class ASMLevel16(ASMBase):
@@ -1165,9 +1158,8 @@ class ASMLevel16(ASMBase):
 
     def trace(self):
         self.start()
-        return self[self.init_rsp - 8 : self.init_rsp] == (
-            sum(self.init_mem_stack) // 4
-        ).to_bytes(8, "little")
+        expected = sum(self.init_mem_stack) // 4
+        yield self[self.init_rsp - 8 : self.init_rsp] == (expected).to_bytes(8, "little"), f"[{hex(self.init_rsp)}] expected to be {hex(expected)}, but was {hex(int.from_bytes(self[self.init_rsp - 8 : self.init_rsp]), 'little')} instead"
 
 
 class ASMLevel17(ASMBase):
@@ -1244,22 +1236,19 @@ class ASMLevel17(ASMBase):
 
     def trace(self):
         self.start()
-        return all(
-            (
-                self.rdi == self.secret_key,
-                self.rsi == self.init_mem_rsp,
-                # NOTE: This check is cursed and should be burnt to
-                # the ground and redone. The key problem is that this
-                # means that the student cannot put `int 3` as the
-                # first instruction of the challenge (which kinda
-                # breaks it). However, it's better than the prior
-                # hardcoded 3 locations (as _any_ `int 3` would break
-                # it).
-                self.bb_trace[0] == self.CODE_ADDR,
-                self.bb_trace[1] == self.CODE_ADDR + self.relative_offset + self.get_size_of_insn_at(0),
-                self.bb_trace[-1] == self.LIB_ADDR,
-            )
-        )
+        # NOTE: The bb_trace checks are cursed and should be burnt to
+        # the ground and redone. The key problem is that this
+        # means that the student cannot put `int 3` as the
+        # first instruction of the challenge (which kinda
+        # breaks it). However, it's better than the prior
+        # hardcoded 3 locations (as _any_ `int 3` would break
+        # it).
+
+        yield self.bb_trace[0] == self.CODE_ADDR, f"Expected code to start executing at {self.CODE_ADDR}"
+        yield self.bb_trace[1] == self.CODE_ADDR + self.relative_offset + self.get_size_of_insn_at(0), f"Expected code to jump to {hex(self.CODE_ADDR + self.relative_offset + self.get_size_of_insn_at(0))}, but instead jumped to {self.bb_trace[1]}"
+        yield self.bb_trace[-1] == self.LIB_ADDR, f"Exepcted code to jump to {hex(self.LIB_ADDR)} at the end, but was {hex(self.bb_trace[-1])} instead"
+        yield self.rdi == self.secret_key, f"rdi expected to be {hex(self.secret_key)}, but was {hex(self.rdi)} instead"
+        yield self.rsi == self.init_mem_rsp, f"rsi expected to be {hex(self.init_mem_rsp)}, but was {hex(self.rsi)} instead"
 
 
 class ASMLevel18(ASMBase):
@@ -1343,26 +1332,22 @@ class ASMLevel18(ASMBase):
         """
 
     def trace(self):
-        try:
-            for i in range(100):
-                self.create()
-                self.start()
-                if self.selector == 0x7F454C46:
-                    correct = (
-                        self.init_values[0] + self.init_values[1] + self.init_values[2]
-                    ) & 0xFFFFFFFF
-                elif self.selector == 0x00005A4D:
-                    correct = (
-                        self.init_values[0] - self.init_values[1] - self.init_values[2]
-                    ) & 0xFFFFFFFF
-                else:
-                    correct = (
-                        self.init_values[0] * self.init_values[1] * self.init_values[2]
-                    ) & 0xFFFFFFFF
-                assert self.rax == correct
-        except AssertionError:
-            return False
-        return True
+        for i in range(100):
+            self.create()
+            self.start()
+            if self.selector == 0x7F454C46:
+                correct = (
+                    self.init_values[0] + self.init_values[1] + self.init_values[2]
+                ) & 0xFFFFFFFF
+            elif self.selector == 0x00005A4D:
+                correct = (
+                    self.init_values[0] - self.init_values[1] - self.init_values[2]
+                ) & 0xFFFFFFFF
+            else:
+                correct = (
+                    self.init_values[0] * self.init_values[1] * self.init_values[2]
+                ) & 0xFFFFFFFF
+            yield self.rax == correct, f"In attempt {i+1}, rax was expected to be {hex(correct)}, but was {hex(self.rax)} instead"
 
 
 class ASMLevel19(ASMBase):
@@ -1464,25 +1449,18 @@ class ASMLevel19(ASMBase):
         self.instruction_counts[instruction.mnemonic] += 1
 
     def trace(self):
-        try:
-            for _ in range(100):
-                self.create()
-                self.start()
-                jmps = sum(
-                    count
-                    for instruction, count in self.instruction_counts.items()
-                    if instruction.startswith("j")
-                )
-                cmps = self.instruction_counts["cmp"]
-                assert all(
-                    (
-                        jmps <= 3 and cmps <= 1,
-                        self.rdi == min(self.init_rdi, 4) + self.secret_key,
-                    )
-                )
-        except AssertionError:
-            return False
-        return True
+        for i in range(100):
+            self.create()
+            self.start()
+            jmps = sum(
+                count
+                for instruction, count in self.instruction_counts.items()
+                if instruction.startswith("j")
+            )
+            cmps = self.instruction_counts["cmp"]
+            yield jmps <= 3, f"In attempt {i+1}, used {jmps} jumps which is too many"
+            yield cmps <= 1, f"In attempt {i+1}, used {cmps} cmp instructions which is too many"
+            yield self.rdi == min(self.init_rdi, 4) + self.secret_key, f"In attempt {i+1}, rdi was expected to be {hex(min(self.init_rdi, 4) + self.secret_key)}, but was {hex(self.rdi)} instead"
 
 
 class ASMLevel20(ASMBase):
@@ -1537,7 +1515,8 @@ class ASMLevel20(ASMBase):
 
     def trace(self):
         self.start()
-        return self.rax == sum(self.init_mem_data) // self.init_rsi
+        expected = sum(self.init_mem_data) // self.init_rsi
+        yield self.rax == expected, f"rax was expected to be {hex(expected)}, but instead was {hex(self.rax)}"
 
 
 class ASMLevel21(ASMBase):
@@ -1605,23 +1584,18 @@ class ASMLevel21(ASMBase):
         """
 
     def trace(self):
-        try:
-            for _ in range(100):
-                self.create()
-                self.start()
-                assert self.rax == len(self.test_string) - 1
-
-            self.create(init_rdi=0)
+        for i in range(100):
+            self.create()
             self.start()
-            assert self.rax == 0
+            yield self.rax == len(self.test_string) - 1, f"In attempt {i+1}, rax was expected to be {hex(len(self.test_string) - 1)}, but was {hex(self.rax)} instead"
 
-            self.create(test_string=b"\0")
-            self.start()
-            assert self.rax == 0
+        self.create(init_rdi=0)
+        self.start()
+        yield self.rax == 0, f"Did not handle rdi = 0 case"
 
-        except AssertionError:
-            return False
-        return True
+        self.create(test_string=b"\0")
+        self.start()
+        yield self.rax == 0, f"Did not handle empty string case"
 
 
 class ASMLevel22(ASMBase):
@@ -1732,29 +1706,19 @@ class ASMLevel22(ASMBase):
 
     def trace(self):
         begin_until = (self.LIB_ADDR + 0x100, self.LIB_ADDR + 0x100 + len(self.harness))
-        try:
-            for _ in range(100):
-                self.create()
-                self.start(begin_until)
-                assert all(
-                    (
-                        self[self.init_rdi : self.init_rdi + len(self.test_string)]
-                        == self.test_string.lower(),
-                        self.rax == sum(chr(b).isupper() for b in self.test_string),
-                    )
-                )
-
-            self.create(init_rdi=0)
+        for i in range(100):
+            self.create()
             self.start(begin_until)
-            assert self.rax == 0
+            yield self[self.init_rdi : self.init_rdi + len(self.test_string)] == self.test_string.lower(), f"In attempt {i+1}, [{hex(self.init_rdi)}] was not properly lower cased"
+            yield self.rax == sum(chr(b).isupper() for b in self.test_string), f"In attempt {i+1}, expected rax to be {hex(sum(chr(b).isupper() for b in self.test_string))}, but was {hex(self.rax)} instead"
 
-            self.create(test_string=b"\0")
-            self.start(begin_until)
-            assert self.rax == 0
+        self.create(init_rdi=0)
+        self.start(begin_until)
+        yield self.rax == 0, f"Did not handle src_addr being 0"
 
-        except AssertionError:
-            return False
-        return True
+        self.create(test_string=b"\0")
+        self.start(begin_until)
+        yield self.rax == 0, f"Did not handle src_addr pointing to 0"
 
 
 class ASMLevel23(ASMBase):
@@ -1846,21 +1810,12 @@ class ASMLevel23(ASMBase):
         """
 
     def trace(self):
-        try:
-            for _ in range(100):
-                self.create()
-                self.start((self.LIB_ADDR, self.LIB_ADDR + len(self.harness)))
-                assert all(
-                    (
-                        self.rax & 0xFF
-                        == collections.Counter(sorted(self.test_list)).most_common(1)[0][0],
-                        self.rsp == self.RSP_INIT,
-                    )
-                )
+        for i in range(100):
+            self.create()
+            self.start((self.LIB_ADDR, self.LIB_ADDR + len(self.harness)))
+            yield self.rax & 0xFF == collections.Counter(sorted(self.test_list)).most_common(1)[0][0], f"In attempt {i+1}, al should be {hex(collections.Counter(sorted(self.test_list)).most_common(1)[0][0])} but was {hex(self.rax & 0xFF)} instead"
+            yield self.rsp == self.RSP_INIT, f"In attempt {i+1}, rsp should be {hex(self.RSP_INIT)}, but was {hex(self.rsp)} instead (this means that your function is leaving the stack misaligned, and that's bad)"
 
-        except AssertionError:
-            return False
-        return True
 
 
 class ASMLevel24(ASMBase):
@@ -2040,7 +1995,7 @@ class ASMLevel24(ASMBase):
     def trace(self):
         self.create()
         self.start((self.LIB_ADDR, self.LIB_ADDR + len(self.harness)))
-        return self.rax == 1
+        yield self.rax == 1, f"rax was expected to be 1, but was {hex(self.rax)} instead"
 
 
 def main():
