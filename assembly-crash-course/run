@@ -1221,6 +1221,10 @@ class ASMLevel17(ASMBase):
         In this level we will ask you to do both a relative jump and an absolute jump. You will do a relative
         jump first, then an absolute one. You will need to fill space in your code with something to make this
         relative jump possible. We suggest using the `nop` instruction. It's 1 byte and very predictable.
+
+        In fact, the as assembler that we're using has a handy .rept directive that you can use to repeat assembly instructions some number of times:
+        https://ftp.gnu.org/old-gnu/Manuals/gas-2.9.1/html_chapter/as_7.html
+        
         Useful instructions for this level is:
         jmp (reg1 | addr | offset) ; nop
         Hint: for the relative jump, lookup how to use `labels` in x86.
