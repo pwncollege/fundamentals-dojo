@@ -1784,21 +1784,22 @@ class ASMLevel23(ASMBase):
         since, as you can see from the above use, the stack can be overwritten by anyone at any time.
         Once, again, please make function(s) that implements the following:
         most_common_byte(src_addr, size):
-            b = 0
             i = 0
             for i <= size-1:
                 curr_byte = [src_addr + i]
                 [stack_base - curr_byte] += 1
-            b = 0
 
+            b = 0
             max_freq = 0
             max_freq_byte = 0
             for b <= 0xff:
                 if [stack_base - b] > max_freq:
                     max_freq = [stack_base - b]
                     max_freq_byte = b
+                b += 1
 
             return max_freq_byte
+
         Assumptions:
         - There will never be more than 0xffff of any byte
         - The size will never be longer than 0xffff
