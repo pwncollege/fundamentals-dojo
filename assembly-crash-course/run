@@ -181,14 +181,14 @@ class ASMBase:
         if self.registers_use:
             hints += """
             In this level you will be working with registers. You will be asked to modify
-            or read from registers_use.
+            or read from registers.
             """
 
         if self.dynamic_values:
             hints += """
             We will now set some values in memory dynamically before each run. On each run
             the values will change. This means you will need to do some type of formulaic
-            operation with registers_use. We will tell you which registers_use are set beforehand
+            operation with registers. We will tell you which registers are set beforehand
             and where you should put the result. In most cases, its rax.
             """
 
@@ -476,7 +476,7 @@ class ASMLevel1(ASMBase):
     @property
     def description(self):
         return f"""
-        In this level you will work with registers_use! Please set the following:
+        In this level you will work with registers! Please set the following:
         * rdi = 0x1337
         """
 
@@ -499,7 +499,7 @@ class ASMLevel2(ASMBase):
     def description(self):
         return f"""
         Many instructions exist in x86 that allow you to do all the normal
-        math operations on registers_use and memory. For shorthand, when we say
+        math operations on registers and memory. For shorthand, when we say
         A += B, it really means, A = A + B. Here are some useful instructions:
         add reg1, reg2       <=>     reg1 += reg2
         sub reg1, reg2       <=>     reg1 -= reg2
@@ -662,7 +662,7 @@ class ASMLevel6(ASMBase):
                                        +----+----+
                                        | ah | al |
                                        +----+----+
-        Lower register bytes access is applicable to all registers_use.
+        Lower register bytes access is applicable to almost all registers.
 
         Using only the following instruction(s)
         mov
