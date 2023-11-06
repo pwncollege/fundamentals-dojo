@@ -705,6 +705,9 @@ class ASMLevel7(ASMBase):
     dynamic_values = True
     whitelist = ["mov"]
 
+    def init(self):
+        self.instruction_counts = defaultdict(int)
+
     @property
     def description(self):
         return f"""
@@ -736,6 +739,12 @@ class ASMLevel7(ASMBase):
         We will now set the following in preparation for your code:
         rax = {hex(self.init_rax)}
         """
+
+    def code_hook(self, uc, address, size, user_data):
+        super().code_hook(uc, address, size, user_data)
+        md = Cs(CS_ARCH_X86, CS_MODE_64)
+        instruction = next(md.disasm(uc.mem_read(address, size), address))
+        self.instruction_counts[instruction.mnemonic] += 1
 
     def trace(self):
         self.start()
@@ -1134,7 +1143,8 @@ class ASMLevel15(ASMBase):
 
     def trace(self):
         self.start()
-        yield self.rax == int.from_bytes(self[self.DATA_ADDR : self.DATA_ADDR + 1], "little"), f"rax expected to be {hex(int.from_bytes(self[self.DATA_ADDR : self.DATA_ADDR + 1], 'little'))}, however was {hex(self.rax)}"
+        expected_value = self.init_value & 0xff
+        yield self.rax == expected_value, f"rax expected to be {hex(expected_value)}, however was {hex(self.rax)}"
 
 
 class ASMLevel16(ASMBase):
@@ -1532,8 +1542,6 @@ class ASMLevel22(ASMBase):
 
         In this level we will ask you to do an absolute jump.
 
-        Useful instructions for this level is:
-
         Perform the following:
         1. jmp to the absolute address {hex(self.LIB_ADDR)}
 
@@ -1601,9 +1609,9 @@ class ASMLevel23(ASMBase):
         Hint: for the relative jump, lookup how to use `labels` in x86.
 
         Using the above knowledge, perform the following:
-        Create a two jump trampoline:
         1. Make the first instruction in your code a jmp
         2. Make that jmp a relative jump to {hex(self.relative_offset)} bytes from its current position
+        3. At the code location where the relative jump will redirect control flow set rax to 0x1
 
         We will now set the following in preparation for your code:
         - Loading your given code at: {hex(self.CODE_ADDR)}
@@ -1613,7 +1621,7 @@ class ASMLevel23(ASMBase):
         self.start()
         yield self.bb_trace[0] == self.CODE_ADDR, f"Expected code to start executing at {self.CODE_ADDR}"
         yield self.bb_trace[1] == self.CODE_ADDR + self.relative_offset + self.get_size_of_insn_at(0), f"Expected code to jump to {hex(self.CODE_ADDR + self.relative_offset + self.get_size_of_insn_at(0))}, but instead jumped to {hex(self.bb_trace[1])}"
-
+        yield self.rax == 1, f"rax expected to be {hex(1)}, however was {hex(self.rax)}"
 
 class ASMLevel24(ASMBase):
     """
