@@ -733,7 +733,7 @@ class ASMLevel7(ASMBase):
 
         Lower register bytes access is applicable to almost all registers.
 
-        Using only one move instruction, please set the upper 8 bytes of the ax register to 0x42.
+        Using only one move instruction, please set the upper 8 bits of the ax register to 0x42.
 
         We will now set the following in preparation for your code:
           rax = {hex(self.init_rax)}
