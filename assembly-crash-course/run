@@ -211,7 +211,8 @@ class ASMBase:
             hints += """
             In this level you will be working with the stack, the memory region that dynamically expands
             and shrinks. You will be required to read and write to the stack, which may require you to use
-            the pop and push instructions. You may also need to use rsp to know where the stack is pointing.
+            the pop and push instructions. You may also need to use the stack pointer register (rsp) to know
+            where the stack is pointing.
             """
 
         if self.ip_control:
@@ -230,9 +231,9 @@ class ASMBase:
 
         if self.functions:
             hints += """
-            In this level you will be working with functions! This will involve manipulating both ip control
-            as well as doing harder tasks than normal. You may be asked to use the stack to save things
-            and call other functions that we provide you.
+            In this level you will be working with functions! This will involve manipulating the instruction pointer (rip),
+            as well as doing harder tasks than normal. You may be asked to use the stack to store values
+            or call functions that we provide you.
             """
 
         print(
@@ -241,20 +242,20 @@ class ASMBase:
             ==================================================
 
             To interact with any level you will send raw bytes over stdin to this program.
-            To efficiently solve these problems, first run it once to see what you need.
+            To efficiently solve these problems, first run it to see the challenge instructions.
             Then craft, assemble, and pipe your bytes to this program.
 
-            For instance, if you write your assembly code in the file asm.S, you can assemble that to an object file with:
-            as -o asm.o asm.S
+            For instance, if you write your assembly code in the file asm.S, you can assemble that to an object file:
+              as -o asm.o asm.S
 
             Then, you can copy the .text section (your code) to the file asm.bin:
-            objcopy -O binary --only-section=.text asm.o asm.bin
+              objcopy -O binary --only-section=.text asm.o asm.bin
 
             And finally, send that to the challenge:
-            cat ./asm.bin | /challenge/run
+              cat ./asm.bin | /challenge/run
 
             You can even run this as one command:
-            as -o asm.o asm.S && objcopy -O binary --only-section=.text ./asm.o ./asm.bin && cat ./asm.bin | /challenge/run
+              as -o asm.o asm.S && objcopy -O binary --only-section=.text ./asm.o ./asm.bin && cat ./asm.bin | /challenge/run
 
             {hints}
             """
@@ -495,16 +496,16 @@ class ASMLevel2(ASMBase):
     def description(self):
         return f"""
         In this level you will work with multiple registers. Please set the following:
-        * rax = 0x1337
-        * r12 = 0xCAFED00D1337BEEF
-        * rsp = 0x31337
+          rax = 0x1337
+          r12 = 0xCAFED00D1337BEEF
+          rsp = 0x31337
         """
 
     def trace(self):
         self.start()
         yield self.rax == 0x1337, f"rax was expected to be 0x1337, but was {hex(self.rax)} instead"
         yield self.r12 == 0xCAFED00D1337BEEF, f"r12 was expected to be 0xCAFED00D1337BEEF, but was {hex(self.r12)} instead"
-        yield self.rsp == 0x31337, f"r12 was expected to be 0x10, but was {hex(self.r12)} instead"
+        yield self.rsp == 0x31337, f"rsp was expected to be 0x10, but was {hex(self.rsp)} instead"
 
 
 class ASMLevel3(ASMBase):
@@ -526,18 +527,18 @@ class ASMLevel3(ASMBase):
         For shorthand, when we say A += B, it really means A = A + B.
 
         Here are some useful instructions:
-        add reg1, reg2       <=>     reg1 += reg2
-        sub reg1, reg2       <=>     reg1 -= reg2
-        imul reg1, reg2      <=>     reg1 *= reg2
+          add reg1, reg2       <=>     reg1 += reg2
+          sub reg1, reg2       <=>     reg1 -= reg2
+          imul reg1, reg2      <=>     reg1 *= reg2
         
-        div is a more complicated and we will discuss it later.
+        div is more complicated and we will discuss it later.
         Note: all 'regX' can be replaced by a constant or memory location
 
         Do the following:
-        * add 0x331337 to rdi
+          add 0x331337 to rdi
 
         We will now set the following in preparation for your code:
-        rdi = {hex(self.init_rdi)}
+          rdi = {hex(self.init_rdi)}
         """
 
     def trace(self):
@@ -562,24 +563,24 @@ class ASMLevel4(ASMBase):
     def description(self):
         return f"""
         Using your new knowledge, please compute the following:
-        f(x) = mx + b, where:
-        m = rdi
-        x = rsi
-        b = rdx
+          f(x) = mx + b, where:
+            m = rdi
+            x = rsi
+            b = rdx
 
         Place the result into rax.
 
         Note: there is an important difference between mul (unsigned
         multiply) and imul (signed multiply) in terms of which
-        registers are used. Look up the documentation on these
+        registers are used. Look at the documentation on these
         instructions to see the difference.
 
         In this case, you will want to use imul.
         
         We will now set the following in preparation for your code:
-        rdi = {hex(self.init_rdi)}
-        rsi = {hex(self.init_rsi)}
-        rdx = {hex(self.init_rdx)}
+          rdi = {hex(self.init_rdi)}
+          rsi = {hex(self.init_rsi)}
+          rdx = {hex(self.init_rdx)}
         """
 
     def trace(self):
@@ -603,8 +604,7 @@ class ASMLevel5(ASMBase):
     def description(self):
         return f"""
         Division in x86 is more special than in normal math. Math in here is
-        called integer math. This means everything, as it is now, is in the realm
-        of whole looking numbers.
+        called integer math. This means every value is a whole number.
 
         As an example: 10 / 3 = 3 in integer math.
 
@@ -613,38 +613,36 @@ class ASMLevel5(ASMBase):
         Because 3.33 is rounded down to an integer.
         
         The relevant instructions for this level are:
-        mov rax, reg1; div reg2
+          mov rax, reg1; div reg2
 
-        Note: div is an special instruction that can actually operate
-        on dividing a 128-bit dividend by a 64-bit divisor, while
+        Note: div is a special instruction that can divide
+        a 128-bit dividend by a 64-bit divisor, while
         storing both the quotient and the remainder, using only one register as an operand.
 
-        How does this complex div instruction work _and_ operate on a
+        How does this complex div instruction work and operate on a
         128-bit dividend (which is twice as large as a register)?
 
         For the instruction: div reg, the following happens:
-
-        rax = rdx:rax / reg; rdx = remainder
+          rax = rdx:rax / reg
+          rdx = remainder
 
         rdx:rax means that rdx will be the upper 64-bits of
         the 128-bit dividend and rax will be the lower 64-bits of the
         128-bit dividend.
 
-        This means that you must be careful about what is in rdx and rax before you call div.
+        You must be careful about what is in rdx and rax before you call div.
 
         Please compute the following:
-        
-        speed = distance / time, where:
+          speed = distance / time, where:
+            distance = rdi
+            time = rsi
+            speed = rax
 
-        distance = rdi
-        time = rsi
-        speed = rax
-
-        Note that distance will be at most a 64-bit value, so keep rdx as 0.
+        Note that distance will be at most a 64-bit value, so rdx should be 0 when dividing.
         
         We will now set the following in preparation for your code:
-        rdi = {hex(self.init_rdi)}
-        rsi = {hex(self.init_rsi)}
+          rdi = {hex(self.init_rdi)}
+          rsi = {hex(self.init_rsi)}
         """
 
     def trace(self):
@@ -719,7 +717,7 @@ class ASMLevel7(ASMBase):
         We can also access the lower bytes of each register using different register names.
 
         For example the lower 32 bits of rax can be accessed using eax, the lower 16 bits using ax,
-        the lower 8 bits using al, etc.
+        the lower 8 bits using al.
         
         MSB                                    LSB
         +----------------------------------------+
@@ -1454,8 +1452,8 @@ class ASMLevel21(ASMBase):
         
         However you can also access the stack directly using the stack pointer.
         
-        On x86, the stack pointer is stored in the special register called rsp.
-        rsp always stores the memory address to the top of the stack,
+        On x86, the stack pointer is stored in the special register, rsp.
+        rsp always stores the memory address of the top of the stack,
         i.e. the memory address of the last value pushed.
         
         Similar to the memory levels, we can use [rsp] to access the value at the memory address in rsp.
@@ -1567,14 +1565,6 @@ class ASMLevel23(ASMBase):
     init_mem_rsp = random.randint(0x10, 0x100)
 
     relative_offset = 0x51
-    library = pwnlib.asm.asm(
-        f"""
-        mov rsi, rdi
-        mov rdi, {ASMBase.secret_key}
-        mov rax, 0x3c
-        syscall
-        """
-    )
 
     dynamic_values = True
     ip_control = True
@@ -1583,16 +1573,15 @@ class ASMLevel23(ASMBase):
     def init_memory(self):
         return {
             self.init_rsp: self.init_mem_rsp.to_bytes(8, "little"),
-            self.LIB_ADDR: self.library,
         }
 
     @property
     def description(self):
         return f"""
         Recall that for all jumps, there are three types:
-        1. Relative jumps
-        2. Absolute jumps
-        3. Indirect jumps
+          Relative jumps
+          Absolute jumps
+          Indirect jumps
 
         In this level we will ask you to do a relative jump.
 
@@ -1931,7 +1920,7 @@ class ASMLevel26(ASMBase):
             yield self.rdi == min(self.init_rdi, 4) + self.secret_key, f"In attempt {i+1}, rdi was expected to be {hex(min(self.init_rdi, 4) + self.secret_key)}, but was {hex(self.rdi)} instead"
 
 
-class ASMLevel26(ASMBase):
+class ASMLevel27(ASMBase):
     """
     Compute average of ints array
     """
@@ -1990,7 +1979,7 @@ class ASMLevel26(ASMBase):
         yield self.rax == expected, f"rax was expected to be {hex(expected)}, but instead was {hex(self.rax)}"
 
 
-class ASMLevel27(ASMBase):
+class ASMLevel28(ASMBase):
     """
     Implement strlen
     """
@@ -2076,7 +2065,7 @@ class ASMLevel27(ASMBase):
         yield self.rax == 0, f"Did not handle empty string case"
 
 
-class ASMLevel28(ASMBase):
+class ASMLevel29(ASMBase):
     """
     strchr as function
     """
@@ -2206,7 +2195,7 @@ class ASMLevel28(ASMBase):
         yield self.rax == 0, f"Did not handle src_addr pointing to 0"
 
 
-class ASMLevel29(ASMBase):
+class ASMLevel30(ASMBase):
 
     harness = pwnlib.asm.asm(
         f"""
@@ -2317,7 +2306,7 @@ class ASMLevel29(ASMBase):
             yield self.rsp == self.RSP_INIT, f"In attempt {i+1}, rsp should be {hex(self.RSP_INIT)}, but was {hex(self.rsp)} instead (this means that your function is leaving the stack misaligned, and that's bad)"
 
 
-class ASMLevel30(ASMBase):
+class ASMLevel31(ASMBase):
 
     harness = pwnlib.asm.asm(
         f"""
