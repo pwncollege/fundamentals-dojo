@@ -312,7 +312,7 @@ class ASMBase:
             return self.emu.reg_read(self.REG_MAP[name])
         if name in self.init_register_values:
             return self.init_register_values[name]
-        raise AttributeError
+        raise AttributeError(f"'{self.__class__.__name__}' object has no attribute '{name}'")
 
     def __setattr__(self, name, value):
         if name in self.REG_MAP:
