@@ -12,10 +12,14 @@ import time
 import stat
 import sys
 import os
+import builtins
 
 SELF = psutil.Process(os.getpid())
 PARENT = SELF.parent()
 
+def print(*args, **kwargs):
+    kwargs.update(flush=True)
+    return builtins.print(*args, **kwargs)
 #
 # Checking processes.
 #
