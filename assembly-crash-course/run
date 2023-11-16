@@ -1498,18 +1498,17 @@ class ASMLevel22(ASMBase):
     init_mem_rsp = random.randint(0x10, 0x100)
 
     relative_offset = 0x51
-    library = pwnlib.asm.asm(
-        f"""
+    library_code = f"""
         mov rax, 0x3c
         syscall
         """
-    )
 
     dynamic_values = True
     ip_control = True
 
     @property
     def init_memory(self):
+        self.library = pwnlib.asm.asm(self.library_code)
         return {
             self.init_rsp: self.init_mem_rsp.to_bytes(8, "little"),
             self.LIB_ADDR: self.library,
@@ -1632,20 +1631,18 @@ class ASMLevel24(ASMBase):
     init_mem_rsp = random.randint(0x10, 0x100)
 
     relative_offset = 0x51
-    library = pwnlib.asm.asm(
-        f"""
+    library_code = f"""
         mov rsi, rdi
         mov rdi, {ASMBase.secret_key}
         mov rax, 0x3c
         syscall
         """
-    )
-
     dynamic_values = True
     ip_control = True
 
     @property
     def init_memory(self):
+        self.library = pwnlib.asm.asm(self.library_code)
         return {
             self.init_rsp: self.init_mem_rsp.to_bytes(8, "little"),
             self.LIB_ADDR: self.library,
@@ -1799,23 +1796,24 @@ class ASMLevel25(ASMBase):
 
 
 class ASMLevel26(ASMBase):
-
-    libraries = [
-        pwnlib.asm.asm(
-            f"""
-            mov rsi, rdi
-            mov rdi, {ASMBase.secret_key + i}
-            mov rax, 0x3c
-            syscall
-            """
-        )
-        for i in range(5)
-    ]
-
     multi_test = True
     ip_control = True
+    library_code = [
+          f"""
+          mov rsi, rdi
+          mov rdi, {ASMBase.secret_key + i}
+          mov rax, 0x3c
+          syscall
+          """
+          for i in range(5)
+    ]
 
     def init(self):
+        self.libraries = [
+            pwnlib.asm.asm(self.library_code[i])
+            for i in range(5)
+        ]
+
         self.jump_locations = [
             random.randint(self.LIB_ADDR + (200 * i), self.LIB_ADDR + (200 * i) + 100)
             for i in range(5)
@@ -2075,21 +2073,15 @@ class ASMLevel29(ASMBase):
     """
     strchr as function
     """
-
-    foo = pwnlib.asm.asm(
-        f"""
+    foo_code = f"""
         mov rax, 0x20
         add rax, rdi
         ret
         """
-    )
-    harness = pwnlib.asm.asm(
-        f"""
+    harness_code = f"""
         mov rax, {ASMBase.BASE_ADDR}
         call rax
         """
-    )
-
     multi_test = True
     functions = True
 
@@ -2107,6 +2099,9 @@ class ASMLevel29(ASMBase):
             )
 
         self.init_rdi = init_rdi
+        self.foo = pwnlib.asm.asm(self.foo_code)
+        self.harness = pwnlib.asm.asm(self.harness_code)
+
         self.init_memory = {
             self.LIB_ADDR: self.foo,
             self.LIB_ADDR + 0x100: self.harness,
@@ -2202,13 +2197,10 @@ class ASMLevel29(ASMBase):
 
 
 class ASMLevel30(ASMBase):
-
-    harness = pwnlib.asm.asm(
-        f"""
+    harness_code = f"""
         mov rax, {ASMBase.BASE_ADDR}
         call rax
         """
-    )
 
     multi_test = True
     functions = True
@@ -2223,6 +2215,8 @@ class ASMLevel30(ASMBase):
 
         self.init_rdi = self.DATA_ADDR + random.randint(1, 100)
         self.init_rsi = len(self.test_list)
+
+        self.harness = pwnlib.asm.asm(self.harness_code)
         self.init_memory = {
             self.LIB_ADDR: self.harness,
             self.RSP_INIT - 0x100: b"\0" * 0x100,
@@ -2313,14 +2307,10 @@ class ASMLevel30(ASMBase):
 
 
 class ASMLevel31(ASMBase):
-
-    harness = pwnlib.asm.asm(
-        f"""
+    harness_code = f"""
         mov rax, {ASMBase.BASE_ADDR}
         call rax
         """
-    )
-
     checker_code = """
         mov rsi, 0x02fcb89582a24631;
         mov rax, 0x404200;
@@ -2384,11 +2374,10 @@ class ASMLevel31(ASMBase):
         ret;
         """
 
-
-    mangler = pwnlib.asm.asm(checker_code)
-
     def init(self):
         self.DATA_ADDR
+        self.harness = pwnlib.asm.asm(self.harness_code)
+        self.mangler = pwnlib.asm.asm(self.checker_code)
         self.init_memory = {
             self.LIB_ADDR: self.harness,
             self.LIB_ADDR + 0x100: self.mangler,
