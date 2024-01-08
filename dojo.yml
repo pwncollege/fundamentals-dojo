@@ -1,5 +1,9 @@
 id: fundamentals
 name: Fundamentals
+
+award:
+  belt: white
+
 description: |
   Before we run, we must learn to walk.
   This dojo is designed to expose the student to the fundamentals of the art of hacking.
