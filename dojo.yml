@@ -646,6 +646,7 @@ modules:
       - A video tutorial on [FIFOs in C](https://www.youtube.com/watch?v=2hba3etpoJg).
       - A great [visual guide to I/O redirection in Linux](http://www.rozmichelle.com/pipes-forks-dups/).
       - An incredible [pwntools cheatsheet](https://gist.github.com/anvbis/64907e4f90974c4bdd930baeb705dedf) by a pwn.college student!
+      - A [deep dive](https://www.linusakesson.net/programming/tty/) into the history and technology behind command line terminals.
 
 - id: assembly-crash-course
   name: Assembly Crash Course
