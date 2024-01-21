@@ -1964,7 +1964,7 @@ class ASMLevel27(ASMBase):
         As an example, a for-loop can be used to compute the sum of the numbers 1 to n:
           sum = 0
           i = 1
-          for i <= n:
+          while i <= n:
             sum += i
             i += 1
 
@@ -2275,14 +2275,15 @@ class ASMLevel30(ASMBase):
         Once, again, please make function(s) that implements the following:
         most_common_byte(src_addr, size):
           i = 0
-          for i <= size-1:
+          while i <= size-1:
             curr_byte = [src_addr + i]
             [stack_base - curr_byte] += 1
+            i += 1
 
           b = 0
           max_freq = 0
           max_freq_byte = 0
-          for b <= 0xff:
+          while b <= 0xff:
             if [stack_base - b] > max_freq:
               max_freq = [stack_base - b]
               max_freq_byte = b
