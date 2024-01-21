@@ -1925,6 +1925,8 @@ class ASMLevel26(ASMBase):
             yield jmps <= 3, f"In attempt {i+1}, used {jmps} jumps which is too many"
             yield cmps <= 1, f"In attempt {i+1}, used {cmps} cmp instructions which is too many"
             yield self.rdi == min(self.init_rdi, 4) + self.secret_key, f"In attempt {i+1}, rdi was expected to be {hex(min(self.init_rdi, 4) + self.secret_key)}, but was {hex(self.rdi)} instead"
+            if (i+1) % 10 == 0:
+                print(f"Completed test {i+1}")
 
 
 class ASMLevel27(ASMBase):
