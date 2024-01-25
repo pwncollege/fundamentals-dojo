@@ -1509,8 +1509,8 @@ class ASMLevel22(ASMBase):
     ip_control = True
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
         self.library = pwnlib.asm.asm(self.library_code)
+        super().__init__(*args, **kwargs)
 
     @property
     def init_memory(self):
@@ -1646,8 +1646,8 @@ class ASMLevel24(ASMBase):
     ip_control = True
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
         self.library = pwnlib.asm.asm(self.library_code)
+        super().__init__(*args, **kwargs)
 
     @property
     def init_memory(self):
@@ -1817,11 +1817,11 @@ class ASMLevel26(ASMBase):
     ]
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
         self.libraries = [
           pwnlib.asm.asm(library_code)
           for library_code in self.libraries_code
         ]
+        super().__init__(*args, **kwargs)
 
     def init(self):
         self.jump_locations = [
@@ -2098,9 +2098,9 @@ class ASMLevel29(ASMBase):
     functions = True
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
         self.foo = pwnlib.asm.asm(self.foo_code)
         self.harness = pwnlib.asm.asm(self.harness_code)
+        super().__init__(*args, **kwargs)
 
     def init(self, *, init_rdi=None, test_string=None):
         if init_rdi is None:
@@ -2220,8 +2220,8 @@ class ASMLevel30(ASMBase):
     functions = True
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
         self.harness = pwnlib.asm.asm(self.harness_code)
+        super().__init__(*args, **kwargs)
 
     def init(self):
         test_length = random.randint(10, 40)
@@ -2393,9 +2393,9 @@ class ASMLevel31(ASMBase):
         """
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
         self.harness = pwnlib.asm.asm(self.harness_code)
         self.mangler = pwnlib.asm.asm(self.checker_code)
+        super().__init__(*args, **kwargs)
 
     def init(self):
         self.DATA_ADDR
