@@ -226,7 +226,7 @@ class ASMBase:
             hints += """
             We will be testing your code multiple times in this level with dynamic values! This means we will
             be running your code in a variety of random ways to verify that the logic is robust enough to
-            survive normal use. 
+            survive normal use.
             """
 
         if self.functions:
@@ -530,7 +530,7 @@ class ASMLevel3(ASMBase):
           add reg1, reg2       <=>     reg1 += reg2
           sub reg1, reg2       <=>     reg1 -= reg2
           imul reg1, reg2      <=>     reg1 *= reg2
-        
+
         div is more complicated and we will discuss it later.
         Note: all 'regX' can be replaced by a constant or memory location
 
@@ -576,7 +576,7 @@ class ASMLevel4(ASMBase):
         instructions to see the difference.
 
         In this case, you will want to use imul.
-        
+
         We will now set the following in preparation for your code:
           rdi = {hex(self.init_rdi)}
           rsi = {hex(self.init_rsi)}
@@ -611,7 +611,7 @@ class ASMLevel5(ASMBase):
         Why?
 
         Because 3.33 is rounded down to an integer.
-        
+
         The relevant instructions for this level are:
           mov rax, reg1; div reg2
 
@@ -639,7 +639,7 @@ class ASMLevel5(ASMBase):
             speed = rax
 
         Note that distance will be at most a 64-bit value, so rdx should be 0 when dividing.
-        
+
         We will now set the following in preparation for your code:
           rdi = {hex(self.init_rdi)}
           rsi = {hex(self.init_rsi)}
@@ -673,7 +673,7 @@ class ASMLevel6(ASMBase):
         For instance: 10 / 3 -> remainder = 1
 
         The remainder is the same as modulo, which is also called the "mod" operator.
-        
+
         In most programming languages we refer to mod with the symbol '%'.
 
         Please compute the following:
@@ -711,7 +711,7 @@ class ASMLevel7(ASMBase):
     def description(self):
         return f"""
         Another cool concept in x86 is the ability to independently access to lower register bytes.
-        
+
         Each register in x86_64 is 64 bits in size, and in the previous levels we have accessed
         the full register using rax, rdi or rsi.
 
@@ -719,7 +719,7 @@ class ASMLevel7(ASMBase):
 
         For example the lower 32 bits of rax can be accessed using eax, the lower 16 bits using ax,
         the lower 8 bits using al.
-        
+
         MSB                                    LSB
         +----------------------------------------+
         |                   rax                  |
@@ -779,7 +779,7 @@ class ASMLevel8(ASMBase):
 
         Using only the following instruction(s):
           mov
-        
+
         Please compute the following:
           rax = rdi % 256
           rbx = rsi % 65536
@@ -818,13 +818,13 @@ class ASMLevel9(ASMBase):
 
         The value in al (in bits) is:
           rax = 10001010
-        
+
         If we shift once to the left using the shl instruction:
           shl al, 1
-        
+
         The new value is:
           al = 00010100
-        
+
         Everything shifted to the left and the highest bit fell off
         while a new 0 was added to the right side.
 
@@ -832,7 +832,7 @@ class ASMLevel9(ASMBase):
 
         Shifting has the nice side affect of doing quick multiplication (by 2)
         or division (by 2), and can also be used to compute modulo.
-        
+
         Here are the important instructions:
           shl reg1, reg2       <=>     Shift reg1 left by the amount in reg2
           shr reg1, reg2       <=>     Shift reg1 right by the amount in reg2
@@ -840,10 +840,10 @@ class ASMLevel9(ASMBase):
 
         Using only the following instructions:
           mov, shr, shl
-        
+
         Please perform the following:
           Set rax to the 5th least significant byte of rdi.
-        
+
         For example:
           rdi = | B7 | B6 | B5 | B4 | B3 | B2 | B1 | B0 |
           Set rax to the value of B4
@@ -877,13 +877,13 @@ class ASMLevel10(ASMBase):
         return f"""
         Bitwise logic in assembly is yet another interesting concept!
         x86 allows you to perform logic operations bit by bit on registers.
-        
+
         For the sake of this example say registers only store 8 bits.
-        
+
         The values in rax and rbx are:
           rax = 10101010
           rbx = 00110011
-        
+
         If we were to perform a bitwise AND of rax and rbx using the
         "and rax, rbx" instruction, the result would be calculated by
         ANDing each bit pair 1 by 1 hence why it's called a bitwise
@@ -910,7 +910,7 @@ class ASMLevel10(ASMBase):
 
         Without using the following instructions:
           mov, xchg
-        
+
         Please perform the following:
           rax = rdi AND rsi
 
@@ -923,7 +923,7 @@ class ASMLevel10(ASMBase):
 
     def trace(self):
         self.start()
-        expected = self.init_rdi & self.init_rsi 
+        expected = self.init_rdi & self.init_rsi
         yield self.rax == expected, f"rax was expected to be {hex(expected)}, but instead was {hex(self.rax)}"
 
 
@@ -951,7 +951,7 @@ class ASMLevel11(ASMBase):
             y = 1
           else
             y = 0
-        
+
         where:
           x = rdi
           y = rax
@@ -1001,7 +1001,7 @@ class ASMLevel12(ASMBase):
 
         We can represent this like:
           ['699 S Mill Ave, Tempe, AZ 85281'] = 'ASU Brickyard'
-        
+
         The address is special because it is unique.
 
         But that also does not mean other addresses can't point to the same thing (as someone can have multiple houses).
@@ -1009,24 +1009,24 @@ class ASMLevel12(ASMBase):
         Memory is exactly the same!
 
         For instance, the address in memory that your code is stored (when we take it from you) is {hex(self.BASE_ADDR)}.
-        
+
         In x86 we can access the thing at a memory location, called dereferencing, like so:
           mov rax, [some_address]        <=>     Moves the thing at 'some_address' into rax
-        
+
         This also works with things in registers:
           mov rax, [rdi]         <=>     Moves the thing stored at the address of what rdi holds to rax
-        
+
         This works the same for writing to memory:
           mov [rax], rdi         <=>     Moves rdi to the address of what rax holds.
-        
+
         So if rax was 0xdeadbeef, then rdi would get stored at the address 0xdeadbeef:
           [0xdeadbeef] = rdi
-        
+
         Note: memory is linear, and in x86_64, it goes from 0 - 0xffffffffffffffff (yes, huge).
 
         Please perform the following:
           Place the value stored at 0x404000 into rax
-        
+
         Make sure the value in rax is the original value stored at 0x404000.
 
         We will now set the following in preparation for your code:
@@ -1053,7 +1053,7 @@ class ASMLevel13(ASMBase):
         return f"""
         Please perform the following:
           Place the value stored in rax to 0x404000
-        
+
         We will now set the following in preparation for your code:
           rax = {hex(self.init_rax)}
         """
@@ -1083,7 +1083,7 @@ class ASMLevel14(ASMBase):
         Please perform the following:
           Place the value stored at 0x404000 into rax
           Increment the value stored at the address 0x404000 by 0x1337
-        
+
         Make sure the value in rax is the original value stored at 0x404000 and make sure
         that [0x404000] now has the incremented value.
 
@@ -1115,7 +1115,7 @@ class ASMLevel15(ASMBase):
     def description(self):
         return f"""
         Recall that registers in x86_64 are 64 bits wide, meaning they can store 64 bits.
-        
+
         Similarly, each memory location can be treated as a 64 bit value.
 
         We refer to something that is 64 bits (8 bytes) as a quad word.
@@ -1225,7 +1225,7 @@ class ASMLevel17(ASMBase):
 
         As an example, say:
           [0x1330] = 0x00000000deadc0de
-        
+
         If you examined how it actually looked in memory, you would see:
           [0x1330] = 0xde
           [0x1331] = 0xc0
@@ -1235,7 +1235,7 @@ class ASMLevel17(ASMBase):
           [0x1335] = 0x00
           [0x1336] = 0x00
           [0x1337] = 0x00
-        
+
         This format of storing things in 'reverse' is intentional in x86, and its called "Little Endian".
 
         For this challenge we will give you two addresses created dynamically each run.
@@ -1295,7 +1295,7 @@ class ASMLevel18(ASMBase):
 
         Say we access the quad word at 0x1337:
           [0x1337] = 0x00000000deadbeef
-        
+
         The real way memory is layed out is byte by byte, little endian:
           [0x1337] = 0xef
           [0x1337 + 1] = 0xbe
@@ -1310,7 +1310,7 @@ class ASMLevel18(ASMBase):
 
         Say you want the 5th *byte* from an address, you can access it like:
           mov al, [address+4]
-        
+
         Remember, offsets start at 0.
 
         Perform the following:
@@ -1353,22 +1353,22 @@ class ASMLevel19(ASMBase):
     def description(self):
         return f"""
         In these levels we are going to introduce the stack.
-        
+
         The stack is a region of memory that can store values for later.
-        
+
         To store a value on the stack we use the push instruction, and to retrieve a value we use pop.
-        
+
         The stack is a last in first out (LIFO) memory structure, and this means
         the last value pushed in the first value popped.
-        
+
         Imagine unloading plates from the dishwasher let's say there are 1 red, 1 green, and 1 blue.
         First we place the red one in the cabinet, then the green on top of the red, then the blue.
-        
+
         Our stack of plates would look like:
           Top ----> Blue
                     Green
           Bottom -> Red
-        
+
         Now, if we wanted a plate to make a sandwich we would retrieve the top plate from the stack
         which would be the blue one that was last into the cabinet, ergo the first one out.
 
@@ -1419,7 +1419,7 @@ class ASMLevel20(ASMBase):
 
         Using only following instructions:
           push, pop
-        
+
         Swap values in rdi and rsi.
         i.e.
         If to start rdi = 2 and rsi = 5
@@ -1459,17 +1459,17 @@ class ASMLevel21(ASMBase):
     def description(self):
         return f"""
         In the previous levels you used push and pop to store and load data from the stack.
-        
+
         However you can also access the stack directly using the stack pointer.
-        
+
         On x86, the stack pointer is stored in the special register, rsp.
         rsp always stores the memory address of the top of the stack,
         i.e. the memory address of the last value pushed.
-        
+
         Similar to the memory levels, we can use [rsp] to access the value at the memory address in rsp.
 
         Without using pop, please calculate the average of 4 consecutive quad words stored on the stack.
-        
+
         Push the average on the stack.
 
         Hint:
@@ -1508,9 +1508,12 @@ class ASMLevel22(ASMBase):
     dynamic_values = True
     ip_control = True
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.library = pwnlib.asm.asm(self.library_code)
+
     @property
     def init_memory(self):
-        self.library = pwnlib.asm.asm(self.library_code)
         return {
             self.init_rsp: self.init_mem_rsp.to_bytes(8, "little"),
             self.LIB_ADDR: self.library,
@@ -1562,7 +1565,7 @@ class ASMLevel22(ASMBase):
 
 class ASMLevel23(ASMBase):
     """
-    Do a:    
+    Do a:
     1. relative jump
     """
 
@@ -1599,7 +1602,7 @@ class ASMLevel23(ASMBase):
         In fact, the as assembler that we're using has a handy .rept directive that you can use to
         repeat assembly instructions some number of times:
           https://ftp.gnu.org/old-gnu/Manuals/gas-2.9.1/html_chapter/as_7.html
-        
+
         Useful instructions for this level:
           jmp (reg1 | addr | offset) ; nop
 
@@ -1642,9 +1645,12 @@ class ASMLevel24(ASMBase):
     dynamic_values = True
     ip_control = True
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.library = pwnlib.asm.asm(self.library_code)
+
     @property
     def init_memory(self):
-        self.library = pwnlib.asm.asm(self.library_code)
         return {
             self.init_rsp: self.init_mem_rsp.to_bytes(8, "little"),
             self.LIB_ADDR: self.library,
@@ -1769,7 +1775,7 @@ class ASMLevel25(ASMBase):
 
         Assume each dereferenced value is a signed dword.
         This means the values can start as a negative value at each memory position.
-        
+
         A valid solution will use the following at least once:
           jmp (any variant), cmp
 
@@ -1800,7 +1806,7 @@ class ASMLevel25(ASMBase):
 class ASMLevel26(ASMBase):
     multi_test = True
     ip_control = True
-    library_code = [
+    libraries_code = [
           f"""
           mov rsi, rdi
           mov rdi, {ASMBase.secret_key + i}
@@ -1810,12 +1816,14 @@ class ASMLevel26(ASMBase):
           for i in range(5)
     ]
 
-    def init(self):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.libraries = [
-            pwnlib.asm.asm(self.library_code[i])
-            for i in range(5)
+          pwnlib.asm.asm(library_code)
+          for library_code in self.libraries_code
         ]
 
+    def init(self):
         self.jump_locations = [
             random.randint(self.LIB_ADDR + (200 * i), self.LIB_ADDR + (200 * i) + 100)
             for i in range(5)
@@ -1855,7 +1863,7 @@ class ASMLevel26(ASMBase):
         In the case that `number` is not one of those numbers, the default triggers.
 
         You can consider this a reduced else-if type structure.
-        
+
         In x86, you are already used to using numbers, so it should be no suprise that you can make if statements based on something being an exact number.
 
         In addition, if you know the range of the numbers, a switch statement works very well.
@@ -2041,16 +2049,16 @@ class ASMLevel28(ASMBase):
           Count the consecutive non-zero bytes in a contiguous region of memory, where:
             rdi = memory address of the 1st byte
             rax = number of consecutive non-zero bytes
-        
+
         Additionally, if rdi = 0, then set rax = 0 (we will check)!
-        
+
         An example test-case, let:
           rdi = 0x1000
           [0x1000] = 0x41
           [0x1001] = 0x42
           [0x1002] = 0x43
           [0x1003] = 0x00
-        
+
         then: rax = 3 should be set
 
         We will now run multiple tests on your code, here is an example run:
@@ -2089,6 +2097,11 @@ class ASMLevel29(ASMBase):
     multi_test = True
     functions = True
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.foo = pwnlib.asm.asm(self.foo_code)
+        self.harness = pwnlib.asm.asm(self.harness_code)
+
     def init(self, *, init_rdi=None, test_string=None):
         if init_rdi is None:
             init_rdi = self.DATA_ADDR + (random.randint(10, 100) * 8)
@@ -2103,9 +2116,6 @@ class ASMLevel29(ASMBase):
             )
 
         self.init_rdi = init_rdi
-        self.foo = pwnlib.asm.asm(self.foo_code)
-        self.harness = pwnlib.asm.asm(self.harness_code)
-
         self.init_memory = {
             self.LIB_ADDR: self.foo,
             self.LIB_ADDR + 0x100: self.harness,
@@ -2142,11 +2152,11 @@ class ASMLevel29(ASMBase):
 
         1. call pushes 0x102a, the address of the next instruction, onto the stack.
         2. call jumps to 0x400000, the value stored in rax.
-        
+
         The "ret" instruction is the opposite of "call".
 
         ret pops the top value off of the stack and jumps to it.
-        
+
         Let's use the following instructions and stack as an example:
 
                                       Stack ADDR  VALUE
@@ -2165,7 +2175,7 @@ class ASMLevel29(ASMBase):
                   i += 1
                 src_addr += 1
             return i
-        
+
         foo is provided at {hex(self.LIB_ADDR)}.
         foo takes a single argument as a value and returns a value.
 
@@ -2209,6 +2219,10 @@ class ASMLevel30(ASMBase):
     multi_test = True
     functions = True
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.harness = pwnlib.asm.asm(self.harness_code)
+
     def init(self):
         test_length = random.randint(10, 40)
         test_min_value = random.randint(1, 0xFE - test_length)
@@ -2220,7 +2234,6 @@ class ASMLevel30(ASMBase):
         self.init_rdi = self.DATA_ADDR + random.randint(1, 100)
         self.init_rsi = len(self.test_list)
 
-        self.harness = pwnlib.asm.asm(self.harness_code)
         self.init_memory = {
             self.LIB_ADDR: self.harness,
             self.RSP_INIT - 0x100: b"\0" * 0x100,
@@ -2237,7 +2250,7 @@ class ASMLevel30(ASMBase):
         Now we will work with functions that have a function stack frame.
 
         A function stack frame is a set of pointers and values pushed onto the stack to save things for later use and allocate space on the stack for function variables.
-        
+
         First, let's talk about the special register rbp, the Stack Base Pointer.
 
         The rbp register is used to tell where our stack frame first started.
@@ -2245,7 +2258,7 @@ class ASMLevel30(ASMBase):
         As an example, say we want to construct some list (a contigous space of memory) that is only used in our function.
 
         The list is 5 elements long, and each element is a dword.
-        
+
         A list of 5 elements would already take 5 registers, so instead, we can make space on the stack!
 
         The assembly would look like:
@@ -2379,10 +2392,13 @@ class ASMLevel31(ASMBase):
         ret;
         """
 
-    def init(self):
-        self.DATA_ADDR
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.harness = pwnlib.asm.asm(self.harness_code)
         self.mangler = pwnlib.asm.asm(self.checker_code)
+
+    def init(self):
+        self.DATA_ADDR
         self.init_memory = {
             self.LIB_ADDR: self.harness,
             self.LIB_ADDR + 0x100: self.mangler,
