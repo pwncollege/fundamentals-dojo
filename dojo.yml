@@ -793,6 +793,7 @@ modules:
       - A whole [x86_64 assembly book](https://open.umn.edu/opentextbooks/textbooks/733) to help you out!
       - A [game](https://squallygame.com/) to teach you x86 assembly and one to [stress test your knowledge](https://oooverflow.io/zero-is-you/)!
       - A [flowchart](https://soc.me/interfaces/x86-prefixes-and-escape-opcodes-flowchart) of x86 prefix and escape opcodes.
+      - An unofficial, but extremely detailed and useful [x86 reference](https://www.felixcloutier.com/x86/).
 
 - id: debugging-refresher
   name: Debugging Refresher
