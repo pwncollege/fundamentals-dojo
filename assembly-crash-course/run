@@ -297,15 +297,17 @@ class ASMBase:
                     print(f"Failed in the following way: {error}")
                     won = False
                     break
+        except UcError as e:
+            print(f"\nYour program has crashed!\n{e}\nThis was the state of your program on crash:")
+            self.dump_state(self.emu)
+            won = False
         except Exception as e:
-            print(f"ERROR: {e}")
+            print(f"\nERROR: {e}")
             self.dump_state(self.emu)
             won = False
 
         if won:
             print(open("/flag").read())
-        else:
-            print("Sorry, no flag :(.")
         return won
 
     def __getattr__(self, name):
