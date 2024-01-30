@@ -299,6 +299,7 @@ class ASMBase:
                     break
         except Exception as e:
             print(f"ERROR: {e}")
+            self.dump_state(self.emu)
             won = False
 
         if won:
