@@ -10,6 +10,11 @@ description: |
   These fundamentals might seem, to some, as basic as waxing a car, but between the rounds of Wax On, Wax Off, you will find, deep within, the stirrings of the beginnings of true skills of security.
   As you embark on this journey, remember: this is only the beginning.
 
+  This dojo errs heavily on the side of comprehensiveness of foundations for the rest of the material.
+  However, many students enter the dojo already knowing Linux, assembly, debugging, and the like.
+  Some others may be fast learners, and though some review of fundamentals are good for these hackers, they might not need all 200-plus challenges in this dojo to drive home the point.
+  For this beginning of your journey, feel free to meander, dig in where you feel compelled to do so, and move on when you are sated.
+
 type: topic
 
 modules:
