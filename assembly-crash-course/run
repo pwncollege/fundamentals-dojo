@@ -248,6 +248,9 @@ class ASMBase:
             For instance, if you write your assembly code in the file asm.S, you can assemble that to an object file:
               as -o asm.o asm.S
 
+            Note that if you want to use Intel syntax for x86 (which, of course, you do), you'll need to add the following to the start of asm.S:
+              .intel_syntax noprefix
+
             Then, you can copy the .text section (your code) to the file asm.bin:
               objcopy -O binary --only-section=.text asm.o asm.bin
 
