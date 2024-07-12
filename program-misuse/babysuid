@@ -55,6 +55,8 @@ hostname = socket.gethostname()
 dojo_prefix = "program-misuse~level"
 if hostname.startswith(dojo_prefix):
     level = int(hostname[len(dojo_prefix):])
+elif hostname.startswith("practice-"+dojo_prefix):
+    level = int(hostname[len(9+dojo_prefix):])
 else:
     level = int(sys.argv[1])
 
