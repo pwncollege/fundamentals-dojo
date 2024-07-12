@@ -51,16 +51,10 @@ CATEGORIZED_CHALS = [
 
 ALL_CHALS = [ (c,b) for c,bl in CATEGORIZED_CHALS for b in bl ]
 
-hostname = socket.gethostname()
-dojo_prefix = "program-misuse~level"
-if hostname.startswith(dojo_prefix):
-    level = int(hostname[len(dojo_prefix):])
-elif hostname.startswith("practice-"+dojo_prefix):
-    level = int(hostname[len(9+dojo_prefix):])
-else:
-    level = int(sys.argv[1])
+with open("/challenge/.config") as f:
+    level = int(f.read())
 
-concept, utility = ALL_CHALS[level]
+concept, utility = ALL_CHALS[level - 1]
 
 print(f"""
 Welcome to {sys.argv[0]} (level {level})!
