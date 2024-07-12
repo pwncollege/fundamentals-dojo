@@ -74,6 +74,6 @@ restart this challenge container to make sure that I set the SUID bit!
 """.strip())
 
 if not os.path.exists("/challenge/bin"):
-    assert os.makedirs("/challenge/bin")
+    os.makedirs("/challenge/bin")
 assert shutil.copy2(shutil.which(utility), f"/challenge/bin/{utility}")
 os.chmod(f"/challenge/bin/{utility}", 0o4755)
