@@ -1,0 +1,176 @@
+name: Program Misuse
+description: ""
+challenges:
+- id: level-1
+  name: level1
+  description: Lets you directly read the flag!
+- id: level-2
+  name: level2
+  description: Lets you directly read the flag!
+- id: level-3
+  name: level3
+  description: Lets you directly read the flag!
+- id: level-4
+  name: level4
+  description: Lets you directly read the flag!
+- id: level-5
+  name: level5
+  description: Lets you directly read the flag!
+- id: level-6
+  name: level6
+  description: Lets you directly read the flag!
+- id: level-7
+  name: level7
+  description: Shows you that an over-privileged editor is a very powerful tool!
+- id: level-8
+  name: level8
+  description: Shows you that an over-privileged editor is a very powerful tool!
+- id: level-9
+  name: level9
+  description: Shows you that an over-privileged editor is a very powerful tool!
+- id: level-10
+  name: level10
+  description: Requires you to understand their output to derive the flag from it!
+- id: level-11
+  name: level11
+  description: Requires you to understand their output to derive the flag from it!
+- id: level-12
+  name: level12
+  description: Requires you to understand their output to derive the flag from it!
+- id: level-13
+  name: level13
+  description: Requires you to understand their output to derive the flag from it!
+- id: level-14
+  name: level14
+  description: Requires you to understand their output to derive the flag from it!
+- id: level-15
+  name: level15
+  description: Requires you to understand their output to derive the flag from it!
+- id: level-16
+  name: level16
+  description: Requires you to understand their output to derive the flag from it!
+- id: level-17
+  name: level17
+  description: Forces you to understand different archive formats!
+- id: level-18
+  name: level18
+  description: Forces you to understand different archive formats!
+- id: level-19
+  name: level19
+  description: Forces you to understand different archive formats!
+- id: level-20
+  name: level20
+  description: Forces you to understand different archive formats!
+- id: level-21
+  name: level21
+  description: Forces you to understand different archive formats!
+- id: level-22
+  name: level22
+  description: Forces you to understand different archive formats!
+- id: level-23
+  name: level23
+  description: Forces you to understand different archive formats!
+- id: level-24
+  name: level24
+  description: Enables you to read flags by making them execute other commands!
+- id: level-25
+  name: level25
+  description: Enables you to read flags by making them execute other commands!
+- id: level-26
+  name: level26
+  description: Enables you to read flags by making them execute other commands!
+- id: level-27
+  name: level27
+  description: Enables you to read flags by making them execute other commands!
+- id: level-28
+  name: level28
+  description: Enables you to read flags by making them execute other commands!
+- id: level-29
+  name: level29
+  description: Enables you to read flags by making them execute other commands!
+- id: level-30
+  name: level30
+  description: Enables you to read flags by making them execute other commands!
+- id: level-31
+  name: level31
+  description: Enables you to read flags by making them execute other commands!
+- id: level-32
+  name: level32
+  description: Enables you to read flags by making them execute other commands!
+- id: level-33
+  name: level33
+  description: Requires some light programming to read the flag.!
+- id: level-34
+  name: level34
+  description: Requires some light programming to read the flag.!
+- id: level-35
+  name: level35
+  description: Requires some light programming to read the flag.!
+- id: level-36
+  name: level36
+  description: Requires some light programming to read the flag.!
+- id: level-37
+  name: level37
+  description: Lets you get the flag by doing tricks with permissions!
+- id: level-38
+  name: level38
+  description: Lets you get the flag by doing tricks with permissions!
+- id: level-39
+  name: level39
+  description: Lets you get the flag by doing tricks with permissions!
+- id: level-40
+  name: level40
+  description: Lets you get the flag by doing tricks with permissions!
+- id: level-41
+  name: level41
+  description: Lets you read the flag because they let you program anything!
+- id: level-42
+  name: level42
+  description: Lets you read the flag because they let you program anything!
+- id: level-43
+  name: level43
+  description: Lets you read the flag because they let you program anything!
+- id: level-44
+  name: level44
+  description: Lets you read the flag because they let you program anything!
+- id: level-45
+  name: level45
+  description: Just straight up wasn't designed to let you read files!
+- id: level-46
+  name: level46
+  description: Just straight up wasn't designed to let you read files!
+- id: level-47
+  name: level47
+  description: Just straight up wasn't designed to let you read files!
+- id: level-48
+  name: level48
+  description: Just straight up wasn't designed to let you read files!
+- id: level-49
+  name: level49
+  description: Just straight up wasn't designed to let you read files!
+- id: level-50
+  name: level50
+  description: |
+    Just straight up wasn't designed to let you read files!
+    This level has a "decoy" solution that _looks_ like it leaks the flag, but is not correct.
+    If you're submitting what you feel should be a valid flag, and the dojo doesn't accept it, try your solution against a file with uppercase characters to see what's going on.
+- id: level-51
+  name: level51
+  description: Shows how dangerous it is to allow users to load their own code as plugins into the program (but figuring out how is the hard part)!
+resources:
+- name: "Program Interaction: Linux Command Line"
+  type: lecture
+  video: w7nQFk6bi_k
+  playlist: PL-ymxv0nOtqqQ4NR1JnbWoHNm0Q8EspO1
+  slides: 1aiHdtSm8xoT0u2XcTo3qYGes5GY__-PK-FlVyNBQAfY
+- name: "Program Misuse: Privilege Escalation"
+  type: lecture
+  video: ZWxYWdiXqD8
+  playlist: PL-ymxv0nOtqoaG9YCGR36tCfRoXqVcE1E
+  slides: 1EB7dL5gx3pQlPDqZSEqTtlDiJRZmHGbqRnwxgm4feuw
+- name: "Program Misuse: Mitigations"
+  type: lecture
+  video: kzbyvr_PJ9k
+  playlist: PL-ymxv0nOtqoaG9YCGR36tCfRoXqVcE1E
+  slides: 1pvWd6n4UN3lZ1BdRySWDl80iEYGRJj9VC5exbYlGdAg
+
