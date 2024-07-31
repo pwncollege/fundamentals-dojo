@@ -1,5 +1,6 @@
 #!/opt/pwn.college/python
 
+import os
 import sys
 import re
 import collections
@@ -22,6 +23,8 @@ print = lambda text: builtin_print(re.sub("\n{2,}", "\n\n", textwrap.dedent(str(
 
 config = (pathlib.Path(__file__).parent / ".config").read_text()
 level = int(config)
+
+os.setuid(os.getuid())
 
 
 class ASMBase:
