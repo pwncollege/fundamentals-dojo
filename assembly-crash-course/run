@@ -24,7 +24,7 @@ print = lambda text: builtin_print(re.sub("\n{2,}", "\n\n", textwrap.dedent(str(
 config = (pathlib.Path(__file__).parent / ".config").read_text()
 level = int(config)
 
-os.setuid(os.getuid())
+os.setuid(os.geteuid())
 
 
 class ASMBase:
