@@ -1,0 +1,3 @@
+#!/opt/pwn.college/bash
+
+./chio.py --parent binary --check_env 273:lqjqlgdjpp --empty_env --check_arg 14:oqrbntccvl --reward /flag

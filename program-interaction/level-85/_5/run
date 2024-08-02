@@ -1,0 +1,3 @@
+#!/opt/pwn.college/bash
+
+./chio.py --parent binary --cwd /tmp/vbmigf --parent_different_cwd --reward /flag

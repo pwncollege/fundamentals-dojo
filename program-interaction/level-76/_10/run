@@ -1,0 +1,3 @@
+#!/opt/pwn.college/bash
+
+./chio.py --parent python --check_env 82:nujidjfbtb --empty_env --reward /flag
