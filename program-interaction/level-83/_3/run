@@ -1,3 +1,3 @@
 #!/opt/pwn.college/bash
 
-./chio.py --parent binary --check_env 217:lrhzukdyaj --empty_env --check_arg 63:fqogvwjwbb --reward /flag
+/challenge/chio.py --parent binary --check_env 217:lrhzukdyaj --empty_env --check_arg 63:fqogvwjwbb --reward /flag

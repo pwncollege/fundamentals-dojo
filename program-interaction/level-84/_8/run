@@ -1,3 +1,3 @@
 #!/opt/pwn.college/bash
 
-./chio.py --parent binary --cwd /tmp/gtucmx --check_stdin_path yxfbml --reward /flag
+/challenge/chio.py --parent binary --cwd /tmp/gtucmx --check_stdin_path yxfbml --reward /flag

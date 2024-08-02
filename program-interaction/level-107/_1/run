@@ -1,3 +1,3 @@
 #!/opt/pwn.college/bash
 
-./chio.py --parent python --input_dup 284 --password fzbxpiua --reward /flag
+/challenge/chio.py --parent python --input_dup 284 --password fzbxpiua --reward /flag

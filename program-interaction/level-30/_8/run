@@ -1,3 +1,3 @@
 #!/opt/pwn.college/bash
 
-./chio.py --parent binary --password wmimstek --reward /flag
+/challenge/chio.py --parent binary --password wmimstek --reward /flag

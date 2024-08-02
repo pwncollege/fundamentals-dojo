@@ -1,3 +1,3 @@
 #!/opt/pwn.college/bash
 
-./chio.py --parent python --input_dup 2 --password yszyoarb --reward /flag
+/challenge/chio.py --parent python --input_dup 2 --password yszyoarb --reward /flag
