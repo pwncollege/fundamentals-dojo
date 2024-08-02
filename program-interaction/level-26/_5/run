@@ -1,0 +1,3 @@
+#!/opt/pwn.college/bash
+
+./chio.py --parent python --check_stdin_path /tmp/swqcqo --password onsfhnrq --reward /flag

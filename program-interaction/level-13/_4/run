@@ -1,0 +1,3 @@
+#!/opt/pwn.college/bash
+
+./chio.py --parent shellscript --check_stdout_path /tmp/dlahjq --reward /flag
