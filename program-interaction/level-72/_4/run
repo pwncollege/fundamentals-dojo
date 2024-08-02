@@ -1,3 +1,3 @@
 #!/opt/pwn.college/bash
 
-/challenge/chio.py --parent shellscript --cwd /tmp/fethyc --check_stdin_path ujxnzx --reward /flag
+exec /challenge/chio.py --parent shellscript --cwd /tmp/fethyc --check_stdin_path ujxnzx --reward /flag

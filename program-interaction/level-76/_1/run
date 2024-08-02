@@ -1,3 +1,3 @@
 #!/opt/pwn.college/bash
 
-/challenge/chio.py --parent python --check_env 261:qbmrzldtok --empty_env --reward /flag
+exec /challenge/chio.py --parent python --check_env 261:qbmrzldtok --empty_env --reward /flag

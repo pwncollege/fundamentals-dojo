@@ -1,3 +1,3 @@
 #!/opt/pwn.college/bash
 
-/challenge/chio.py --parent shellscript --check_stdin_path /tmp/pudgfx --password sznpawcj --reward /flag
+exec /challenge/chio.py --parent shellscript --check_stdin_path /tmp/pudgfx --password sznpawcj --reward /flag

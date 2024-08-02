@@ -1,3 +1,3 @@
 #!/opt/pwn.college/bash
 
-/challenge/chio.py --parent ipython --password bsfiudvb --reward /flag
+exec /challenge/chio.py --parent ipython --password bsfiudvb --reward /flag

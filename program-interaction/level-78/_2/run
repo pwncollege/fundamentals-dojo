@@ -1,3 +1,3 @@
 #!/opt/pwn.college/bash
 
-/challenge/chio.py --parent python --cwd /tmp/bmpsbq --check_stdin_path skexdu --reward /flag
+exec /challenge/chio.py --parent python --cwd /tmp/bmpsbq --check_stdin_path skexdu --reward /flag
