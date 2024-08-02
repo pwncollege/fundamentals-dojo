@@ -1,3 +1,4 @@
 #!/opt/pwn.college/bash
 
-exec /challenge/chio.py --parent python --cwd /tmp/ybvrar --check_stdin_path hfygte --reward /flag
+ARGS="$@"
+exec /challenge/chio.py --parent python --cwd /tmp/ybvrar --check_stdin_path hfygte --reward /flag -- run ${ARGS[@]}

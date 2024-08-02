@@ -1,3 +1,4 @@
 #!/opt/pwn.college/bash
 
-exec /challenge/chio.py --parent ipython --password mwuygsng --reward /flag
+ARGS="$@"
+exec /challenge/chio.py --parent ipython --password mwuygsng --reward /flag -- run ${ARGS[@]}

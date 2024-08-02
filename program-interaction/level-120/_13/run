@@ -1,3 +1,4 @@
 #!/opt/pwn.college/bash
 
-exec /challenge/chio.py --parent binary --input_dup 125 --password nbtwonrp --reward /flag
+ARGS="$@"
+exec /challenge/chio.py --parent binary --input_dup 125 --password nbtwonrp --reward /flag -- run ${ARGS[@]}

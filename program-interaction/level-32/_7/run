@@ -1,3 +1,4 @@
 #!/opt/pwn.college/bash
 
-exec /challenge/chio.py --parent binary --check_env jtstck:ngqnfylhxo --reward /flag
+ARGS="$@"
+exec /challenge/chio.py --parent binary --check_env jtstck:ngqnfylhxo --reward /flag -- run ${ARGS[@]}

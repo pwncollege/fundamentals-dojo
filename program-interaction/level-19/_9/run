@@ -1,3 +1,4 @@
 #!/opt/pwn.college/bash
 
-exec /challenge/chio.py --parent ipython --check_stdin_path /tmp/mundud --password vmuftsba --reward /flag
+ARGS="$@"
+exec /challenge/chio.py --parent ipython --check_stdin_path /tmp/mundud --password vmuftsba --reward /flag -- run ${ARGS[@]}

@@ -1,3 +1,4 @@
 #!/opt/pwn.college/bash
 
-exec /challenge/chio.py --parent binary --check_stdin_pipe rev --password rjwvxcgp --reward /flag
+ARGS="$@"
+exec /challenge/chio.py --parent binary --check_stdin_pipe rev --password rjwvxcgp --reward /flag -- run ${ARGS[@]}

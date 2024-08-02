@@ -1,3 +1,4 @@
 #!/opt/pwn.college/bash
 
-exec /challenge/chio.py --parent python --check_arg 168:nmplsxcsoh --reward /flag
+ARGS="$@"
+exec /challenge/chio.py --parent python --check_arg 168:nmplsxcsoh --reward /flag -- run ${ARGS[@]}

@@ -1,3 +1,4 @@
 #!/opt/pwn.college/bash
 
-exec /challenge/chio.py --parent find --check_arg 1:bvntrpvacb --reward /flag
+ARGS="$@"
+exec /challenge/chio.py --parent find --check_arg 1:bvntrpvacb --reward /flag -- run ${ARGS[@]}

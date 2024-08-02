@@ -1,3 +1,4 @@
 #!/opt/pwn.college/bash
 
-exec /challenge/chio.py --parent ipython --check_arg 1:szceqsdkro --reward /flag
+ARGS="$@"
+exec /challenge/chio.py --parent ipython --check_arg 1:szceqsdkro --reward /flag -- run ${ARGS[@]}

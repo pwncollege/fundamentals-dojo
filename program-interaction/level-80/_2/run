@@ -1,3 +1,4 @@
 #!/opt/pwn.college/bash
 
-exec /challenge/chio.py --parent binary --check_arg 257:infgesazkf --reward /flag
+ARGS="$@"
+exec /challenge/chio.py --parent binary --check_arg 257:infgesazkf --reward /flag -- run ${ARGS[@]}

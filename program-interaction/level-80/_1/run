@@ -1,3 +1,4 @@
 #!/opt/pwn.college/bash
 
-exec /challenge/chio.py --parent binary --check_arg 144:qxcicijwat --reward /flag
+ARGS="$@"
+exec /challenge/chio.py --parent binary --check_arg 144:qxcicijwat --reward /flag -- run ${ARGS[@]}

@@ -1,3 +1,4 @@
 #!/opt/pwn.college/bash
 
-exec /challenge/chio.py --parent shellscript --cwd /tmp/nylhny --check_stdin_path lzicpf --reward /flag
+ARGS="$@"
+exec /challenge/chio.py --parent shellscript --cwd /tmp/nylhny --check_stdin_path lzicpf --reward /flag -- run ${ARGS[@]}

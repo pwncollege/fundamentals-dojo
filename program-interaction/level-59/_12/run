@@ -1,3 +1,4 @@
 #!/opt/pwn.college/bash
 
-exec /challenge/chio.py --parent python --check_stdin_pipe rev --password wldllffz --reward /flag
+ARGS="$@"
+exec /challenge/chio.py --parent python --check_stdin_pipe rev --password wldllffz --reward /flag -- run ${ARGS[@]}

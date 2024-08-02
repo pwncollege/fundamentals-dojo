@@ -1,3 +1,4 @@
 #!/opt/pwn.college/bash
 
-exec /challenge/chio.py --parent shellscript --check_stdin_path /tmp/idbwcl --password snqoqnka --reward /flag
+ARGS="$@"
+exec /challenge/chio.py --parent shellscript --check_stdin_path /tmp/idbwcl --password snqoqnka --reward /flag -- run ${ARGS[@]}

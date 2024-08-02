@@ -1,3 +1,4 @@
 #!/opt/pwn.college/bash
 
-exec /challenge/chio.py --parent shellscript --num_signals 500 --reward /flag
+ARGS="$@"
+exec /challenge/chio.py --parent shellscript --num_signals 500 --reward /flag -- run ${ARGS[@]}

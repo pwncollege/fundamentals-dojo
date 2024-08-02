@@ -1,3 +1,4 @@
 #!/opt/pwn.college/bash
 
-exec /challenge/chio.py --parent binary --cwd /tmp/cfhtsr --check_stdin_path vvpvpg --reward /flag
+ARGS="$@"
+exec /challenge/chio.py --parent binary --cwd /tmp/cfhtsr --check_stdin_path vvpvpg --reward /flag -- run ${ARGS[@]}

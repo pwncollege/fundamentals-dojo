@@ -1,3 +1,4 @@
 #!/opt/pwn.college/bash
 
-exec /challenge/chio.py --parent python --check_env 56:mdkmudoxxm --empty_env --check_arg 270:tqdtbudzzf --reward /flag
+ARGS="$@"
+exec /challenge/chio.py --parent python --check_env 56:mdkmudoxxm --empty_env --check_arg 270:tqdtbudzzf --reward /flag -- run ${ARGS[@]}

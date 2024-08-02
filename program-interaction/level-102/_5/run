@@ -1,3 +1,4 @@
 #!/opt/pwn.college/bash
 
-exec /challenge/chio.py --parent python --check_arg 0:thumrf --reward /flag
+ARGS="$@"
+exec /challenge/chio.py --parent python --check_arg 0:thumrf --reward /flag -- run ${ARGS[@]}

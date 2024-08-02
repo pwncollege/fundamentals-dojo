@@ -1,3 +1,4 @@
 #!/opt/pwn.college/bash
 
-exec /challenge/chio.py --parent bash --password gwahyrcg --reward /flag
+ARGS="$@"
+exec /challenge/chio.py --parent bash --password gwahyrcg --reward /flag -- run ${ARGS[@]}

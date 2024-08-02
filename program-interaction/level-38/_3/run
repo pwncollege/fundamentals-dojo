@@ -1,3 +1,4 @@
 #!/opt/pwn.college/bash
 
-exec /challenge/chio.py --parent bash --check_stdout_pipe sed --reward /flag
+ARGS="$@"
+exec /challenge/chio.py --parent bash --check_stdout_pipe sed --reward /flag -- run ${ARGS[@]}

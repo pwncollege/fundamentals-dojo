@@ -1,3 +1,4 @@
 #!/opt/pwn.college/bash
 
-exec /challenge/chio.py --parent find --check_arg 1:geocafvnmb --reward /flag
+ARGS="$@"
+exec /challenge/chio.py --parent find --check_arg 1:geocafvnmb --reward /flag -- run ${ARGS[@]}

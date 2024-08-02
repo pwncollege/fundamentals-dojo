@@ -1,3 +1,4 @@
 #!/opt/pwn.college/bash
 
-exec /challenge/chio.py --parent python --check_env mxrsap:lbmbghmoil --reward /flag
+ARGS="$@"
+exec /challenge/chio.py --parent python --check_env mxrsap:lbmbghmoil --reward /flag -- run ${ARGS[@]}

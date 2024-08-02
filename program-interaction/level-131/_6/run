@@ -1,3 +1,4 @@
 #!/opt/pwn.college/bash
 
-exec /challenge/chio.py --parent python --num_challenges 500 --challenge_ops +*&^%| --challenge_depth 10 --reward /flag
+ARGS="$@"
+exec /challenge/chio.py --parent python --num_challenges 500 --challenge_ops +*&^%| --challenge_depth 10 --reward /flag -- run ${ARGS[@]}

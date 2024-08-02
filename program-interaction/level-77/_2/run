@@ -1,3 +1,4 @@
 #!/opt/pwn.college/bash
 
-exec /challenge/chio.py --parent python --check_env 197:onldveuwtk --empty_env --check_arg 323:yranmryflf --reward /flag
+ARGS="$@"
+exec /challenge/chio.py --parent python --check_env 197:onldveuwtk --empty_env --check_arg 323:yranmryflf --reward /flag -- run ${ARGS[@]}

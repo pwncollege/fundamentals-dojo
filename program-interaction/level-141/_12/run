@@ -1,3 +1,4 @@
 #!/opt/pwn.college/bash
 
-exec /challenge/chio.py --client python --listen_dup 1679 --num_challenges 5 --challenge_ops +*% --challenge_depth 3 --reward /flag
+ARGS="$@"
+exec /challenge/chio.py --client python --listen_dup 1679 --num_challenges 5 --challenge_ops +*% --challenge_depth 3 --reward /flag -- run ${ARGS[@]}
