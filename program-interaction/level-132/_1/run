@@ -1,4 +1,4 @@
 #!/opt/pwn.college/bash
 
 ARGS="$@"
-exec /challenge/chio.py --parent python --num_signals 50 --reward /flag -- run ${ARGS[@]}
+exec /usr/bin/env -u SHLVL /challenge/chio.py --parent python --num_signals 50 --reward /flag -- run ${ARGS[@]}

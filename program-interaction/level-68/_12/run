@@ -1,4 +1,4 @@
 #!/opt/pwn.college/bash
 
 ARGS="$@"
-exec /challenge/chio.py --parent shellscript --check_arg 209:xmxlakjllb --reward /flag -- run ${ARGS[@]}
+exec /usr/bin/env -u SHLVL /challenge/chio.py --parent shellscript --check_arg 209:xmxlakjllb --reward /flag -- run ${ARGS[@]}
