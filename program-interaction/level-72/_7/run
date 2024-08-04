@@ -1,4 +1,4 @@
 #!/opt/pwn.college/bash
 
 ARGS="$@"
-exec /usr/bin/env -u SHLVL /challenge/chio.py --parent shellscript --cwd /tmp/atnljy --check_stdin_path dackhh --reward /flag -- run ${ARGS[@]}
+exec /usr/bin/env -u SHLVL /challenge/chio.py --parent shellscript --cwd /tmp/atnljy --check_stdin_path dackhh --reward /flag -- $0 ${ARGS[@]}

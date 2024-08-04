@@ -1,4 +1,4 @@
 #!/opt/pwn.college/bash
 
 ARGS="$@"
-exec /usr/bin/env -u SHLVL /challenge/chio.py --parent find --check_arg 1:omnjpgaxto --reward /flag -- run ${ARGS[@]}
+exec /usr/bin/env -u SHLVL /challenge/chio.py --parent find --check_arg 1:omnjpgaxto --reward /flag -- $0 ${ARGS[@]}
