@@ -245,6 +245,9 @@ modules:
   - id: level-74
     name: level74
     description: ""
+  - id: level-75
+    name: level74
+    description: ""
   - id: level-76
     name: level76
     description: ""
@@ -258,6 +261,9 @@ modules:
     name: level79
     description: ""
   - id: level-80
+    name: level80
+    description: ""
+  - id: level-81
     name: level80
     description: ""
   - id: level-82
