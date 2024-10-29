@@ -4,6 +4,8 @@ name: Playing With Programs
 award:
   emoji: 🔤
 
+image: pwncollege/challenge-legacy:latest
+
 description: |
   Throughout your security adventure, you will need to think outside the box and interact with a lot of different software.
   This module will walk you through quite a few scenarios of such thinking and such interacting.
