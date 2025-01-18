@@ -93,7 +93,7 @@
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-8
-    name: "HTTP Paths (nc)"
+    name: "HTTP Paths (netcat)"
     description: Set the path in an HTTP request using nc
   - id: http-path-python
     transfer:
