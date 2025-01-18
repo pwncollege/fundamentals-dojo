@@ -46,284 +46,279 @@
       challenge: level-1
     name: "HTTP (curl)"
     description: Send an HTTP request using curl
-  - id: level-2
+  - id: http-nc
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-2
-    name: level2
+    name: "HTTP (netcat)"
     description: Send an HTTP request using nc
-  - id: level-3
+  - id: http-python
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-3
-    name: level3
+    name: "HTTP (python)"
     description: Send an HTTP request using python
-  - id: level-4
+  - id: http-host-curl
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-4
-    name: level4
+    name: "HTTP Host Header (curl)"
     description: Set the host header in an HTTP request using curl
-  - id: level-5
+  - id: http-host-nc
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-5
-    name: level5
+    name: "HTTP Host Header (netcat)"
     description: Set the host header in an HTTP request using nc
-  - id: level-6
+  - id: http-host-python
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-6
-    name: level6
+    name: "HTTP Host Header (python)"
     description: Set the host header in an HTTP request using python
-  - id: level-7
+  - id: http-path-curl
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-7
-    name: level7
+    name: "HTTP Paths (curl)"
     description: Set the path in an HTTP request using curl
-  - id: level-8
+  - id: http-path-nc
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-8
-    name: level8
+    name: "HTTP Paths (nc)"
     description: Set the path in an HTTP request using nc
-  - id: level-9
+  - id: http-path-python
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-9
-    name: level9
+    name: "HTTP Paths (python)"
     description: Set the path in an HTTP request using python
-  - id: level-10
+  - id: url-encoding-curl
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-10
-    name: level10
+    name: "URL Encoding (curl)"
     description: URL encode a path in an HTTP request using curl
-  - id: level-11
+  - id: url-encoding-python
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-11
-    name: level11
+    name: "URL Encoding (netcat)"
     description: URL encode a path in an HTTP request using nc
-  - id: level-12
+  - id: url-encoding-nc
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-12
-    name: level12
+    name: "URL Encoding (python)"
     description: URL encode a path in an HTTP request using python
-  - id: level-13
+  - id: http-get-arguments-curl
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-13
-    name: level13
+    name: "HTTP Arguments (curl)"
     description: Specify an argument in an HTTP request using curl
-  - id: level-14
+  - id: http-get-arguments-nc
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-14
-    name: level14
+    name: "HTTP Arguments (netcat)"
     description: Specify an argument in an HTTP request using nc
-  - id: level-15
+  - id: http-get-arguments-python
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-15
-    name: level15
+    name: "HTTP Arguments (python)"
     description: Specify an argument in an HTTP request using python
-  - id: level-16
+  - id: http-get-multiarg-curl
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-16
-    name: level16
+    name: "Multiple HTTP Arguments (curl)"
     description: Specify multiple arguments in an HTTP request using curl
-  - id: level-17
+  - id: http-get-multiarg-nc
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-17
-    name: level17
+    name: "Multiple HTTP Arguments (netcat)"
     description: Specify multiple arguments in an HTTP request using nc
-  - id: level-18
+  - id: http-get-multiarg-python
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-18
-    name: level18
+    name: "Multiple HTTP Arguments (python)"
     description: Specify multiple arguments in an HTTP request using python
-  - id: level-19
+  - id: http-form-curl
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-19
-    name: level19
+    name: "HTTP Forms (curl)"
     description: Include form data in an HTTP request using curl
-  - id: level-20
+  - id: http-form-nc
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-20
-    name: level20
+    name: "HTTP Forms (netcat)"
     description: Include form data in an HTTP request using nc
-  - id: level-21
+  - id: http-form-python
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-21
-    name: level21
+    name: "HTTP Forms (python)"
     description: Include form data in an HTTP request using python
-  - id: level-22
+  - id: http-form-multi-curl
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-22
-    name: level22
+    name: "Multiple Form Fields (curl)"
     description: Include form data with multiple fields in an HTTP request using curl
-  - id: level-23
+  - id: http-form-multi-nc
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-23
-    name: level23
+    name: "Multiple Form Fields (netcat)"
     description: Include form data with multiple fields in an HTTP request using nc
-  - id: level-24
+  - id: http-form-multi-python
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-24
-    name: level24
+    name: "Multiple Form Fields (python)"
     description: Include form data with multiple fields in an HTTP request using python
-  - id: level-25
+  - id: http-json-curl
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-25
-    name: level25
+    name: "JSON Parameters (curl)"
     description: Include json data in an HTTP request using curl
-  - id: level-26
+  - id: http-json-nc
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-26
-    name: level26
+    name: "JSON Parameters (netcat)"
     description: Include json data in an HTTP request using nc
-  - id: level-27
+  - id: http-json-python
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-27
-    name: level27
+    name: "JSON Parameters (python)"
     description: Include json data in an HTTP request using python
-  - id: level-28
+  - id: http-json-complex-curl
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-28
-    name: level28
+    name: "Complex JSON Parameters (curl)"
     description: Include complex json data in an HTTP request using curl
-  - id: level-29
+  - id: http-json-complex-nc
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-29
-    name: level29
+    name: "Complex JSON Parameters (netcat)"
     description: Include complex json data in an HTTP request using nc
-  - id: level-30
+  - id: http-json-complex-python
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-30
-    name: level30
+    name: "Complex JSON Parameters (python)"
     description: Include complex json data in an HTTP request using python
-  - id: level-31
+  - id: http-redirect-curl
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-31
-    name: level31
+    name: "HTTP Redirects (curl)"
     description: Follow an HTTP redirect from HTTP response using curl
-  - id: level-32
+  - id: http-redirect-nc
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-32
-    name: level32
+    name: "HTTP Redirects (netcat)"
     description: Follow an HTTP redirect from HTTP response using nc
-  - id: level-33
+  - id: http-redirect-python
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-33
-    name: level33
+    name: "HTTP Redirects (python)"
     description: |
       Follow an HTTP redirect from HTTP response using python
 
       If you think this level is too easy: that's intended!
       You are achieving the same behavior as the previous level, but now with python-requests, a very friendly user-agent.
-  - id: level-34
+  - id: http-cookies-curl
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-34
-    name: level34
+    name: "HTTP Cookies (curl)"
     description: Include a cookie from HTTP response using curl
-  - id: level-35
+  - id: http-cookies-netcat
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-35
-    name: level35
+    name: "HTTP Cookies (netcat)"
     description: Include a cookie from HTTP response using nc
-  - id: level-36
+  - id: http-cookies-python
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-36
-    name: level36
+    name: "HTTP Cookies (python)"
     description: |
       Include a cookie from HTTP response using python
-
-      If you think this level is too easy: that's intended!
-      You are achieving the same behavior as the previous level, but now with python-requests, a very friendly user-agent.
-  - id: level-37
+      ---
+      **HINT:** If you aren't already using it, check out `requests.Session`!
+  - id: http-multi-request-curl
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-37
-    name: level37
+    name: "Server State (curl)"
     description: Make multiple requests in response to stateful HTTP responses using curl
-  - id: level-38
+  - id: http-multi-request-nc
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-38
-    name: level38
+    name: "Server State (netcat)"
     description: Make multiple requests in response to stateful HTTP responses using nc
-  - id: level-39
+  - id: http-multi-request-python
     transfer:
       dojo: intro-to-cybersecurity
       module: talking-web
       challenge: level-39
-    name: level39
-    description: |
-      Make multiple requests in response to stateful HTTP responses using python
-
-      If you think this level is too easy: that's intended!
-      You are achieving the same behavior as the previous level, but now with python-requests, a very friendly user-agent.
+    name: "Server State (python)"
+    description: Make multiple requests in response to stateful HTTP responses using python
   resources:
   - name: "Talking Web: Introduction"
     type: lecture
