@@ -158,11 +158,6 @@ challenges:
   name: level51
   description: Shows how dangerous it is to allow users to load their own code as plugins into the program (but figuring out how is the hard part)!
 resources:
-- name: "Program Interaction: Linux Command Line"
-  type: lecture
-  video: w7nQFk6bi_k
-  playlist: PL-ymxv0nOtqqQ4NR1JnbWoHNm0Q8EspO1
-  slides: 1aiHdtSm8xoT0u2XcTo3qYGes5GY__-PK-FlVyNBQAfY
 - name: "Program Misuse: Privilege Escalation"
   type: lecture
   video: ZWxYWdiXqD8
