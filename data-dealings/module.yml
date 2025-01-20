@@ -435,7 +435,7 @@ challenges:
           - hexdecode
         pw_type: bytes
 
-- id: password-base64-decode
+- id: password-b64-decode
   name: "Decoding Base64"
   description: |
     ASCII and UTF-8 are encodings meant for very specific data: text (or text-like characters).
@@ -482,6 +482,10 @@ challenges:
     **FUN FACT:**
     The flag data in `pwn.college{FLAG}` is actually base64-encoded ciphertext.
     You're well on the way to being able to build something like the dojo!
+  transfer:
+    dojo: intro-to-cybersecurity
+    module: cryptography
+    challenge: level-1
   auxiliary:
     pwnshop:
       attributes:
@@ -490,7 +494,7 @@ challenges:
           - b64decode
         pw_type: bytes
 
-- id: password-base64-encode
+- id: password-b64-encode
   name: "Encoding Base64"
   description: |
     Needless to say, you can also _en_code things to base64!
