@@ -9,7 +9,7 @@ def reverse_string(s):
 
 print("Enter the password:")
 entered_password = sys.stdin.buffer.read1()
-correct_password = b"\x99\xa3\x9f\x8e\xa3\xfd\x96\xb4"
+correct_password = b"\x0f&\xdd\x8d3\xf0\x1c\xe5"
 
 print(f"Read {len(entered_password)} bytes.")
 

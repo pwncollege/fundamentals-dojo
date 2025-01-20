@@ -7,7 +7,7 @@ import base64
 
 print("Enter the password:")
 entered_password = sys.stdin.buffer.read1()
-correct_password = b"oOtHJ6iyVuE="
+correct_password = b"GxCoUMT0bJ8="
 
 print(f"Read {len(entered_password)} bytes.")
 

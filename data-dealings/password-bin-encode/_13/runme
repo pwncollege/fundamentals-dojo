@@ -12,7 +12,7 @@ def decode_from_bits(s):
 
 print("Enter the password:")
 entered_password = sys.stdin.buffer.read1()
-correct_password = b"\xa3\xcb\x9b\xe1\xf1\xcb\xc2\xe7"
+correct_password = b"\xf3\xe1\xf7\x93\x89\xa8\x89\xb0"
 
 print(f"Read {len(entered_password)} bytes.")
 
