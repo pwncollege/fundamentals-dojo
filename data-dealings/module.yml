@@ -25,6 +25,7 @@ challenges:
   auxiliary:
     pwnshop:
       attributes:
+        seed: 133728000
         strip: True
 - id: password-simple-2
   name: "... and again!"
@@ -34,6 +35,7 @@ challenges:
   auxiliary:
     pwnshop:
       attributes:
+        seed: 133738000
         strip: True
 - id: password-simple-nostrip
   name: "Newline Troubles"
@@ -54,6 +56,7 @@ challenges:
   auxiliary:
     pwnshop:
       attributes:
+        seed: 133759000
         strip: False
         warn_newline: True
 
@@ -66,6 +69,7 @@ challenges:
   auxiliary:
     pwnshop:
       attributes:
+        seed: 133772000
         strip: False
         warn_newline: True
         input_method: "fixedfile"
@@ -78,6 +82,7 @@ challenges:
   auxiliary:
     pwnshop:
       attributes:
+        seed: 133785000
         strip: False
         warn_newline: True
         input_method: "argfile"
@@ -164,6 +169,7 @@ challenges:
   auxiliary:
     pwnshop:
       attributes:
+        seed: 1337172000
         input_method: "stdin"
         pw_type: highbyte
         input_mutators:
@@ -184,6 +190,7 @@ challenges:
   auxiliary:
     pwnshop:
       attributes:
+        seed: 1337193000
         input_method: "stdin"
         pw_type: highbytes
         input_mutators:
@@ -209,6 +216,7 @@ challenges:
   auxiliary:
     pwnshop:
       attributes:
+        seed: 1337219000
         input_method: "stdin"
         pw_type: highbytes
         reference_mutators:
@@ -222,6 +230,7 @@ challenges:
   auxiliary:
     pwnshop:
       attributes:
+        seed: 1337233000
         input_method: "stdin"
         pw_type: highbytes
         reference_mutators:
@@ -234,6 +243,7 @@ challenges:
   auxiliary:
     pwnshop:
       attributes:
+        seed: 1337246000
         input_method: "stdin"
         pw_type: highbytes
         input_mutators:
@@ -295,6 +305,7 @@ challenges:
   auxiliary:
     pwnshop:
       attributes:
+        seed: 1337308000
         input_method: "random"
         input_mutators:
           - hexdecode
@@ -307,6 +318,7 @@ challenges:
   auxiliary:
     pwnshop:
       attributes:
+        seed: 1337321000
         input_method: "random"
         input_mutators:
           - hexdecode
@@ -340,6 +352,7 @@ challenges:
   auxiliary:
     pwnshop:
       attributes:
+        seed: 1337355000
         input_method: "random"
         pw_type: "emoji"
         input_mutators:
@@ -369,6 +382,7 @@ challenges:
   auxiliary:
     pwnshop:
       attributes:
+        seed: 1337385000
         input_method: "random"
         forbid_password: True
         input_mutators:
@@ -415,6 +429,7 @@ challenges:
   auxiliary:
     pwnshop:
       attributes:
+        seed: 1337432000
         input_mutators:
           - reverse
           - hexdecode
@@ -470,6 +485,7 @@ challenges:
   auxiliary:
     pwnshop:
       attributes:
+        seed: 1337488000
         reference_mutators:
           - b64decode
         pw_type: bytes
@@ -482,6 +498,7 @@ challenges:
   auxiliary:
     pwnshop:
       attributes:
+        seed: 1337501000
         input_mutators:
           - b64decode
         pw_type: bytes
@@ -499,6 +516,7 @@ challenges:
   auxiliary:
     pwnshop:
       attributes:
+        seed: 1337519000
         reference_mutator_depth: 4
         reference_mutator_options:
           - binencode
@@ -524,6 +542,7 @@ challenges:
   auxiliary:
     pwnshop:
       attributes:
+        seed: 1337545000
         reference_mutator_depth: 4
         input_mutator_depth: 4
         input_mutator_options:
