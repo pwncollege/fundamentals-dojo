@@ -540,7 +540,7 @@ challenges:
         pw_type: bytes
 
 - id: password-obfuscate-2
-  name: "Dealing with Obfuscation"
+  name: "Dealing with Obfuscation 2"
   description: |
     Can you go further?
   auxiliary:
