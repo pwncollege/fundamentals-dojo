@@ -4,11 +4,11 @@ import sys
 
 
 try:
-    entered_password = open("hdgf", "rb").read()
+    entered_password = open("xcbr", "rb").read()
 except FileNotFoundError:
     print("Input file not found...")
     sys.exit(1)
-correct_password = "🨤 🠯 😍 🞖".encode("utf-8")
+correct_password = "🥓 🏿 🧵 🞇".encode("utf-8")
 
 print(f"Read {len(entered_password)} bytes.")
 

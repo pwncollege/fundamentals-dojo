@@ -4,11 +4,11 @@ import sys
 
 
 try:
-    entered_password = open(sys.argv[1], "rb").read()
+    entered_password = open("khpx", "rb").read()
 except FileNotFoundError:
     print("Input file not found...")
     sys.exit(1)
-correct_password = b"dpkawahq"
+correct_password = b"qsdreiid"
 
 print(f"Read {len(entered_password)} bytes.")
 

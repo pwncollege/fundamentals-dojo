@@ -3,9 +3,12 @@
 import sys
 
 
-print("Enter the password:")
-entered_password = sys.stdin.buffer.read1()
-correct_password = "🧆 🡰 🧜 😦".encode("utf-8")
+try:
+    entered_password = open(sys.argv[1], "rb").read()
+except FileNotFoundError:
+    print("Input file not found...")
+    sys.exit(1)
+correct_password = "🛓 🎳 🢪 👺".encode("utf-8")
 
 print(f"Read {len(entered_password)} bytes.")
 

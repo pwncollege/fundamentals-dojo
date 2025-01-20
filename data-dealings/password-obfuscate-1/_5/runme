@@ -2,7 +2,9 @@
 
 import sys
 
-import base64
+
+def reverse_string(s):
+    return s[::-1]
 
 
 def encode_to_bits(s):
@@ -11,15 +13,15 @@ def encode_to_bits(s):
 
 print("Enter the password:")
 entered_password = sys.stdin.buffer.read1()
-correct_password = b"\x89\xa8#/\xaf1\xd2J"
+correct_password = b"\x15\xe4}\x15wAW\xd4"
 
 print(f"Read {len(entered_password)} bytes.")
 
 
 correct_password = correct_password.hex().encode("l1")
-correct_password = base64.b64encode(correct_password)
-correct_password = correct_password.hex().encode("l1")
 correct_password = encode_to_bits(correct_password)
+correct_password = encode_to_bits(correct_password)
+correct_password = correct_password[::-1]
 
 
 if entered_password == correct_password:

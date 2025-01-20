@@ -13,7 +13,7 @@ if b"\n" in entered_password:
     print("Editors add them sometimes /")
     print("Learn to remove them.")
 
-correct_password = b"gwfuzvhv"
+correct_password = b"ulqhrskn"
 
 print(f"Read {len(entered_password)} bytes.")
 

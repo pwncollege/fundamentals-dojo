@@ -4,7 +4,7 @@ import sys
 
 
 try:
-    entered_password = open("ehsx", "rb").read()
+    entered_password = open("dmgr", "rb").read()
 except FileNotFoundError:
     print("Input file not found...")
     sys.exit(1)
@@ -13,7 +13,7 @@ if b"\n" in entered_password:
     print("Editors add them sometimes /")
     print("Learn to remove them.")
 
-correct_password = b"pszqkyre"
+correct_password = b"aslabksq"
 
 print(f"Read {len(entered_password)} bytes.")
 

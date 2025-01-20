@@ -7,12 +7,12 @@ def decode_from_bits(s):
     s = s.decode("latin1")
     assert set(s) <= {"0", "1"}, "non-binary characters found in bitstream!"
     assert len(s) % 8 == 0, "must enter data in complete bytes (each byte is 8 bits)"
-    return int.to_bytes(int(s, 2), length=len(s) // 8)
+    return int.to_bytes(int(s, 2), length=len(s) // 8, byteorder="big")
 
 
 print("Enter the password:")
 entered_password = sys.stdin.buffer.read1()
-correct_password = b"1000110010001111111111101010001011111101110110101110001011001001"
+correct_password = b"1001011010001010111101011000001010111010101001101101101011101101"
 
 print(f"Read {len(entered_password)} bytes.")
 

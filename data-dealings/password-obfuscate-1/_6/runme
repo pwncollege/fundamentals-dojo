@@ -13,14 +13,14 @@ def encode_to_bits(s):
 
 print("Enter the password:")
 entered_password = sys.stdin.buffer.read1()
-correct_password = b"\xf2/\xc1\xed\x85yh\xc5"
+correct_password = b"#\xedY\x8dL\xa1p\xde"
 
 print(f"Read {len(entered_password)} bytes.")
 
 
 correct_password = encode_to_bits(correct_password)
-correct_password = correct_password[::-1]
 correct_password = correct_password.hex().encode("l1")
+correct_password = encode_to_bits(correct_password)
 correct_password = correct_password[::-1]
 
 

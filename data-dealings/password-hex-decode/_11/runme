@@ -5,7 +5,7 @@ import sys
 
 print("Enter the password:")
 entered_password = sys.stdin.buffer.read1()
-correct_password = b"b4bf86aeb4d98eef"
+correct_password = b"83a3c7dddbeeebc2"
 
 print(f"Read {len(entered_password)} bytes.")
 
