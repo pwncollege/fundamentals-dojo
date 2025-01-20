@@ -22,6 +22,7 @@ type: welcome
 
 modules:
 
+- id: data-dealings
+- id: talking-web
 - id: program-misuse
 - id: program-interaction
-- id: talking-web
