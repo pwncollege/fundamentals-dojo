@@ -1,4 +1,4 @@
-#!/usr/bin/env exec-suid -- /bin/python3 -I
+#!/usr/bin/exec-suid -- /bin/python3 -I
 
 import sys
 
@@ -8,7 +8,7 @@ try:
 except FileNotFoundError:
     print("Input file not found...")
     sys.exit(1)
-correct_password = b"tficqdok"
+correct_password = b"cpwliepg"
 
 print(f"Read {len(entered_password)} bytes.")
 

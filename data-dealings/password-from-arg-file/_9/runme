@@ -1,4 +1,4 @@
-#!/usr/bin/env exec-suid -- /bin/python3 -I
+#!/usr/bin/exec-suid -- /bin/python3 -I
 
 import sys
 
@@ -13,7 +13,7 @@ if b"\n" in entered_password:
     print("Editors add them sometimes /")
     print("Learn to remove them.")
 
-correct_password = b"ocbsetrq"
+correct_password = b"gwfuzvhv"
 
 print(f"Read {len(entered_password)} bytes.")
 

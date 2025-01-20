@@ -1,12 +1,8 @@
-#!/usr/bin/env exec-suid -- /bin/python3 -I
+#!/usr/bin/exec-suid -- /bin/python3 -I
 
 import sys
 
 import base64
-
-
-def reverse_string(s):
-    return s[::-1]
 
 
 def encode_to_bits(s):
@@ -15,15 +11,15 @@ def encode_to_bits(s):
 
 print("Enter the password:")
 entered_password = sys.stdin.buffer.read1()
-correct_password = b"\x87\x83'\x9dh;V*"
+correct_password = b"\x1a\x0e\xd5\xa0\xcae\xf3\x1f"
 
 print(f"Read {len(entered_password)} bytes.")
 
 
-correct_password = correct_password.hex().encode("l1")
-correct_password = encode_to_bits(correct_password)
 correct_password = base64.b64encode(correct_password)
-correct_password = correct_password[::-1]
+correct_password = correct_password.hex().encode("l1")
+correct_password = base64.b64encode(correct_password)
+correct_password = encode_to_bits(correct_password)
 
 
 if entered_password == correct_password:

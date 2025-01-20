@@ -1,4 +1,4 @@
-#!/usr/bin/env exec-suid -- /bin/python3 -I
+#!/usr/bin/exec-suid -- /bin/python3 -I
 
 import sys
 
@@ -11,20 +11,20 @@ def reverse_string(s):
 
 print("Enter the password:")
 entered_password = sys.stdin.buffer.read1()
-correct_password = b"\x1f\xa3-%I\x9ec\x0e"
+correct_password = b"A\xe4\xc8\x00\xa2\xc8\x8b\xbe"
 
 print(f"Read {len(entered_password)} bytes.")
 
 
-entered_password = bytes.fromhex(entered_password.decode("l1"))
-entered_password = bytes.fromhex(entered_password.decode("l1"))
-entered_password = entered_password[::-1]
 entered_password = base64.b64decode(entered_password.decode("l1"))
+entered_password = entered_password[::-1]
+entered_password = entered_password[::-1]
+entered_password = bytes.fromhex(entered_password.decode("l1"))
 
 correct_password = correct_password[::-1]
 correct_password = correct_password.hex().encode("l1")
-correct_password = correct_password[::-1]
-correct_password = correct_password[::-1]
+correct_password = base64.b64encode(correct_password)
+correct_password = base64.b64encode(correct_password)
 
 
 if entered_password == correct_password:

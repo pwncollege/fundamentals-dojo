@@ -1,4 +1,4 @@
-#!/usr/bin/env exec-suid -- /bin/python3 -I
+#!/usr/bin/exec-suid -- /bin/python3 -I
 
 import sys
 
@@ -12,7 +12,7 @@ def decode_from_bits(s):
 
 print("Enter the password:")
 entered_password = sys.stdin.buffer.read1()
-correct_password = b"\xbc\x9c\x81\x9d\xd6\xc2\xfc\xa8"
+correct_password = b"\x8f\xdb\xab\x84\xf9\xe9\xf5\xa3"
 
 print(f"Read {len(entered_password)} bytes.")
 

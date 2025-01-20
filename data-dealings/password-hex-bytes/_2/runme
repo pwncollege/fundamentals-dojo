@@ -1,11 +1,11 @@
-#!/usr/bin/env exec-suid -- /bin/python3 -I
+#!/usr/bin/exec-suid -- /bin/python3 -I
 
 import sys
 
 
 print("Enter the password:")
 entered_password = sys.stdin.buffer.read1()
-correct_password = b"\xc6\xf2\x93\xf7\xe4\x81\x9f\xb2"
+correct_password = b"\xc1\xda\xfa\xa6\xd8\xb7\x8e\xe4"
 
 print(f"Read {len(entered_password)} bytes.")
 

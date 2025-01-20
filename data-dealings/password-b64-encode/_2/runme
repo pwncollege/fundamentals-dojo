@@ -1,4 +1,4 @@
-#!/usr/bin/env exec-suid -- /bin/python3 -I
+#!/usr/bin/exec-suid -- /bin/python3 -I
 
 import sys
 
@@ -7,7 +7,7 @@ import base64
 
 print("Enter the password:")
 entered_password = sys.stdin.buffer.read1()
-correct_password = b"\x0f&\xdd\x8d3\xf0\x1c\xe5"
+correct_password = b"\xc8F\x1cD\x06\x7f\xddR"
 
 print(f"Read {len(entered_password)} bytes.")
 

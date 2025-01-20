@@ -1,4 +1,4 @@
-#!/usr/bin/env exec-suid -- /bin/python3 -I
+#!/usr/bin/exec-suid -- /bin/python3 -I
 
 import sys
 
@@ -15,14 +15,14 @@ def encode_to_bits(s):
 
 print("Enter the password:")
 entered_password = sys.stdin.buffer.read1()
-correct_password = b"\xda\x12Ep\x19x\x18\x11"
+correct_password = b"\xdfW\x12S\x10]h\xb5"
 
 print(f"Read {len(entered_password)} bytes.")
 
 
+correct_password = correct_password[::-1]
 correct_password = encode_to_bits(correct_password)
 correct_password = base64.b64encode(correct_password)
-correct_password = correct_password.hex().encode("l1")
 correct_password = correct_password[::-1]
 
 

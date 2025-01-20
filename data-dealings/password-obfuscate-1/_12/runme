@@ -1,4 +1,4 @@
-#!/usr/bin/env exec-suid -- /bin/python3 -I
+#!/usr/bin/exec-suid -- /bin/python3 -I
 
 import sys
 
@@ -11,14 +11,14 @@ def reverse_string(s):
 
 print("Enter the password:")
 entered_password = sys.stdin.buffer.read1()
-correct_password = b"_C-U\x98\t\xb5\xf8"
+correct_password = b".\x89\x00\xff\xed\x1a\x19`"
 
 print(f"Read {len(entered_password)} bytes.")
 
 
+correct_password = correct_password.hex().encode("l1")
 correct_password = base64.b64encode(correct_password)
-correct_password = correct_password.hex().encode("l1")
-correct_password = correct_password.hex().encode("l1")
+correct_password = base64.b64encode(correct_password)
 correct_password = correct_password[::-1]
 
 
