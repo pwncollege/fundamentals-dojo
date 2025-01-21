@@ -577,3 +577,32 @@ challenges:
           - reverse
           - reverse
         pw_type: bytes
+resources:
+- name: "Binary Data"
+  type: lecture
+  video: suXDtRgeHdU
+  playlist: PL-ymxv0nOtqrIw6GL1ih9aMoX0UdzUBWI
+  slides: 13lXkCQ-wkc-AHZkNhPAckDLX_kTt6N5Jx2bD_27Wkys
+- name: "Hex"
+  type: lecture
+  video: POOGhx_c3K4
+  playlist: PL-ymxv0nOtqrIw6GL1ih9aMoX0UdzUBWI
+  slides: 18GJFqBmM0Iei6QNzz_uozpfKACGuv6FUxCMv108uQew
+- name: "Encoding Text"
+  type: lecture
+  video: wKRBLlXRg4E
+  playlist: PL-ymxv0nOtqrIw6GL1ih9aMoX0UdzUBWI
+  slides: 18GJFqBmM0Iei6QNzz_uozpfKACGuv6FUxCMv108uQew
+- name: "Playing with Encodings"
+  type: lecture
+  video: qeNxIxzGvkU 
+  playlist: PL-ymxv0nOtqrIw6GL1ih9aMoX0UdzUBWI
+- name: "Base64"
+  type: lecture
+  video: -f7kwANJ_x4 
+  playlist: PL-ymxv0nOtqrIw6GL1ih9aMoX0UdzUBWI
+  slides: 1zU1PZBhxCNuP4_gKBB3jeRDSJD1P8RNDA3sA3PGfKBg
+- name: "Gleaning Challenge Insight"
+  type: lecture
+  video: 2Zu7qHC_C28
+  playlist: PL-ymxv0nOtqrIw6GL1ih9aMoX0UdzUBWI
