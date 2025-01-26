@@ -30,10 +30,10 @@ def random_word(length):
     return "".join(random.sample(string.ascii_letters, length))
 
 
-flag = open("/flag").read()
+flag = open("/flag").read().strip()
 
 # https://www.sqlite.org/lang_createtable.html
-db.execute("""CREATE TABLE repository AS SELECT 1 as flag_tag, ? as element""", [random_word(len(flag))])
+db.execute("""CREATE TABLE repository AS SELECT 1 as flag_tag, ? as resource""", [random_word(len(flag))])
 # https://www.sqlite.org/lang_insert.html
 for i in range(random.randrange(5, 42)):
     db.execute("""INSERT INTO repository VALUES(1, ?)""", [random_word(len(flag))])

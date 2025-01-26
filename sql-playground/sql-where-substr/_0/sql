@@ -30,18 +30,18 @@ def random_word(length):
     return "".join(random.sample(string.ascii_letters, length))
 
 
-flag = open("/flag").read()
+flag = open("/flag").read().strip()
 
 # https://www.sqlite.org/lang_createtable.html
-db.execute("""CREATE TABLE secrets AS SELECT ? as text""", [random_word(len(flag))])
+db.execute("""CREATE TABLE items AS SELECT ? as blob""", [random_word(len(flag))])
 # https://www.sqlite.org/lang_insert.html
 for i in range(random.randrange(5, 42)):
-    db.execute("""INSERT INTO secrets VALUES(?)""", [random_word(len(flag))])
-db.execute("""INSERT INTO secrets VALUES(?)""", [flag])
+    db.execute("""INSERT INTO items VALUES(?)""", [random_word(len(flag))])
+db.execute("""INSERT INTO items VALUES(?)""", [flag])
 
 
 for i in range(random.randrange(5, 42)):
-    db.execute("""INSERT INTO secrets VALUES(?)""", [random_word(len(flag))])
+    db.execute("""INSERT INTO items VALUES(?)""", [random_word(len(flag))])
 
 # HINT: https://www.sqlite.org/lang_corefunc.html#substr
 for _ in range(1):

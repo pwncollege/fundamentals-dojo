@@ -26,7 +26,7 @@ class TemporaryDB:
 db = TemporaryDB()
 
 # https://www.sqlite.org/lang_createtable.html
-db.execute("""CREATE TABLE entries AS SELECT ? as value""", [open("/flag").read()])
+db.execute("""CREATE TABLE repository AS SELECT ? as resource""", [open("/flag").read().strip()])
 
 # HINT: https://www.sqlite.org/lang_select.html
 for _ in range(1):

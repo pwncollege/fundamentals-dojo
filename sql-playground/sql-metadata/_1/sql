@@ -26,7 +26,7 @@ class TemporaryDB:
 db = TemporaryDB()
 
 table_name = "".join(random.sample(string.ascii_letters, 8))
-db.execute(f"""CREATE TABLE {table_name} AS SELECT ? as info""", [open("/flag").read()])
+db.execute(f"""CREATE TABLE {table_name} AS SELECT ? as field""", [open("/flag").read().strip()])
 
 # HINT: https://www.sqlite.org/schematab.html
 for _ in range(2):

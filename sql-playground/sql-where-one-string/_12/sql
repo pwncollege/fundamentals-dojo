@@ -30,7 +30,7 @@ def random_word(length):
     return "".join(random.sample(string.ascii_letters, length))
 
 
-flag = open("/flag").read()
+flag = open("/flag").read().strip()
 
 # https://www.sqlite.org/lang_createtable.html
 db.execute("""CREATE TABLE logs AS SELECT 'nope' as flag_tag, ? as info""", [random_word(len(flag))])
