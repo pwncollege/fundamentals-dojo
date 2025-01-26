@@ -27,21 +27,21 @@ db = TemporaryDB()
 
 
 def random_word(length):
-    return "".join(random.sample(string.ascii_letters, length))
+    return "".join(random.sample(string.ascii_letters * 10, length))
 
 
 flag = open("/flag").read().strip()
 
 # https://www.sqlite.org/lang_createtable.html
-db.execute("""CREATE TABLE fragments AS SELECT 1 as flag_tag, ? as payload""", [random_word(len(flag))])
+db.execute("""CREATE TABLE details AS SELECT 1 as flag_tag, ? as entry""", [random_word(len(flag))])
 # https://www.sqlite.org/lang_insert.html
 for i in range(random.randrange(5, 42)):
-    db.execute("""INSERT INTO fragments VALUES(1, ?)""", [random_word(len(flag))])
-db.execute("""INSERT INTO fragments VALUES(?, ?)""", [1337, flag])
+    db.execute("""INSERT INTO details VALUES(1, ?)""", [random_word(len(flag))])
+db.execute("""INSERT INTO details VALUES(?, ?)""", [1337, flag])
 
 
 for i in range(random.randrange(5, 42)):
-    db.execute("""INSERT INTO fragments VALUES(1, ?)""", [random_word(len(flag))])
+    db.execute("""INSERT INTO details VALUES(1, ?)""", [random_word(len(flag))])
 
 # HINT: https://www.sqlite.org/lang_select.html#whereclause
 for _ in range(1):

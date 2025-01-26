@@ -27,21 +27,21 @@ db = TemporaryDB()
 
 
 def random_word(length):
-    return "".join(random.sample(string.ascii_letters, length))
+    return "".join(random.sample(string.ascii_letters * 10, length))
 
 
 flag = open("/flag").read().strip()
 
 # https://www.sqlite.org/lang_createtable.html
-db.execute("""CREATE TABLE repository AS SELECT 'nope' as flag_tag, ? as note""", [random_word(len(flag))])
+db.execute("""CREATE TABLE notes AS SELECT 'nope' as flag_tag, ? as blob""", [random_word(len(flag))])
 # https://www.sqlite.org/lang_insert.html
 for i in range(random.randrange(5, 42)):
-    db.execute("""INSERT INTO repository VALUES('nope', ?)""", [random_word(len(flag))])
-db.execute("""INSERT INTO repository VALUES(?, ?)""", ["yep", flag])
+    db.execute("""INSERT INTO notes VALUES('nope', ?)""", [random_word(len(flag))])
+db.execute("""INSERT INTO notes VALUES(?, ?)""", ["yep", flag])
 
 
 for i in range(random.randrange(5, 42)):
-    db.execute("""INSERT INTO repository VALUES('nope', ?)""", [random_word(len(flag))])
+    db.execute("""INSERT INTO notes VALUES('nope', ?)""", [random_word(len(flag))])
 
 # HINT: https://www.sqlite.org/lang_expr.html
 for _ in range(1):

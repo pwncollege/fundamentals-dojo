@@ -27,27 +27,27 @@ db = TemporaryDB()
 
 
 def random_word(length):
-    return "".join(random.sample(string.ascii_letters, length))
+    return "".join(random.sample(string.ascii_letters * 10, length))
 
 
 flag = open("/flag").read().strip()
 
 # https://www.sqlite.org/lang_createtable.html
-db.execute("""CREATE TABLE secrets AS SELECT ? as info""", [random_word(len(flag))])
+db.execute("""CREATE TABLE storage AS SELECT ? as payload""", [random_word(len(flag))])
 # https://www.sqlite.org/lang_insert.html
 for i in range(random.randrange(5, 42)):
-    db.execute("""INSERT INTO secrets VALUES(?)""", [random_word(len(flag))])
-db.execute("""INSERT INTO secrets VALUES(?)""", [flag])
+    db.execute("""INSERT INTO storage VALUES(?)""", [random_word(len(flag))])
+db.execute("""INSERT INTO storage VALUES(?)""", [flag])
 
 for i in range(random.randrange(5, 21)):
-    db.execute("""INSERT INTO secrets VALUES(?)""", [random_word(len(flag))])
+    db.execute("""INSERT INTO storage VALUES(?)""", [random_word(len(flag))])
 for i in range(random.randrange(5, 21)):
     db.execute(
-        """INSERT INTO secrets VALUES(?)""", ["pwn.college{" + random_word(len(flag) - len("pwn.college{}")) + "}"]
+        """INSERT INTO storage VALUES(?)""", ["pwn.college{" + random_word(len(flag) - len("pwn.college{}")) + "}"]
     )
 
 for i in range(random.randrange(5, 42)):
-    db.execute("""INSERT INTO secrets VALUES(?)""", [random_word(len(flag))])
+    db.execute("""INSERT INTO storage VALUES(?)""", [random_word(len(flag))])
 
 # HINT: https://www.sqlite.org/lang_select.html#limitoffset
 for _ in range(1):
