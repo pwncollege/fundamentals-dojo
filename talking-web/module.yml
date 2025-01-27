@@ -236,10 +236,6 @@
           words_in_endpoint: 3
           flask_host: "challenge.localhost"
   - id: http-get-parameters
-    transfer:
-      dojo: fundamentals
-      module: talking-web
-      challenge: http-get-arguments-curl
     name: "HTTP GET Parameters"
     description: |
       Like a function call in a programming language or a command execution on the shell, HTTP requests can include _parameters_.
