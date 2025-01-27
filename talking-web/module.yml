@@ -3,7 +3,7 @@
     pwnshop:
       build_image: pwncollege/challenge-legacy:latest
       verify_image: pwncollege/challenge-legacy:latest
-      binary_name: run
+      binary_name: server
       variants: 16
   challenges:
   - id: http-browser
@@ -11,7 +11,7 @@
     description: |
       Obviously, as you're accessing this website in your web browser, this isn't your _first_ HTTP request.
       But it's your first HTTP request for a pwn.college challenge!
-      Run `/challenge/run`, fire up Firefox in the dojo workspace (you'll need to use the [GUI Desktop](/workspace/desktop) for this!), and visit the URL that it's listening on for the flag!
+      Run `/challenge/server`, fire up Firefox in the dojo workspace (you'll need to use the [GUI Desktop](/workspace/desktop) for this!), and visit the URL that it's listening on for the flag!
     auxiliary:
       pwnshop:
         variants: 1
@@ -26,7 +26,7 @@
       There's one more thing you need to do, though: you must read and understand the source code of the challenge!
       Web servers _route_ HTTP requests to different _endpoints_: `http://challenge.localhost/pwn` might go to the endpoint that handles the request path `/pwn`, and `http://challenge.localhost/college` might go to the endpoint that handles the request path `college`.
       This challenge has a randomly-chosen endpoint name.
-      You must read the code in `/challenge/run`, understand it, and figure out which endpoint to visit in the browser!
+      You must read the code in `/challenge/server`, understand it, and figure out which endpoint to visit in the browser!
 
       ----
       Confused?
@@ -62,7 +62,7 @@
   - id: http-header
     name: "HTTP Metadata"
     description: |
-      HTTP facilitates the transfer of both _data_ (e.g., the HTML that `/challenge/run` sends you) and _metadata_ (data about the data).
+      HTTP facilitates the transfer of both _data_ (e.g., the HTML that `/challenge/server` sends you) and _metadata_ (data about the data).
       The latter is sent via _headers_: fields in an HTTP request or response that give additional instructions to the server or browser.
       In this case, the flag is in a header.
       Can you find it?
@@ -120,7 +120,7 @@
     description: |
       Okay, you got the basics of netcat down.
       Now make a GET request to a specific path!
-      As always, check the `/challenge/run` code to understand more.
+      As always, check the `/challenge/server` code to understand more.
     auxiliary:
       pwnshop:
         challenge: TalkingWeb
@@ -460,6 +460,22 @@
           flag_in_query: True
           port: 8080
           victim_url: "http://localhost:8080"
+  - id: http-server-redirect
+    name: "Speaking Redirects"
+    description: |
+      You've followed redirects --- now make one happen!
+      Have your webserver redirect `/challenge/client` to the right location in `/challenge/server`.
+      You'll need three terminal windows for this:
+
+      1. The first terminal window runs `/challenge/server`, which listens on port 80 and prepares to give the flag.
+      2. The second terminal window runs your webserver implementation, which listens on port 8080 and prepares to redirect the client.
+      3. The third terminal window runs `/challenge/client`.
+
+      It's complex, but you can do it!
+    auxiliary:
+      pwnshop:
+        challenge: TWRedirectClient
+        variants: 1
   resources:
   - name: "Talking Web: Introduction"
     type: lecture
