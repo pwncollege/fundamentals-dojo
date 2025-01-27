@@ -6,10 +6,10 @@ import os
 app = flask.Flask(__name__)
 
 
-@app.route("/pwn", methods=["GET"])
+@app.route("/solve", methods=["GET"])
 def challenge():
-    if flask.request.args.get("challenge_key", None) != "znrqsdib":
-        flask.abort(403, "Incorrect value for argument challenge_key!")
+    if flask.request.args.get("key", None) != "drrwlzoy":
+        flask.abort(403, "Incorrect value for get parameter key!")
 
     return f"""
         <html>

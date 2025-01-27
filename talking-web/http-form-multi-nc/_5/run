@@ -10,24 +10,23 @@ import pathlib
 import psutil
 
 
-# This function retrieves the path of the process that is on the
+# This function determines the process that is on the
 # other side of the file descriptor we pass in.
-def peer_path(fd):
+def peer_process_of(fd):
     server_connection = next(connection for connection in psutil.Process().connections() if connection.fd == fd)
     client_connection = next(
         connection
         for connection in psutil.net_connections()
         if connection.raddr == server_connection.laddr and connection.laddr == server_connection.raddr
     )
-    client_process = psutil.Process(client_connection.pid)
-    return client_process.exe()
+    return psutil.Process(client_connection.pid)
 
 
 # This function returns the filename of a peer process for a given
 # file descriptor, verifying that the path is owned by root and
 # not open to shenanigans.
-def trusted_peer_name(fd):
-    client_path = pathlib.Path(peer_path(fd))
+def name_of_program_for(process):
+    client_path = pathlib.Path(process.exe())
     for p in reversed(client_path.parents):
         if not p.owner() == "root":
             return None
@@ -36,22 +35,22 @@ def trusted_peer_name(fd):
     return client_path.stem
 
 
-@app.route("/pass", methods=["POST"])
+@app.route("/qualify", methods=["POST"])
 def challenge():
-    if trusted_peer_name(flask.request.input_stream.fileno()) not in ["nc"]:
+    if name_of_program_for(peer_process_of(flask.request.input_stream.fileno())) not in ["nc"]:
         flask.abort(400, "You are using an incorrect client to access this resource!")
 
-    if flask.request.form.get("key", None) != "yikiyglh":
-        flask.abort(403, "Incorrect value for argument key!")
+    if flask.request.form.get("flag", None) != "joffjpvn":
+        flask.abort(403, "Incorrect value for post parameter flag!")
 
-    if flask.request.form.get("solution", None) != "tifqiimw":
-        flask.abort(403, "Incorrect value for argument solution!")
+    if flask.request.form.get("auth_pass", None) != "uzdpakqi":
+        flask.abort(403, "Incorrect value for post parameter auth_pass!")
 
-    if flask.request.form.get("credential", None) != "qdhnqzup":
-        flask.abort(403, "Incorrect value for argument credential!")
+    if flask.request.form.get("security_token", None) != "fpsoqusk":
+        flask.abort(403, "Incorrect value for post parameter security_token!")
 
-    if flask.request.form.get("secret_key", None) != "xvitpzay":
-        flask.abort(403, "Incorrect value for argument secret_key!")
+    if flask.request.form.get("private_key", None) != "nzmngbdp":
+        flask.abort(403, "Incorrect value for post parameter private_key!")
 
     return f"""
         <html>

@@ -6,10 +6,10 @@ import os
 app = flask.Flask(__name__)
 
 
-@app.route("/trial", methods=["GET"])
+@app.route("/authenticate", methods=["GET"])
 def challenge():
-    if flask.request.args.get("password", None) != "csngnsml":
-        flask.abort(403, "Incorrect value for argument password!")
+    if flask.request.args.get("pass", None) != "aracaxnx":
+        flask.abort(403, "Incorrect value for get parameter pass!")
 
     return f"""
         <html>

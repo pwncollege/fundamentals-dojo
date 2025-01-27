@@ -6,10 +6,10 @@ import os
 app = flask.Flask(__name__)
 
 
-@app.route("/authenticate", methods=["GET"])
+@app.route("/fulfill", methods=["GET"])
 def challenge():
-    if flask.request.args.get("challenge_key", None) != "zupmkqxn":
-        flask.abort(403, "Incorrect value for argument challenge_key!")
+    if flask.request.args.get("auth_pass", None) != "qqnwlcoz":
+        flask.abort(403, "Incorrect value for get parameter auth_pass!")
 
     return f"""
         <html>

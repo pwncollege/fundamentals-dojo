@@ -6,10 +6,10 @@ import os
 app = flask.Flask(__name__)
 
 
-@app.route("/meet", methods=["GET"])
+@app.route("/gate", methods=["GET"])
 def challenge():
-    if flask.request.args.get("code", None) != "vdpkwsmj":
-        flask.abort(403, "Incorrect value for argument code!")
+    if flask.request.args.get("signature", None) != "fzhikawk":
+        flask.abort(403, "Incorrect value for get parameter signature!")
 
     return f"""
         <html>

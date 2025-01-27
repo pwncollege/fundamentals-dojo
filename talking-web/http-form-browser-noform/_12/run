@@ -6,13 +6,13 @@ import os
 app = flask.Flask(__name__)
 
 
-@app.route("/pass", methods=["POST"])
+@app.route("/solve", methods=["POST"])
 def challenge():
     if "Firefox" not in flask.request.headers.get("User-Agent"):
         flask.abort(400, "You are using an incorrect client to access this resource!")
 
-    if flask.request.form.get("pass", None) != "whglvjgf":
-        flask.abort(403, "Incorrect value for argument pass!")
+    if flask.request.form.get("password", None) != "inqmopeq":
+        flask.abort(403, "Incorrect value for post parameter password!")
 
     return f"""
         <html>

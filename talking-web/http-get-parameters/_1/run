@@ -8,8 +8,8 @@ app = flask.Flask(__name__)
 
 @app.route("/request", methods=["GET"])
 def challenge():
-    if flask.request.args.get("hash", None) != "afxcvmor":
-        flask.abort(403, "Incorrect value for argument hash!")
+    if flask.request.args.get("pin", None) != "wrxepjfr":
+        flask.abort(403, "Incorrect value for get parameter pin!")
 
     return f"""
         <html>

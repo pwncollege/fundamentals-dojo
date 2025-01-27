@@ -6,10 +6,10 @@ import os
 app = flask.Flask(__name__)
 
 
-@app.route("/meet", methods=["GET"])
+@app.route("/entry", methods=["GET"])
 def challenge():
-    if flask.request.args.get("password", None) != "nplejlcr":
-        flask.abort(403, "Incorrect value for argument password!")
+    if flask.request.args.get("unlock_code", None) != "aaiaifbi":
+        flask.abort(403, "Incorrect value for get parameter unlock_code!")
 
     return f"""
         <html>
