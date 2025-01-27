@@ -1,4 +1,4 @@
-name: "Studying SQL"
+name: "SQL Playground"
 auxiliary:
   pwnshop:
     build_image: pwncollege/challenge-simple:latest
