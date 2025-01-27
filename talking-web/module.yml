@@ -200,7 +200,7 @@
           allowed_clients: [ "nc" ]
           randomize_flag_location: True
           randomize_host: True
-  - id: url-encoding-netcat
+  - id: url-encoding-nc
     name: "URL Encoding (netcat)"
     description: |
       Recall how HTTP requests contain fields separated by spaces?
@@ -387,7 +387,7 @@
           flask_host: "challenge.localhost"
           num_post_params: 4
           methods: ["POST"]
-          allowed_clients: ["netcat"]
+          allowed_clients: ["nc"]
   - id: http-redirect-curl
     name: "HTTP Redirects (curl)"
     description: Follow an HTTP redirect from HTTP response using curl
