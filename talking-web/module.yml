@@ -388,19 +388,48 @@
           num_post_params: 4
           methods: ["POST"]
           allowed_clients: ["nc"]
-  - id: http-redirect-curl
-    name: "HTTP Redirects (curl)"
-    description: Follow an HTTP redirect from HTTP response using curl
   - id: http-redirect-nc
     name: "HTTP Redirects (netcat)"
-    description: Follow an HTTP redirect from HTTP response using nc
+    description: |
+      Sometimes, resources on the web move.
+      A website might get redesigned, we might rename a pwn.college module, etc.
+      In these (and other!) cases, the webserver can _redirect_ clients to the new URL.
+      This is done via a special HTTP request,a s you'll discover here.
+      Can you still find the flag?
+    auxiliary:
+      pwnshop:
+        challenge: TalkingWeb
+        attributes:
+          flask_host: "challenge.localhost"
+          allowed_clients: ["nc"]
+          redirects: 1
+  - id: http-redirect-curl
+    name: "HTTP Redirects (curl)"
+    description: |
+      Now, let's try curl.
+      Curl has a very useful commandline option to _automatically_ follow redirects.
+      It's `-L`.
+      Try it out, and see how easy this becomes!
+    auxiliary:
+      pwnshop:
+        challenge: TalkingWeb
+        attributes:
+          flask_host: "challenge.localhost"
+          allowed_clients: ["curl"]
+          redirects: 1
   - id: http-redirect-python
     name: "HTTP Redirects (python)"
     description: |
-      Follow an HTTP redirect from HTTP response using python
-
-      If you think this level is too easy: that's intended!
-      You are achieving the same behavior as the previous level, but now with python-requests, a very friendly user-agent.
+      And now, Python.
+      Python's requests library _automatically_ follows redirects, so this should be _quite_ easy.
+      Give it a try!
+    auxiliary:
+      pwnshop:
+        challenge: TalkingWeb
+        attributes:
+          flask_host: "challenge.localhost"
+          allowed_clients: ["python3"]
+          redirects: 1
   - id: http-cookies-curl
     name: "HTTP Cookies (curl)"
     description: Include a cookie from HTTP response using curl
