@@ -597,7 +597,7 @@
       **NOTE:**
       There are many ways to send POST parameters.
       In this module, we covered the sending of form data, but other types exist as well, and all have different ways of accessing them via flask.
-      Make sure you're sending form data in your POST, not something else; otherwise, the server won't see it!
+      Make sure you're sending form data in your POST, not something else; otherwise, our server (the way it's implemented) won't see it!
     auxiliary:
       pwnshop:
         challenge: TWRemoteFetch
