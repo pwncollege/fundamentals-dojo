@@ -585,9 +585,10 @@
       Let's practice that in this level.
       You can look up how to pass advanced arguments to `fetch()` on your own, but we'll give you some hints for some things that _should_ appear in your JavaScript verbatim:
 
-      - `method: "POST"`
-      - `new URLSearchParams`
       - `{`
+      - `method: "POST"`
+      - `body`
+      - `new URLSearchParams`
       - `}`
 
       Good luck!
