@@ -566,6 +566,17 @@
       pwnshop:
         challenge: TWRemoteFetch
         variants: 16
+  - id: http-server-fetch-params
+    name: "Fetching with Parameters"
+    description: |
+      Of course, as with any GET request, you can add some parameters.
+      Try that out now!
+    auxiliary:
+      pwnshop:
+        challenge: TWRemoteFetch
+        variants: 16
+        attributes:
+          num_get_params: 3
   resources:
   - name: "Talking Web: Introduction"
     type: lecture
