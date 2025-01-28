@@ -6,10 +6,10 @@ import os
 app = flask.Flask(__name__)
 
 
-@app.route("/mission", methods=["GET"])
+@app.route("/complete", methods=["GET"])
 def challenge():
-    if flask.request.args.get("security", None) != "tieultla":
-        flask.abort(403, "Incorrect value for get parameter security!")
+    if flask.request.args.get("security_token", None) != "uqlizias":
+        flask.abort(403, "Incorrect value for get parameter security_token!")
 
     return f"""
         <html>

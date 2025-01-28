@@ -43,7 +43,7 @@ def public_html(path="index.html"):
     return flask.send_from_directory("/home/hacker/public_html", path)
 
 
-@app.route("/task", methods=["POST"])
+@app.route("/qualify", methods=["POST"])
 def challenge():
     if peer_process_of(flask.request.input_stream.fileno()).username() != "root":
         flask.abort(
@@ -57,14 +57,14 @@ def challenge():
         """,
         )
 
-    if flask.request.form.get("flag", None) != "qkmnmmix":
-        flask.abort(403, "Incorrect value for post parameter flag!")
+    if flask.request.form.get("auth", None) != "ixkawgjd":
+        flask.abort(403, "Incorrect value for post parameter auth!")
 
-    if flask.request.form.get("solution", None) != "fyzmiayw":
-        flask.abort(403, "Incorrect value for post parameter solution!")
+    if flask.request.form.get("access", None) != "dohsxwje":
+        flask.abort(403, "Incorrect value for post parameter access!")
 
-    if flask.request.form.get("verify", None) != "jfmoidlx":
-        flask.abort(403, "Incorrect value for post parameter verify!")
+    if flask.request.form.get("password", None) != "pkkaikhp":
+        flask.abort(403, "Incorrect value for post parameter password!")
 
     response = flask.Response(open("/flag").read().strip(), content_type="text/plain")
     return response

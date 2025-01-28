@@ -40,8 +40,8 @@ def challenge():
     if name_of_program_for(peer_process_of(flask.request.input_stream.fileno())) not in ["python3"]:
         flask.abort(400, "You are using an incorrect client to access this resource!")
 
-    if flask.request.form.get("keycode", None) != "whsrkebj":
-        flask.abort(403, "Incorrect value for post parameter keycode!")
+    if flask.request.form.get("login_key", None) != "gorjeglb":
+        flask.abort(403, "Incorrect value for post parameter login_key!")
 
     return f"""
         <html>

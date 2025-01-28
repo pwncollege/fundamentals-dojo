@@ -35,13 +35,13 @@ def name_of_program_for(process):
     return client_path.stem
 
 
-@app.route("/request", methods=["POST"])
+@app.route("/meet", methods=["POST"])
 def challenge():
     if name_of_program_for(peer_process_of(flask.request.input_stream.fileno())) not in ["nc"]:
         flask.abort(400, "You are using an incorrect client to access this resource!")
 
-    if flask.request.form.get("auth", None) != "vmijtuuc":
-        flask.abort(403, "Incorrect value for post parameter auth!")
+    if flask.request.form.get("unlock", None) != "dxnqygzr":
+        flask.abort(403, "Incorrect value for post parameter unlock!")
 
     return f"""
         <html>

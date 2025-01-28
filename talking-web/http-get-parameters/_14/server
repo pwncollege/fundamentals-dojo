@@ -6,10 +6,10 @@ import os
 app = flask.Flask(__name__)
 
 
-@app.route("/progress", methods=["GET"])
+@app.route("/complete", methods=["GET"])
 def challenge():
-    if flask.request.args.get("solution", None) != "jycleenl":
-        flask.abort(403, "Incorrect value for get parameter solution!")
+    if flask.request.args.get("pin", None) != "zeauudta":
+        flask.abort(403, "Incorrect value for get parameter pin!")
 
     return f"""
         <html>

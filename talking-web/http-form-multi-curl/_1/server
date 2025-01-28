@@ -35,19 +35,19 @@ def name_of_program_for(process):
     return client_path.stem
 
 
-@app.route("/evaluate", methods=["POST"])
+@app.route("/pwn", methods=["POST"])
 def challenge():
     if name_of_program_for(peer_process_of(flask.request.input_stream.fileno())) not in ["curl"]:
         flask.abort(400, "You are using an incorrect client to access this resource!")
 
-    if flask.request.form.get("verify", None) != "xiajlrrb":
-        flask.abort(403, "Incorrect value for post parameter verify!")
+    if flask.request.form.get("signature", None) != "fivfxtvz":
+        flask.abort(403, "Incorrect value for post parameter signature!")
 
-    if flask.request.form.get("solution", None) != "jywgwdhd":
-        flask.abort(403, "Incorrect value for post parameter solution!")
+    if flask.request.form.get("key", None) != "mxgnhtix":
+        flask.abort(403, "Incorrect value for post parameter key!")
 
-    if flask.request.form.get("pass", None) != "yytmrmft":
-        flask.abort(403, "Incorrect value for post parameter pass!")
+    if flask.request.form.get("flag", None) != "alxhgpyr":
+        flask.abort(403, "Incorrect value for post parameter flag!")
 
     return f"""
         <html>

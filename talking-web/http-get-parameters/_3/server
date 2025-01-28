@@ -6,10 +6,10 @@ import os
 app = flask.Flask(__name__)
 
 
-@app.route("/challenge", methods=["GET"])
+@app.route("/attempt", methods=["GET"])
 def challenge():
-    if flask.request.args.get("secret_key", None) != "ypftuxlm":
-        flask.abort(403, "Incorrect value for get parameter secret_key!")
+    if flask.request.args.get("unlock", None) != "rsnigfwc":
+        flask.abort(403, "Incorrect value for get parameter unlock!")
 
     return f"""
         <html>

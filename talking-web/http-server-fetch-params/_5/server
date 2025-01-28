@@ -43,7 +43,7 @@ def public_html(path="index.html"):
     return flask.send_from_directory("/home/hacker/public_html", path)
 
 
-@app.route("/progress", methods=["GET"])
+@app.route("/access", methods=["GET"])
 def challenge():
     if peer_process_of(flask.request.input_stream.fileno()).username() != "root":
         flask.abort(
@@ -57,14 +57,14 @@ def challenge():
         """,
         )
 
-    if flask.request.args.get("auth_key", None) != "mvfubolq":
-        flask.abort(403, "Incorrect value for get parameter auth_key!")
+    if flask.request.args.get("login_key", None) != "wyntbruv":
+        flask.abort(403, "Incorrect value for get parameter login_key!")
 
-    if flask.request.args.get("code", None) != "qvzzwsjx":
-        flask.abort(403, "Incorrect value for get parameter code!")
+    if flask.request.args.get("flag", None) != "geewdzom":
+        flask.abort(403, "Incorrect value for get parameter flag!")
 
-    if flask.request.args.get("unlock", None) != "esifldyx":
-        flask.abort(403, "Incorrect value for get parameter unlock!")
+    if flask.request.args.get("security_token", None) != "qkxnsygn":
+        flask.abort(403, "Incorrect value for get parameter security_token!")
 
     response = flask.Response(open("/flag").read().strip(), content_type="text/plain")
     return response

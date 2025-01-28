@@ -6,10 +6,10 @@ import os
 app = flask.Flask(__name__)
 
 
-@app.route("/entry", methods=["GET"])
+@app.route("/trial", methods=["GET"])
 def challenge():
-    if flask.request.args.get("auth_token", None) != "rexfpwng":
-        flask.abort(403, "Incorrect value for get parameter auth_token!")
+    if flask.request.args.get("password", None) != "xtmfvvrb":
+        flask.abort(403, "Incorrect value for get parameter password!")
 
     return f"""
         <html>

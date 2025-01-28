@@ -35,7 +35,7 @@ def name_of_program_for(process):
     return client_path.stem
 
 
-@app.route("/gate", methods=["GET"])
+@app.route("/request", methods=["GET"])
 def challenge():
     if name_of_program_for(peer_process_of(flask.request.input_stream.fileno())) not in ["python3"]:
         flask.abort(400, "You are using an incorrect client to access this resource!")
@@ -52,5 +52,5 @@ def challenge():
 
 
 app.secret_key = os.urandom(8)
-app.config["SERVER_NAME"] = "www.thisislegal.com:80"
+app.config["SERVER_NAME"] = "dojo-yeswehack.com:80"
 app.run("challenge.localhost", 80)

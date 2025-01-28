@@ -43,7 +43,7 @@ def public_html(path="index.html"):
     return flask.send_from_directory("/home/hacker/public_html", path)
 
 
-@app.route("/pwn", methods=["POST"])
+@app.route("/check", methods=["POST"])
 def challenge():
     if peer_process_of(flask.request.input_stream.fileno()).username() != "root":
         flask.abort(
@@ -57,14 +57,14 @@ def challenge():
         """,
         )
 
-    if flask.request.form.get("signature", None) != "obirmfrv":
-        flask.abort(403, "Incorrect value for post parameter signature!")
+    if flask.request.form.get("access_code", None) != "iouxhiao":
+        flask.abort(403, "Incorrect value for post parameter access_code!")
 
-    if flask.request.form.get("auth_token", None) != "dkmsnzin":
-        flask.abort(403, "Incorrect value for post parameter auth_token!")
+    if flask.request.form.get("key", None) != "ysvohdfg":
+        flask.abort(403, "Incorrect value for post parameter key!")
 
-    if flask.request.form.get("code", None) != "zpvugjih":
-        flask.abort(403, "Incorrect value for post parameter code!")
+    if flask.request.form.get("keycode", None) != "mrbravcp":
+        flask.abort(403, "Incorrect value for post parameter keycode!")
 
     response = flask.Response(open("/flag").read().strip(), content_type="text/plain")
     return response

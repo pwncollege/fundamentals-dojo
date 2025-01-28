@@ -10,19 +10,19 @@ app = flask.Flask(__name__)
 def challenge_index():
     return """<html>
       <h1>Your form:</h1>
-      <form action="/solve" method=post>
+      <form action="/meet" method=post>
             <input name=credential>
             <input type=submit value=Submit>
       </form>
     </html>"""
 
 
-@app.route("/solve", methods=["POST"])
+@app.route("/meet", methods=["POST"])
 def challenge():
     if "Firefox" not in flask.request.headers.get("User-Agent"):
         flask.abort(400, "You are using an incorrect client to access this resource!")
 
-    if flask.request.form.get("credential", None) != "kemhwamn":
+    if flask.request.form.get("credential", None) != "vcekwpue":
         flask.abort(403, "Incorrect value for post parameter credential!")
 
     return f"""

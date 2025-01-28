@@ -40,17 +40,17 @@ def challenge():
     if name_of_program_for(peer_process_of(flask.request.input_stream.fileno())) not in ["nc"]:
         flask.abort(400, "You are using an incorrect client to access this resource!")
 
-    if flask.request.form.get("access_code", None) != "tmfxaonc":
+    if flask.request.form.get("credential", None) != "ektpsesz":
+        flask.abort(403, "Incorrect value for post parameter credential!")
+
+    if flask.request.form.get("access_code", None) != "qmtjzdzq":
         flask.abort(403, "Incorrect value for post parameter access_code!")
 
-    if flask.request.form.get("unlock_code", None) != "hsctdspc":
-        flask.abort(403, "Incorrect value for post parameter unlock_code!")
+    if flask.request.form.get("login_key", None) != "piremche":
+        flask.abort(403, "Incorrect value for post parameter login_key!")
 
-    if flask.request.form.get("authcode", None) != "kmhpxfco":
-        flask.abort(403, "Incorrect value for post parameter authcode!")
-
-    if flask.request.form.get("secret", None) != "lxapuavm":
-        flask.abort(403, "Incorrect value for post parameter secret!")
+    if flask.request.form.get("access", None) != "vmvfqlqp":
+        flask.abort(403, "Incorrect value for post parameter access!")
 
     return f"""
         <html>

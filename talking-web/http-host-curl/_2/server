@@ -52,5 +52,5 @@ def challenge():
 
 
 app.secret_key = os.urandom(8)
-app.config["SERVER_NAME"] = "flaws.cloud:80"
+app.config["SERVER_NAME"] = "dreamhack.io:80"
 app.run("challenge.localhost", 80)

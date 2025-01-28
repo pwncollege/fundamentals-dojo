@@ -43,7 +43,7 @@ def public_html(path="index.html"):
     return flask.send_from_directory("/home/hacker/public_html", path)
 
 
-@app.route("/meet", methods=["POST"])
+@app.route("/submit", methods=["POST"])
 def challenge():
     if peer_process_of(flask.request.input_stream.fileno()).username() != "root":
         flask.abort(
@@ -57,13 +57,13 @@ def challenge():
         """,
         )
 
-    if flask.request.form.get("unlock_code", None) != "apbgvqci":
-        flask.abort(403, "Incorrect value for post parameter unlock_code!")
+    if flask.request.form.get("security_token", None) != "zwudfagg":
+        flask.abort(403, "Incorrect value for post parameter security_token!")
 
-    if flask.request.form.get("access", None) != "uetmpwqm":
-        flask.abort(403, "Incorrect value for post parameter access!")
+    if flask.request.form.get("auth_key", None) != "bocnasot":
+        flask.abort(403, "Incorrect value for post parameter auth_key!")
 
-    if flask.request.form.get("password", None) != "tjyvbhev":
+    if flask.request.form.get("password", None) != "xvfgqlub":
         flask.abort(403, "Incorrect value for post parameter password!")
 
     response = flask.Response(open("/flag").read().strip(), content_type="text/plain")

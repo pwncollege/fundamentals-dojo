@@ -43,7 +43,7 @@ def public_html(path="index.html"):
     return flask.send_from_directory("/home/hacker/public_html", path)
 
 
-@app.route("/evaluate", methods=["GET"])
+@app.route("/pwn", methods=["GET"])
 def challenge():
     if peer_process_of(flask.request.input_stream.fileno()).username() != "root":
         flask.abort(
@@ -57,14 +57,14 @@ def challenge():
         """,
         )
 
-    if flask.request.args.get("verify", None) != "mtrwrqoe":
+    if flask.request.args.get("verify", None) != "idksrmee":
         flask.abort(403, "Incorrect value for get parameter verify!")
 
-    if flask.request.args.get("security", None) != "qwavuaia":
-        flask.abort(403, "Incorrect value for get parameter security!")
+    if flask.request.args.get("solution", None) != "ctjdpqyb":
+        flask.abort(403, "Incorrect value for get parameter solution!")
 
-    if flask.request.args.get("hash", None) != "rtmnhutx":
-        flask.abort(403, "Incorrect value for get parameter hash!")
+    if flask.request.args.get("access_code", None) != "zsayylmc":
+        flask.abort(403, "Incorrect value for get parameter access_code!")
 
     response = flask.Response(open("/flag").read().strip(), content_type="text/plain")
     return response

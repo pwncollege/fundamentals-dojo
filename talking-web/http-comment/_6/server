@@ -6,7 +6,7 @@ import os
 app = flask.Flask(__name__)
 
 
-@app.route("/pwn", methods=["GET"])
+@app.route("/gate", methods=["GET"])
 def challenge():
     if "Firefox" not in flask.request.headers.get("User-Agent"):
         flask.abort(400, "You are using an incorrect client to access this resource!")

@@ -35,22 +35,22 @@ def name_of_program_for(process):
     return client_path.stem
 
 
-@app.route("/task", methods=["POST"])
+@app.route("/fulfill", methods=["POST"])
 def challenge():
     if name_of_program_for(peer_process_of(flask.request.input_stream.fileno())) not in ["nc"]:
         flask.abort(400, "You are using an incorrect client to access this resource!")
 
-    if flask.request.form.get("security_token", None) != "txnujijq":
-        flask.abort(403, "Incorrect value for post parameter security_token!")
+    if flask.request.form.get("solution", None) != "ekteqjaj":
+        flask.abort(403, "Incorrect value for post parameter solution!")
 
-    if flask.request.form.get("login_key", None) != "sibumezb":
-        flask.abort(403, "Incorrect value for post parameter login_key!")
+    if flask.request.form.get("password", None) != "hvmfsdyi":
+        flask.abort(403, "Incorrect value for post parameter password!")
 
-    if flask.request.form.get("auth_key", None) != "qbwqujlw":
-        flask.abort(403, "Incorrect value for post parameter auth_key!")
+    if flask.request.form.get("secret_key", None) != "kydsurqu":
+        flask.abort(403, "Incorrect value for post parameter secret_key!")
 
-    if flask.request.form.get("security", None) != "bvhkumvv":
-        flask.abort(403, "Incorrect value for post parameter security!")
+    if flask.request.form.get("authcode", None) != "aovwguke":
+        flask.abort(403, "Incorrect value for post parameter authcode!")
 
     return f"""
         <html>

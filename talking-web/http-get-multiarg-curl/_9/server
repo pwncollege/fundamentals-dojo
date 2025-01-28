@@ -35,19 +35,19 @@ def name_of_program_for(process):
     return client_path.stem
 
 
-@app.route("/mission", methods=["GET"])
+@app.route("/challenge", methods=["GET"])
 def challenge():
     if name_of_program_for(peer_process_of(flask.request.input_stream.fileno())) not in ["curl"]:
         flask.abort(400, "You are using an incorrect client to access this resource!")
 
-    if flask.request.args.get("verify", None) != "kjencpwf":
-        flask.abort(403, "Incorrect value for get parameter verify!")
+    if flask.request.args.get("authcode", None) != "emhczmsp":
+        flask.abort(403, "Incorrect value for get parameter authcode!")
 
-    if flask.request.args.get("code", None) != "znpgisgt":
-        flask.abort(403, "Incorrect value for get parameter code!")
+    if flask.request.args.get("security_token", None) != "pbvvtkxr":
+        flask.abort(403, "Incorrect value for get parameter security_token!")
 
-    if flask.request.args.get("private_key", None) != "gnbbdkfx":
-        flask.abort(403, "Incorrect value for get parameter private_key!")
+    if flask.request.args.get("token", None) != "qizyazhe":
+        flask.abort(403, "Incorrect value for get parameter token!")
 
     return f"""
         <html>

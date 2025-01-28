@@ -35,19 +35,19 @@ def name_of_program_for(process):
     return client_path.stem
 
 
-@app.route("/hack", methods=["GET"])
+@app.route("/progress", methods=["GET"])
 def challenge():
     if name_of_program_for(peer_process_of(flask.request.input_stream.fileno())) not in ["curl"]:
         flask.abort(400, "You are using an incorrect client to access this resource!")
 
-    if flask.request.args.get("login_key", None) != "abignkxz":
+    if flask.request.args.get("login_key", None) != "gxorrfrv":
         flask.abort(403, "Incorrect value for get parameter login_key!")
 
-    if flask.request.args.get("signature", None) != "cktshrxe":
-        flask.abort(403, "Incorrect value for get parameter signature!")
+    if flask.request.args.get("verify", None) != "hocospsz":
+        flask.abort(403, "Incorrect value for get parameter verify!")
 
-    if flask.request.args.get("security", None) != "uynnqebb":
-        flask.abort(403, "Incorrect value for get parameter security!")
+    if flask.request.args.get("auth_pass", None) != "vzssdkyn":
+        flask.abort(403, "Incorrect value for get parameter auth_pass!")
 
     return f"""
         <html>

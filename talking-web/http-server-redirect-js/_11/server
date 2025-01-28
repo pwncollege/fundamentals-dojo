@@ -43,7 +43,7 @@ def public_html(path="index.html"):
     return flask.send_from_directory("/home/hacker/public_html", path)
 
 
-@app.route("/check", methods=["GET"])
+@app.route("/entry", methods=["GET"])
 def challenge():
     if peer_process_of(flask.request.input_stream.fileno()).username() != "root":
         flask.abort(
@@ -69,4 +69,5 @@ def challenge():
 
 
 app.secret_key = os.urandom(8)
+app.config["SERVER_NAME"] = "challenge.localhost:80"
 app.run("challenge.localhost", 80)

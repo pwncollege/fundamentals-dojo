@@ -62,4 +62,5 @@ def challenge():
 
 
 app.secret_key = os.urandom(8)
+app.config["SERVER_NAME"] = "challenge.localhost:80"
 app.run("challenge.localhost", 80)

@@ -46,10 +46,10 @@ def challenge_redirector():
     if name_of_program_for(peer_process_of(flask.request.input_stream.fileno())) not in ["nc"]:
         flask.abort(400, "You are using an incorrect client to access this resource!")
 
-    return flask.redirect(f"/{secret_endpoint}-entry")
+    return flask.redirect(f"/{secret_endpoint}-trial")
 
 
-@app.route(f"/{secret_endpoint}-entry", methods=["GET"])
+@app.route(f"/{secret_endpoint}-trial", methods=["GET"])
 def challenge():
     if name_of_program_for(peer_process_of(flask.request.input_stream.fileno())) not in ["nc"]:
         flask.abort(400, "You are using an incorrect client to access this resource!")

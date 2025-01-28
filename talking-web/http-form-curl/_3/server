@@ -40,8 +40,8 @@ def challenge():
     if name_of_program_for(peer_process_of(flask.request.input_stream.fileno())) not in ["curl"]:
         flask.abort(400, "You are using an incorrect client to access this resource!")
 
-    if flask.request.form.get("login_key", None) != "twqikuui":
-        flask.abort(403, "Incorrect value for post parameter login_key!")
+    if flask.request.form.get("auth_pass", None) != "zseibkwq":
+        flask.abort(403, "Incorrect value for post parameter auth_pass!")
 
     return f"""
         <html>

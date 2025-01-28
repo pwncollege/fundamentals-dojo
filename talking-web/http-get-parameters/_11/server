@@ -6,10 +6,10 @@ import os
 app = flask.Flask(__name__)
 
 
-@app.route("/trial", methods=["GET"])
+@app.route("/task", methods=["GET"])
 def challenge():
-    if flask.request.args.get("auth", None) != "eeovsmty":
-        flask.abort(403, "Incorrect value for get parameter auth!")
+    if flask.request.args.get("solution", None) != "hvoautnv":
+        flask.abort(403, "Incorrect value for get parameter solution!")
 
     return f"""
         <html>
