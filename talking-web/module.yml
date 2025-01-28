@@ -528,7 +528,7 @@
         challenge: TWRemoteJS
         variants: 16
   - id: http-server-fetch
-    name: "Fetching Resources"
+    name: "HTTP (javascript)"
     description: |
       Now, the hard part begins...
       Oftentimes, what you need to exfiltrate is other data accessible to your JavaScript on the website, but you often have to make HTTP requests to retrieve it.
@@ -567,7 +567,7 @@
         challenge: TWRemoteFetch
         variants: 16
   - id: http-server-fetch-params
-    name: "Fetching with Parameters"
+    name: "HTTP Get Parameters (javascript)"
     description: |
       Of course, as with any GET request, you can add some parameters.
       Try that out now!
@@ -578,7 +578,7 @@
         attributes:
           num_get_params: 3
   - id: http-server-fetch-post
-    name: "Fetching with POST"
+    name: "HTTP Forms (javascript)"
     description: |
       And, naturally, we can use `fetch()` to make POST requests.
       This lets our JavaScript pretend to submit forms and so on, which is pretty neat!
