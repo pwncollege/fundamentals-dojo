@@ -11,7 +11,7 @@ def challenge_index():
     return """<html>
       <h1>Your form:</h1>
       <form action="/solve" method=post>
-            <input name=keycode>
+            <input name=credential>
             <input type=submit value=Submit>
       </form>
     </html>"""
@@ -22,8 +22,8 @@ def challenge():
     if "Firefox" not in flask.request.headers.get("User-Agent"):
         flask.abort(400, "You are using an incorrect client to access this resource!")
 
-    if flask.request.form.get("keycode", None) != "iniynxft":
-        flask.abort(403, "Incorrect value for post parameter keycode!")
+    if flask.request.form.get("credential", None) != "kemhwamn":
+        flask.abort(403, "Incorrect value for post parameter credential!")
 
     return f"""
         <html>

@@ -6,10 +6,10 @@ import os
 app = flask.Flask(__name__)
 
 
-@app.route("/request", methods=["GET"])
+@app.route("/verify", methods=["GET"])
 def challenge():
-    if flask.request.args.get("unlock", None) != "vtalgaqu":
-        flask.abort(403, "Incorrect value for get parameter unlock!")
+    if flask.request.args.get("token", None) != "rbqrfuim":
+        flask.abort(403, "Incorrect value for get parameter token!")
 
     return f"""
         <html>

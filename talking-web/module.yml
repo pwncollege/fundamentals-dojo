@@ -454,8 +454,8 @@
       pwnshop:
         challenge: TalkingWebClient
         variants: 1
+        binary_name: client
         attributes:
-          binary_name: client
           specify_url: False
           flag_in_query: True
           port: 8080

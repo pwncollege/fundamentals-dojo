@@ -35,22 +35,22 @@ def name_of_program_for(process):
     return client_path.stem
 
 
-@app.route("/fulfill", methods=["POST"])
+@app.route("/request", methods=["POST"])
 def challenge():
     if name_of_program_for(peer_process_of(flask.request.input_stream.fileno())) not in ["nc"]:
         flask.abort(400, "You are using an incorrect client to access this resource!")
 
-    if flask.request.form.get("security", None) != "svjnucdg":
-        flask.abort(403, "Incorrect value for post parameter security!")
-
-    if flask.request.form.get("keycode", None) != "pljprfuq":
+    if flask.request.form.get("keycode", None) != "sbavhfvo":
         flask.abort(403, "Incorrect value for post parameter keycode!")
 
-    if flask.request.form.get("hash", None) != "xhmtqbcc":
-        flask.abort(403, "Incorrect value for post parameter hash!")
+    if flask.request.form.get("unlock_code", None) != "anpdidny":
+        flask.abort(403, "Incorrect value for post parameter unlock_code!")
 
-    if flask.request.form.get("access", None) != "srfoeqgx":
-        flask.abort(403, "Incorrect value for post parameter access!")
+    if flask.request.form.get("security", None) != "nwydrtjt":
+        flask.abort(403, "Incorrect value for post parameter security!")
+
+    if flask.request.form.get("access_code", None) != "lpqhkqma":
+        flask.abort(403, "Incorrect value for post parameter access_code!")
 
     return f"""
         <html>

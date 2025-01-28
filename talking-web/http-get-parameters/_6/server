@@ -6,10 +6,10 @@ import os
 app = flask.Flask(__name__)
 
 
-@app.route("/submit", methods=["GET"])
+@app.route("/mission", methods=["GET"])
 def challenge():
-    if flask.request.args.get("token", None) != "kyxmeneu":
-        flask.abort(403, "Incorrect value for get parameter token!")
+    if flask.request.args.get("challenge_key", None) != "ehkcjpsc":
+        flask.abort(403, "Incorrect value for get parameter challenge_key!")
 
     return f"""
         <html>

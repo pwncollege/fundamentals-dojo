@@ -35,22 +35,22 @@ def name_of_program_for(process):
     return client_path.stem
 
 
-@app.route("/meet", methods=["POST"])
+@app.route("/pass", methods=["POST"])
 def challenge():
     if name_of_program_for(peer_process_of(flask.request.input_stream.fileno())) not in ["nc"]:
         flask.abort(400, "You are using an incorrect client to access this resource!")
 
-    if flask.request.form.get("security_token", None) != "htmhvzlb":
-        flask.abort(403, "Incorrect value for post parameter security_token!")
+    if flask.request.form.get("secret", None) != "vsrjlnad":
+        flask.abort(403, "Incorrect value for post parameter secret!")
 
-    if flask.request.form.get("unlock", None) != "pmaacqcn":
-        flask.abort(403, "Incorrect value for post parameter unlock!")
+    if flask.request.form.get("code", None) != "rigoeenf":
+        flask.abort(403, "Incorrect value for post parameter code!")
 
-    if flask.request.form.get("private_key", None) != "otqukowi":
-        flask.abort(403, "Incorrect value for post parameter private_key!")
+    if flask.request.form.get("secret_key", None) != "mttelkzp":
+        flask.abort(403, "Incorrect value for post parameter secret_key!")
 
-    if flask.request.form.get("access", None) != "xpyfrgut":
-        flask.abort(403, "Incorrect value for post parameter access!")
+    if flask.request.form.get("signature", None) != "hknplxfh":
+        flask.abort(403, "Incorrect value for post parameter signature!")
 
     return f"""
         <html>

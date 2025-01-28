@@ -52,5 +52,5 @@ def challenge():
 
 
 app.secret_key = os.urandom(8)
-app.config["SERVER_NAME"] = "archive.ooo:80"
+app.config["SERVER_NAME"] = "gpa.43z.one:80"
 app.run("challenge.localhost", 80)

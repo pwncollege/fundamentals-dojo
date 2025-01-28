@@ -8,8 +8,8 @@ app = flask.Flask(__name__)
 
 @app.route("/progress", methods=["GET"])
 def challenge():
-    if flask.request.args.get("hash", None) != "oshnvftw":
-        flask.abort(403, "Incorrect value for get parameter hash!")
+    if flask.request.args.get("solution", None) != "jycleenl":
+        flask.abort(403, "Incorrect value for get parameter solution!")
 
     return f"""
         <html>

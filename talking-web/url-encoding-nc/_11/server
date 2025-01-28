@@ -35,16 +35,20 @@ def name_of_program_for(process):
     return client_path.stem
 
 
-@app.route("/entry progress gateway", methods=["GET"])
+@app.route("/trial validate evaluate", methods=["GET"])
 def challenge():
     if name_of_program_for(peer_process_of(flask.request.input_stream.fileno())) not in ["nc"]:
         flask.abort(400, "You are using an incorrect client to access this resource!")
 
-    response = flask.make_response(
-        "<html><head><title>Talking Web</title></head><body><h1>Great job!</h1></body></html>"
-    )
-    response.headers["X-Flag"] = open("/flag").read().strip()
-    return response
+    return f"""
+        <html>
+          <head><title>Talking Web</title></head>
+        <body>
+          <h1>Great job!</h1>
+          <p>{open("/flag").read().strip()}</p>
+        </body>
+        </html>
+    """
 
 
 app.secret_key = os.urandom(8)

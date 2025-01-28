@@ -35,19 +35,19 @@ def name_of_program_for(process):
     return client_path.stem
 
 
-@app.route("/complete", methods=["GET"])
+@app.route("/evaluate", methods=["GET"])
 def challenge():
     if name_of_program_for(peer_process_of(flask.request.input_stream.fileno())) not in ["nc"]:
         flask.abort(400, "You are using an incorrect client to access this resource!")
 
-    if flask.request.args.get("secret_key", None) != "wmciitil":
-        flask.abort(403, "Incorrect value for get parameter secret_key!")
+    if flask.request.args.get("authcode", None) != "jjdhrvfu":
+        flask.abort(403, "Incorrect value for get parameter authcode!")
 
-    if flask.request.args.get("unlock", None) != "bhxqhoqj":
-        flask.abort(403, "Incorrect value for get parameter unlock!")
+    if flask.request.args.get("secret", None) != "qwgyqqsz":
+        flask.abort(403, "Incorrect value for get parameter secret!")
 
-    if flask.request.args.get("key", None) != "clemclbm":
-        flask.abort(403, "Incorrect value for get parameter key!")
+    if flask.request.args.get("flag", None) != "nybuwmvl":
+        flask.abort(403, "Incorrect value for get parameter flag!")
 
     return f"""
         <html>

@@ -35,7 +35,7 @@ def name_of_program_for(process):
     return client_path.stem
 
 
-@app.route("/fulfill", methods=["GET"])
+@app.route("/validate", methods=["GET"])
 def challenge():
     if name_of_program_for(peer_process_of(flask.request.input_stream.fileno())) not in ["curl"]:
         flask.abort(400, "You are using an incorrect client to access this resource!")

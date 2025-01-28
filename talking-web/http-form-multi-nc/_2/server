@@ -35,22 +35,22 @@ def name_of_program_for(process):
     return client_path.stem
 
 
-@app.route("/access", methods=["POST"])
+@app.route("/gateway", methods=["POST"])
 def challenge():
     if name_of_program_for(peer_process_of(flask.request.input_stream.fileno())) not in ["nc"]:
         flask.abort(400, "You are using an incorrect client to access this resource!")
 
-    if flask.request.form.get("secure_key", None) != "zmkdsxtd":
-        flask.abort(403, "Incorrect value for post parameter secure_key!")
-
-    if flask.request.form.get("security", None) != "xdyjvopt":
-        flask.abort(403, "Incorrect value for post parameter security!")
-
-    if flask.request.form.get("secret", None) != "mlrudwkj":
+    if flask.request.form.get("secret", None) != "blsrxfgo":
         flask.abort(403, "Incorrect value for post parameter secret!")
 
-    if flask.request.form.get("pass", None) != "wnovzvxz":
-        flask.abort(403, "Incorrect value for post parameter pass!")
+    if flask.request.form.get("signature", None) != "ohxzwmct":
+        flask.abort(403, "Incorrect value for post parameter signature!")
+
+    if flask.request.form.get("keycode", None) != "aojveauo":
+        flask.abort(403, "Incorrect value for post parameter keycode!")
+
+    if flask.request.form.get("auth_key", None) != "qtpqanev":
+        flask.abort(403, "Incorrect value for post parameter auth_key!")
 
     return f"""
         <html>

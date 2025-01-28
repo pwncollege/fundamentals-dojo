@@ -6,10 +6,10 @@ import os
 app = flask.Flask(__name__)
 
 
-@app.route("/task", methods=["GET"])
+@app.route("/submission", methods=["GET"])
 def challenge():
-    if flask.request.args.get("hash", None) != "uwinqnip":
-        flask.abort(403, "Incorrect value for get parameter hash!")
+    if flask.request.args.get("authcode", None) != "nohcrqbg":
+        flask.abort(403, "Incorrect value for get parameter authcode!")
 
     return f"""
         <html>

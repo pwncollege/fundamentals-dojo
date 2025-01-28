@@ -35,13 +35,13 @@ def name_of_program_for(process):
     return client_path.stem
 
 
-@app.route("/entry", methods=["POST"])
+@app.route("/trial", methods=["POST"])
 def challenge():
     if name_of_program_for(peer_process_of(flask.request.input_stream.fileno())) not in ["python3"]:
         flask.abort(400, "You are using an incorrect client to access this resource!")
 
-    if flask.request.form.get("secret", None) != "kuqhhrhq":
-        flask.abort(403, "Incorrect value for post parameter secret!")
+    if flask.request.form.get("auth_pass", None) != "frywyvie":
+        flask.abort(403, "Incorrect value for post parameter auth_pass!")
 
     return f"""
         <html>

@@ -6,10 +6,10 @@ import os
 app = flask.Flask(__name__)
 
 
-@app.route("/request", methods=["GET"])
+@app.route("/meet", methods=["GET"])
 def challenge():
-    if flask.request.args.get("secret", None) != "xijetqlm":
-        flask.abort(403, "Incorrect value for get parameter secret!")
+    if flask.request.args.get("solution", None) != "cckseiui":
+        flask.abort(403, "Incorrect value for get parameter solution!")
 
     return f"""
         <html>

@@ -35,13 +35,13 @@ def name_of_program_for(process):
     return client_path.stem
 
 
-@app.route("/solve", methods=["POST"])
+@app.route("/complete", methods=["POST"])
 def challenge():
     if name_of_program_for(peer_process_of(flask.request.input_stream.fileno())) not in ["nc"]:
         flask.abort(400, "You are using an incorrect client to access this resource!")
 
-    if flask.request.form.get("secret_key", None) != "psearalq":
-        flask.abort(403, "Incorrect value for post parameter secret_key!")
+    if flask.request.form.get("key", None) != "uumnwawd":
+        flask.abort(403, "Incorrect value for post parameter key!")
 
     return f"""
         <html>

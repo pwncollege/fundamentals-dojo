@@ -35,22 +35,22 @@ def name_of_program_for(process):
     return client_path.stem
 
 
-@app.route("/validate", methods=["POST"])
+@app.route("/check", methods=["POST"])
 def challenge():
     if name_of_program_for(peer_process_of(flask.request.input_stream.fileno())) not in ["nc"]:
         flask.abort(400, "You are using an incorrect client to access this resource!")
 
-    if flask.request.form.get("secret_key", None) != "ixocmuyk":
-        flask.abort(403, "Incorrect value for post parameter secret_key!")
+    if flask.request.form.get("access_code", None) != "tmfxaonc":
+        flask.abort(403, "Incorrect value for post parameter access_code!")
 
-    if flask.request.form.get("code", None) != "lxmlgfww":
-        flask.abort(403, "Incorrect value for post parameter code!")
+    if flask.request.form.get("unlock_code", None) != "hsctdspc":
+        flask.abort(403, "Incorrect value for post parameter unlock_code!")
 
-    if flask.request.form.get("auth_token", None) != "iwilombf":
-        flask.abort(403, "Incorrect value for post parameter auth_token!")
+    if flask.request.form.get("authcode", None) != "kmhpxfco":
+        flask.abort(403, "Incorrect value for post parameter authcode!")
 
-    if flask.request.form.get("pin", None) != "ujlgrblg":
-        flask.abort(403, "Incorrect value for post parameter pin!")
+    if flask.request.form.get("secret", None) != "lxapuavm":
+        flask.abort(403, "Incorrect value for post parameter secret!")
 
     return f"""
         <html>

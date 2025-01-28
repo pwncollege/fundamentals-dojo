@@ -35,19 +35,19 @@ def name_of_program_for(process):
     return client_path.stem
 
 
-@app.route("/validate", methods=["POST"])
+@app.route("/meet", methods=["POST"])
 def challenge():
     if name_of_program_for(peer_process_of(flask.request.input_stream.fileno())) not in ["curl"]:
         flask.abort(400, "You are using an incorrect client to access this resource!")
 
-    if flask.request.form.get("auth_pass", None) != "qjbaojfo":
-        flask.abort(403, "Incorrect value for post parameter auth_pass!")
+    if flask.request.form.get("secret_key", None) != "xmtzyxjo":
+        flask.abort(403, "Incorrect value for post parameter secret_key!")
 
-    if flask.request.form.get("code", None) != "ywnncnoe":
-        flask.abort(403, "Incorrect value for post parameter code!")
+    if flask.request.form.get("login_key", None) != "mnqxflut":
+        flask.abort(403, "Incorrect value for post parameter login_key!")
 
-    if flask.request.form.get("authcode", None) != "pligwjwx":
-        flask.abort(403, "Incorrect value for post parameter authcode!")
+    if flask.request.form.get("flag", None) != "fsoetltc":
+        flask.abort(403, "Incorrect value for post parameter flag!")
 
     return f"""
         <html>

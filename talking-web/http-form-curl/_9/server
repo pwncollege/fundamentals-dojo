@@ -35,13 +35,13 @@ def name_of_program_for(process):
     return client_path.stem
 
 
-@app.route("/authenticate", methods=["POST"])
+@app.route("/challenge", methods=["POST"])
 def challenge():
     if name_of_program_for(peer_process_of(flask.request.input_stream.fileno())) not in ["curl"]:
         flask.abort(400, "You are using an incorrect client to access this resource!")
 
-    if flask.request.form.get("pin", None) != "xhiarzle":
-        flask.abort(403, "Incorrect value for post parameter pin!")
+    if flask.request.form.get("auth", None) != "oasfvdtp":
+        flask.abort(403, "Incorrect value for post parameter auth!")
 
     return f"""
         <html>

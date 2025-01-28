@@ -35,19 +35,19 @@ def name_of_program_for(process):
     return client_path.stem
 
 
-@app.route("/trial", methods=["POST"])
+@app.route("/hack", methods=["POST"])
 def challenge():
     if name_of_program_for(peer_process_of(flask.request.input_stream.fileno())) not in ["curl"]:
         flask.abort(400, "You are using an incorrect client to access this resource!")
 
-    if flask.request.form.get("hash", None) != "avsrjhrw":
-        flask.abort(403, "Incorrect value for post parameter hash!")
+    if flask.request.form.get("key", None) != "vkdevtnq":
+        flask.abort(403, "Incorrect value for post parameter key!")
 
-    if flask.request.form.get("auth_pass", None) != "bvsdbioy":
-        flask.abort(403, "Incorrect value for post parameter auth_pass!")
+    if flask.request.form.get("security", None) != "hunygvfg":
+        flask.abort(403, "Incorrect value for post parameter security!")
 
-    if flask.request.form.get("login_key", None) != "hvtrtglz":
-        flask.abort(403, "Incorrect value for post parameter login_key!")
+    if flask.request.form.get("secure_key", None) != "zfvfqcqk":
+        flask.abort(403, "Incorrect value for post parameter secure_key!")
 
     return f"""
         <html>

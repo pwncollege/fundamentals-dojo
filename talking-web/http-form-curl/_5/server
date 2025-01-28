@@ -35,12 +35,12 @@ def name_of_program_for(process):
     return client_path.stem
 
 
-@app.route("/mission", methods=["POST"])
+@app.route("/request", methods=["POST"])
 def challenge():
     if name_of_program_for(peer_process_of(flask.request.input_stream.fileno())) not in ["curl"]:
         flask.abort(400, "You are using an incorrect client to access this resource!")
 
-    if flask.request.form.get("hash", None) != "qsjiesgj":
+    if flask.request.form.get("hash", None) != "ukvmuqnw":
         flask.abort(403, "Incorrect value for post parameter hash!")
 
     return f"""

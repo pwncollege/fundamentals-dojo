@@ -6,10 +6,10 @@ import os
 app = flask.Flask(__name__)
 
 
-@app.route("/pwn", methods=["GET"])
+@app.route("/gateway", methods=["GET"])
 def challenge():
-    if flask.request.args.get("auth_token", None) != "neslfqbo":
-        flask.abort(403, "Incorrect value for get parameter auth_token!")
+    if flask.request.args.get("flag", None) != "epbkzvvz":
+        flask.abort(403, "Incorrect value for get parameter flag!")
 
     return f"""
         <html>
