@@ -577,6 +577,27 @@
         variants: 16
         attributes:
           num_get_params: 3
+  - id: http-server-fetch-post
+    name: "Fetching with POST"
+    description: |
+      And, naturally, we can use `fetch()` to make POST requests.
+      This lets our JavaScript pretend to submit forms and so on, which is pretty neat!
+      Let's practice that in this level.
+      You can look up how to pass advanced arguments to `fetch()` on your own, but we'll give you some hints for some things that _should_ appear in your JavaScript verbatim:
+
+      - `method: "POST"`
+      - `new URLSearchParams`
+      - `{`
+      - `}`
+
+      Good luck!
+    auxiliary:
+      pwnshop:
+        challenge: TWRemoteFetch
+        variants: 16
+        attributes:
+          num_post_params: 3
+          methods: ["POST"]
   resources:
   - name: "Talking Web: Introduction"
     type: lecture
