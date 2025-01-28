@@ -41,4 +41,4 @@ print("Retrieved the following HTML:")
 print(browser.page_source)
 
 time.sleep(2)
-print("Visited! Go check if the attack worked!")
+print(" ")

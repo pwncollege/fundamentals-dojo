@@ -475,7 +475,97 @@
     auxiliary:
       pwnshop:
         challenge: TWRedirectClient
-        variants: 1
+        variants: 16
+  - id: http-server-redirect-js
+    name: "JavaScript Redirects"
+    description: |
+      In the beginning of the web, HTML, though _Hyper_, was pretty static.
+      It described its layouts, and that was it.
+      Sometime in the 1990s, the movers and shakers of the internet thought "What if web pages could execute logic?", and JavaScript was born.
+
+      JavaScript is a programming language that allows web pages to dynamically make decisions and carry out actions.
+      It is, hands down (and unfortunately, because it's terrible) the most important programming language out there (though luckily not the most used), and try as we might to avoid it (did we mention that it's terrible), we have to account for it in any discussion of web security.
+
+      HTML specifies JavaScript to be executed through the `<script>` tag.
+      This tag tells the browser that what is inside that tag is JavaScript, and the browser executes it.
+      There are many resources online for how to write script tags, and how to write JavaScript, and we'll leave their finding as an exercise for you, the learner.
+      Here, we'll practice something very specific: using JavaScript to redirect the browser to a different web page.
+
+      As previously, the client browser will print out the page it receives, but it will start by going to `http://challenge.localhost/~hacker/solve.html`.
+      Here, we harken back to the olden days of shared servers: `http://challenge.localhost/~hacker/anything` will be served out of the `public_html` subdirectory of your home directory!
+      Create a `/home/hacker/public_html/solve.html`, write the JavaScript you need to redirect the browser, and get the flag!
+
+      ----
+      **HINT:**
+      The JavaScript object you want is `window.location`.
+      You can assign a string to it to redirect the browser to a new location.
+
+      **HINT:**
+      Debugging this can be tricky with the built-in browser.
+      Try it using the dojo's Firefox!
+      You can't get the final flag with it, but you can at least tell if your redirect is working!
+    auxiliary:
+      pwnshop:
+        challenge: TWRedirectJS
+        variants: 16
+  - id: http-server-include-js
+    name: "Including JavaScript"
+    description: |
+      JavaScript can do many things in the context of the web page, and can, thus, lead to unexpected situations and security compromises.
+      You'll explore some of these situations in the Web Security module, but we'll lay the groundwork here.
+
+      In this level, `/challenge/client` will no longer print the web page, and `/challenge/server` will not serve up an HTML page of the flag, but a JavaScript script that sets a global `flag` variable to the value of the flag.
+      You'll need to make a web page to _include_ this script in your page (we'll leave it up to you to find the documentation for this --- hint: `src` is involved) and then create another script to somehow _exfiltrate_ this information.
+      Exfiltration is the art of smuggling sensitive data out right under the nose of its owners: in this case, `/challenge/client` and `/challenge/server`.
+      Your JavaScript running on your page, of course, has acess to the `flag` variable, but you'll need to somehow communicate it out to the world.
+      This can be done in a few different ways, but probably the easiest is to redirect (using your `window.location` trick from before!) the client browser to a URL that contains the flag (similar to how the client leaked it to you a few levels ago), and have that request go to somewhere where you can see the URL log (such as the log of `/challenge/server` or your own webserver!).
+
+      This sounds like a lot, but it's eminently doable.
+      Our reference HTML solution file is just 150 bytes long!
+      As before, remember: you can debug your solutions using your own browser (and can run it as root in practice mode to be able to include the flag script!).
+    auxiliary:
+      pwnshop:
+        challenge: TWRemoteJS
+        variants: 16
+  - id: http-server-fetch
+    name: "Fetching Resources"
+    description: |
+      Now, the hard part begins...
+      Oftentimes, what you need to exfiltrate is other data accessible to your JavaScript on the website, but you often have to make HTTP requests to retrieve it.
+      In modern JavaScript, HTTP requests are made using the `fetch()` function.
+      It works roughly as follows:
+
+      ```javascript
+      fetch("http://google.com").then(response => response.text()).then(website_content => ???);
+      ```
+
+      The `???`, of course, is the code that you want to execute on the website contents.
+      This API looks so absolutely insane because JavaScript is insane, but also because it actually has a hard problem to solve.
+      It has to execute logic in an environment where network errors, CPU load, laptop suspending and resuming, firewalls, and other crazy things can interfere with the loading and operation of the resources that it depends on.
+      The above code uses JavaScript "promises", which is a complex programming pattern that lets you write logic that _will_ be executed on data that is not _yet_ available, when that data finally does become available.
+      The `.then()` is the part of the promise that specifies what will be eventually executed.
+      Here, the flow is roughly as follows:
+
+      1. `fetch()` returns a promise and starts to fetch `http://google.com`.
+         This might take a while, might never succeed, or might succeed immediately.
+         At any rate, it initially returns a `promise` object that has a `then()` member function that will run when the response is available.
+      2. The response becomes available and the promised code executes.
+         This code takes the promised response and calls `response.text()`, which retrieves the _full_ text contents returned by `http://google.com`.
+         Because this might take a while to load fully, this _also_ returns a promise, and _that_ promise also has a `.then()` method that we can specify code for.
+      3. Finally, all the content is available and our final promised code runs.
+         This can be anything, but for most of our purposes, this is where we exfiltrate our data like you did in previous challenges.
+
+      This can be insanely hard to understand and debug.
+      Please be ready to debug this in Firefox in practice mode.
+
+      In this level, the flag is no longer nicely wrapped in JavaScript.
+      It's just boring old text.
+      You'll need to fetch it and exfiltrate it to score.
+      Good luck!
+    auxiliary:
+      pwnshop:
+        challenge: TWRemoteFetch
+        variants: 16
   resources:
   - name: "Talking Web: Introduction"
     type: lecture

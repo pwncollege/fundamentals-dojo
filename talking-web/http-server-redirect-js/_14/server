@@ -35,7 +35,15 @@ def name_of_program_for(process):
     return client_path.stem
 
 
-@app.route("/task", methods=["GET"])
+import string
+
+
+@app.route("/~hacker/<path:path>", methods=["GET"])
+def public_html(path="index.html"):
+    return flask.send_from_directory("/home/hacker/public_html", path)
+
+
+@app.route("/progress", methods=["GET"])
 def challenge():
     if peer_process_of(flask.request.input_stream.fileno()).username() != "root":
         flask.abort(
