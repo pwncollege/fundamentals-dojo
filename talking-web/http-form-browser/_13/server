@@ -22,7 +22,7 @@ def challenge():
     if "Firefox" not in flask.request.headers.get("User-Agent"):
         flask.abort(400, "You are using an incorrect client to access this resource!")
 
-    if flask.request.form.get("credential", None) != "vcekwpue":
+    if flask.request.form.get("credential", None) != "eiozsbzy":
         flask.abort(403, "Incorrect value for post parameter credential!")
 
     return f"""

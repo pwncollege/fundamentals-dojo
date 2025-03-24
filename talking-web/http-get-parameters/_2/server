@@ -6,10 +6,10 @@ import os
 app = flask.Flask(__name__)
 
 
-@app.route("/verify", methods=["GET"])
+@app.route("/mission", methods=["GET"])
 def challenge():
-    if flask.request.args.get("auth_pass", None) != "qpaaulpa":
-        flask.abort(403, "Incorrect value for get parameter auth_pass!")
+    if flask.request.args.get("password", None) != "sqhneyqy":
+        flask.abort(403, "Incorrect value for get parameter password!")
 
     return f"""
         <html>

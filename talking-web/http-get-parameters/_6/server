@@ -6,10 +6,10 @@ import os
 app = flask.Flask(__name__)
 
 
-@app.route("/pass", methods=["GET"])
+@app.route("/complete", methods=["GET"])
 def challenge():
-    if flask.request.args.get("keycode", None) != "pczjdgey":
-        flask.abort(403, "Incorrect value for get parameter keycode!")
+    if flask.request.args.get("authcode", None) != "lxoiofop":
+        flask.abort(403, "Incorrect value for get parameter authcode!")
 
     return f"""
         <html>

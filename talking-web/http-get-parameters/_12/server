@@ -6,10 +6,10 @@ import os
 app = flask.Flask(__name__)
 
 
-@app.route("/complete", methods=["GET"])
+@app.route("/task", methods=["GET"])
 def challenge():
-    if flask.request.args.get("verify", None) != "bjvkbvni":
-        flask.abort(403, "Incorrect value for get parameter verify!")
+    if flask.request.args.get("access_code", None) != "npaofcsc":
+        flask.abort(403, "Incorrect value for get parameter access_code!")
 
     return f"""
         <html>

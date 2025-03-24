@@ -6,10 +6,10 @@ import os
 app = flask.Flask(__name__)
 
 
-@app.route("/complete", methods=["GET"])
+@app.route("/entry", methods=["GET"])
 def challenge():
-    if flask.request.args.get("security_token", None) != "uqlizias":
-        flask.abort(403, "Incorrect value for get parameter security_token!")
+    if flask.request.args.get("pin", None) != "jgllilxh":
+        flask.abort(403, "Incorrect value for get parameter pin!")
 
     return f"""
         <html>

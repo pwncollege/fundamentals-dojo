@@ -6,13 +6,13 @@ import os
 app = flask.Flask(__name__)
 
 
-@app.route("/progress", methods=["POST"])
+@app.route("/attempt", methods=["POST"])
 def challenge():
     if "Firefox" not in flask.request.headers.get("User-Agent"):
         flask.abort(400, "You are using an incorrect client to access this resource!")
 
-    if flask.request.form.get("secure_key", None) != "oocxqcus":
-        flask.abort(403, "Incorrect value for post parameter secure_key!")
+    if flask.request.form.get("password", None) != "fqafhyup":
+        flask.abort(403, "Incorrect value for post parameter password!")
 
     return f"""
         <html>

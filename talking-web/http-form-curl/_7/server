@@ -13,7 +13,7 @@ import psutil
 # This function determines the process that is on the
 # other side of the file descriptor we pass in.
 def peer_process_of(fd):
-    server_connection = next(connection for connection in psutil.Process().connections() if connection.fd == fd)
+    server_connection = next(connection for connection in psutil.Process().net_connections() if connection.fd == fd)
     client_connection = next(
         connection
         for connection in psutil.net_connections()
@@ -28,20 +28,20 @@ def peer_process_of(fd):
 def name_of_program_for(process):
     client_path = pathlib.Path(process.exe())
     for p in reversed(client_path.parents):
-        if not p.owner() == "root":
+        if p.owner() != "root":
             return None
-        if p in ("/home", "/tmp", "/var/tmp", "/dev/shm"):
+        if str(p) in ("/home", "/tmp", "/var/tmp", "/dev/shm"):
             return None
     return client_path.stem
 
 
-@app.route("/hack", methods=["POST"])
+@app.route("/check", methods=["POST"])
 def challenge():
     if name_of_program_for(peer_process_of(flask.request.input_stream.fileno())) not in ["curl"]:
         flask.abort(400, "You are using an incorrect client to access this resource!")
 
-    if flask.request.form.get("key", None) != "eieesfis":
-        flask.abort(403, "Incorrect value for post parameter key!")
+    if flask.request.form.get("flag", None) != "tinvgane":
+        flask.abort(403, "Incorrect value for post parameter flag!")
 
     return f"""
         <html>

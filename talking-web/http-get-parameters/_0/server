@@ -6,10 +6,10 @@ import os
 app = flask.Flask(__name__)
 
 
-@app.route("/pwn", methods=["GET"])
+@app.route("/request", methods=["GET"])
 def challenge():
-    if flask.request.args.get("solution", None) != "qxgimbdu":
-        flask.abort(403, "Incorrect value for get parameter solution!")
+    if flask.request.args.get("signature", None) != "bqtooeyp":
+        flask.abort(403, "Incorrect value for get parameter signature!")
 
     return f"""
         <html>

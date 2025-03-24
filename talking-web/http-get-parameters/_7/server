@@ -6,10 +6,10 @@ import os
 app = flask.Flask(__name__)
 
 
-@app.route("/attempt", methods=["GET"])
+@app.route("/meet", methods=["GET"])
 def challenge():
-    if flask.request.args.get("verify", None) != "gvkkivio":
-        flask.abort(403, "Incorrect value for get parameter verify!")
+    if flask.request.args.get("pass", None) != "qslkkqxj":
+        flask.abort(403, "Incorrect value for get parameter pass!")
 
     return f"""
         <html>
