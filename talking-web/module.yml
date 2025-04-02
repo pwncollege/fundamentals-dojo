@@ -250,7 +250,7 @@
       However, keep in mind: when you're writing C or Python or Java code, an attacker (typically) can't just call random functions in your program with random parameters.
       But with HTTP, they _can_.
       They can just make HTTP requests wherever they want!
-      This has caused quote a few security issues...
+      This has caused quite a few security issues...
     auxiliary:
       pwnshop:
         challenge: TalkingWeb
