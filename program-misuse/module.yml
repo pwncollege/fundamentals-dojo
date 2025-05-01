@@ -1,162 +1,14 @@
 name: Program Misuse
-description: ""
-challenges:
-- id: level-1
-  name: level1
-  description: Lets you directly read the flag!
-- id: level-2
-  name: level2
-  description: Lets you directly read the flag!
-- id: level-3
-  name: level3
-  description: Lets you directly read the flag!
-- id: level-4
-  name: level4
-  description: Lets you directly read the flag!
-- id: level-5
-  name: level5
-  description: Lets you directly read the flag!
-- id: level-6
-  name: level6
-  description: Lets you directly read the flag!
-- id: level-7
-  name: level7
-  description: Shows you that an over-privileged editor is a very powerful tool!
-- id: level-8
-  name: level8
-  description: Shows you that an over-privileged editor is a very powerful tool!
-- id: level-9
-  name: level9
-  description: Shows you that an over-privileged editor is a very powerful tool!
-- id: level-10
-  name: level10
-  description: Requires you to understand their output to derive the flag from it!
-- id: level-11
-  name: level11
-  description: Requires you to understand their output to derive the flag from it!
-- id: level-12
-  name: level12
-  description: Requires you to understand their output to derive the flag from it!
-- id: level-13
-  name: level13
-  description: Requires you to understand their output to derive the flag from it!
-- id: level-14
-  name: level14
-  description: Requires you to understand their output to derive the flag from it!
-- id: level-15
-  name: level15
-  description: Requires you to understand their output to derive the flag from it!
-- id: level-16
-  name: level16
-  description: Requires you to understand their output to derive the flag from it!
-- id: level-17
-  name: level17
-  description: Forces you to understand different archive formats!
-- id: level-18
-  name: level18
-  description: Forces you to understand different archive formats!
-- id: level-19
-  name: level19
-  description: Forces you to understand different archive formats!
-- id: level-20
-  name: level20
-  description: Forces you to understand different archive formats!
-- id: level-21
-  name: level21
-  description: Forces you to understand different archive formats!
-- id: level-22
-  name: level22
-  description: Forces you to understand different archive formats!
-- id: level-23
-  name: level23
-  description: Forces you to understand different archive formats!
-- id: level-24
-  name: level24
-  description: Enables you to read flags by making them execute other commands!
-- id: level-25
-  name: level25
-  description: Enables you to read flags by making them execute other commands!
-- id: level-26
-  name: level26
-  description: Enables you to read flags by making them execute other commands!
-- id: level-27
-  name: level27
-  description: Enables you to read flags by making them execute other commands!
-- id: level-28
-  name: level28
-  description: Enables you to read flags by making them execute other commands!
-- id: level-29
-  name: level29
-  description: Enables you to read flags by making them execute other commands!
-- id: level-30
-  name: level30
-  description: Enables you to read flags by making them execute other commands!
-- id: level-31
-  name: level31
-  description: Enables you to read flags by making them execute other commands!
-- id: level-32
-  name: level32
-  description: Enables you to read flags by making them execute other commands!
-- id: level-33
-  name: level33
-  description: Requires some light programming to read the flag.!
-- id: level-34
-  name: level34
-  description: Requires some light programming to read the flag.!
-- id: level-35
-  name: level35
-  description: Requires some light programming to read the flag.!
-- id: level-36
-  name: level36
-  description: Requires some light programming to read the flag.!
-- id: level-37
-  name: level37
-  description: Lets you get the flag by doing tricks with permissions!
-- id: level-38
-  name: level38
-  description: Lets you get the flag by doing tricks with permissions!
-- id: level-39
-  name: level39
-  description: Lets you get the flag by doing tricks with permissions!
-- id: level-40
-  name: level40
-  description: Lets you get the flag by doing tricks with permissions!
-- id: level-41
-  name: level41
-  description: Lets you read the flag because they let you program anything!
-- id: level-42
-  name: level42
-  description: Lets you read the flag because they let you program anything!
-- id: level-43
-  name: level43
-  description: Lets you read the flag because they let you program anything!
-- id: level-44
-  name: level44
-  description: Lets you read the flag because they let you program anything!
-- id: level-45
-  name: level45
-  description: Just straight up wasn't designed to let you read files!
-- id: level-46
-  name: level46
-  description: Just straight up wasn't designed to let you read files!
-- id: level-47
-  name: level47
-  description: Just straight up wasn't designed to let you read files!
-- id: level-48
-  name: level48
-  description: Just straight up wasn't designed to let you read files!
-- id: level-49
-  name: level49
-  description: Just straight up wasn't designed to let you read files!
-- id: level-50
-  name: level50
-  description: |
-    Just straight up wasn't designed to let you read files!
-    This level has a "decoy" solution that _looks_ like it leaks the flag, but is not correct.
-    If you're submitting what you feel should be a valid flag, and the dojo doesn't accept it, try your solution against a file with uppercase characters to see what's going on.
-- id: level-51
-  name: level51
-  description: Shows how dangerous it is to allow users to load their own code as plugins into the program (but figuring out how is the hard part)!
+
+description: |
+  For each challenge in this module, a different (standard) program that is owned by root has its `suid` bit set.
+  Probably, this program is not normally designed to be `suid`.
+  Your task is to misuse the program with this increased privilege to read the flag.
+  Some of these programs are ordinarily used to read files; several of them are not.
+  In order to better understand how to use (and misuse) these programs, you may want to read through their `man` pages.
+
+image: pwncollege/challenge-program-misuse
+
 resources:
 - name: "Program Misuse: Privilege Escalation"
   type: lecture
@@ -169,3 +21,364 @@ resources:
   playlist: PL-ymxv0nOtqoaG9YCGR36tCfRoXqVcE1E
   slides: 1pvWd6n4UN3lZ1BdRySWDl80iEYGRJj9VC5exbYlGdAg
 
+challenges:
+- id: cat
+  name: cat
+  description: Lets you directly read the flag!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-1
+- id: more
+  name: more
+  description: Lets you directly read the flag!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-2
+- id: less
+  name: less
+  description: Lets you directly read the flag!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-3
+- id: tail
+  name: tail
+  description: Lets you directly read the flag!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-4
+- id: head
+  name: head
+  description: Lets you directly read the flag!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-5
+- id: sort
+  name: sort
+  description: Lets you directly read the flag!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-6
+- id: vim
+  name: vim
+  description: Shows you that an over-privileged editor is a very powerful tool!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-7
+- id: emacs
+  name: emacs
+  description: Shows you that an over-privileged editor is a very powerful tool!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-8
+- id: nano
+  name: nano
+  description: Shows you that an over-privileged editor is a very powerful tool!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-9
+- id: rev
+  name: rev
+  description: Requires you to understand their output to derive the flag from it!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-10
+- id: od
+  name: od
+  description: Requires you to understand their output to derive the flag from it!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-11
+- id: hd
+  name: hd
+  description: Requires you to understand their output to derive the flag from it!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-12
+- id: xxd
+  name: xxd
+  description: Requires you to understand their output to derive the flag from it!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-13
+- id: base32
+  name: base32
+  description: Requires you to understand their output to derive the flag from it!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-14
+- id: base64
+  name: base64
+  description: Requires you to understand their output to derive the flag from it!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-15
+- id: split
+  name: split
+  description: Requires you to understand their output to derive the flag from it!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-16
+- id: gzip
+  name: gzip
+  description: Forces you to understand different archive formats!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-17
+- id: bzip2
+  name: bzip2
+  description: Forces you to understand different archive formats!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-18
+- id: zip
+  name: zip
+  description: Forces you to understand different archive formats!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-19
+- id: tar
+  name: tar
+  description: Forces you to understand different archive formats!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-20
+- id: ar
+  name: ar
+  description: Forces you to understand different archive formats!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-21
+- id: cpio
+  name: cpio
+  description: Forces you to understand different archive formats!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-22
+- id: genisoimage
+  name: genisoimage
+  description: Forces you to understand different archive formats!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-23
+- id: env
+  name: env
+  description: Enables you to read flags by making them execute other commands!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-24
+- id: find
+  name: find
+  description: Enables you to read flags by making them execute other commands!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-25
+- id: make
+  name: make
+  description: Enables you to read flags by making them execute other commands!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-26
+- id: nice
+  name: nice
+  description: Enables you to read flags by making them execute other commands!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-27
+- id: timeout
+  name: timeout
+  description: Enables you to read flags by making them execute other commands!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-28
+- id: stdbuf
+  name: stdbuf
+  description: Enables you to read flags by making them execute other commands!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-29
+- id: setarch
+  name: setarch
+  description: Enables you to read flags by making them execute other commands!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-30
+- id: watch
+  name: watch
+  description: Enables you to read flags by making them execute other commands!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-31
+- id: socat
+  name: socat
+  description: Enables you to read flags by making them execute other commands!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-32
+- id: whiptail
+  name: whiptail
+  description: Requires some light programming to read the flag.!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-33
+- id: awk
+  name: awk
+  description: Requires some light programming to read the flag.!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-34
+- id: sed
+  name: sed
+  description: Requires some light programming to read the flag.!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-35
+- id: ed
+  name: ed
+  description: Requires some light programming to read the flag.!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-36
+- id: chown
+  name: chown
+  description: Lets you get the flag by doing tricks with permissions!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-37
+- id: chmod
+  name: chmod
+  description: Lets you get the flag by doing tricks with permissions!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-38
+- id: cp
+  name: cp
+  description: Lets you get the flag by doing tricks with permissions!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-39
+- id: mv
+  name: mv
+  description: Lets you get the flag by doing tricks with permissions!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-40
+- id: perl
+  name: perl
+  description: Lets you read the flag because they let you program anything!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-41
+- id: python
+  name: python
+  description: Lets you read the flag because they let you program anything!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-42
+- id: ruby
+  name: ruby
+  description: Lets you read the flag because they let you program anything!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-43
+- id: bash
+  name: bash
+  description: Lets you read the flag because they let you program anything!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-44
+- id: date
+  name: date
+  description: Just straight up wasn't designed to let you read files!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-45
+- id: dmesg
+  name: dmesg
+  description: Just straight up wasn't designed to let you read files!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-46
+- id: wc
+  name: wc
+  description: Just straight up wasn't designed to let you read files!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-47
+- id: gcc
+  name: gcc
+  description: Just straight up wasn't designed to let you read files!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-48
+- id: as
+  name: as
+  description: Just straight up wasn't designed to let you read files!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-49
+- id: wget
+  name: wget
+  description: |
+    Just straight up wasn't designed to let you read files!
+    This level has a "decoy" solution that _looks_ like it leaks the flag, but is not correct.
+    If you're submitting what you feel should be a valid flag, and the dojo doesn't accept it, try your solution against a file with uppercase characters to see what's going on.
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-50
+- id: ssh-keygen
+  name: ssh-keygen
+  description: Shows how dangerous it is to allow users to load their own code as plugins into the program (but figuring out how is the hard part)!
+  transfer:
+    dojo: fundamentals
+    module: program-misuse
+    challenge: level-51
