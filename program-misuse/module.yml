@@ -142,8 +142,11 @@ challenges:
 - id: mv
   name: mv
   description: |
-    Lets you get the flag by doing tricks with the infrastructure itself!
-    This attack isn't doable on a normal non-pwn.college system, but hopefully it encourages you to think about the security properties of programs in wider contexts!
+    Lets you get the flag by doing tricks with permissions!
+
+    ----
+    **NOTE:**
+    It might be helpful to take a step back and think about the broader environment you are in, and what that makes possible.
 - id: perl
   name: perl
   description: Lets you read the flag because they let you program anything!
