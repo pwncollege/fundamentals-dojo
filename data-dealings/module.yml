@@ -102,7 +102,7 @@ challenges:
     It is very feasible for there to be an alternate universe in which a byte is 16, 32, or really any numbers of bits (though for math reasons, it'll likely remain a power-of-2).
 
     A single binary digit (bit) can represent two values (`0` and `1`), two bits can represent four values (`00`, `01`, `10`, and `11`), three bits can represent eight values (`000`, `001`, `010`, `011`, `100`, `101`, `110`, `111`), and four bits can represent sixteen values.
-    Compartively, a single decimal digit can represent 10 values (from `0` to `9`).
+    Comparatively, a single decimal digit can represent 10 values (from `0` to `9`).
     Ten values are represented by roughly `log2(10) == 3.3219...` bits, and you get weird situations like binary `1001` being decimal `9`, but binary `1100` (still 4 binary digits) being `12` (_two_ decimal digits!).
     Another way of expressing this digit desynchronization between decimal and binary is that decimal does not have clean _bit boundaries_.
 
@@ -165,7 +165,7 @@ challenges:
     - You can get a binary string representation of a number using `bin(n)`.
     - Converting a string to a number with `int(s)` will read it as a base 10 number by default.
     - You can specify a different base to use with a second argument: `int(s, 16)` will interpret the string as hex, `int(s, 2)` will interpret it as binary.
-    - You can try to auto-identify the number base using `int(s, 0)`, which requires a prefex on the string (`0b` or binary, `0x` for hex, nothing for decimal).
+    - You can try to auto-identify the number base using `int(s, 0)`, which requires a prefix on the string (`0b` or binary, `0x` for hex, nothing for decimal).
   auxiliary:
     pwnshop:
       attributes:
