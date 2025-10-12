@@ -213,7 +213,7 @@
       A clever server might be able to deal with it, but it's not impossible that a version that simply reads one word at a time would read `my` instead of `HTTP/1.1` and panic!
 
       To avoid such situations, URLs are _encoded_ using [URL Encoding](https://en.wikipedia.org/wiki/Percent-encoding).
-      This is a simple encoding compared to what you've seen in [Dealing with Data](/fundamentals/data_dealings).
+      This is a simple encoding compared to what you've seen in [Dealing with Data](/fundamentals/data-dealings).
       Any tricky characters (such as spaces) are simply hex-encoded, with a `%` plopped in front of them.
       Of course, because `%` thus becomes a tricky character in itself, it must also be encoded.
       In the above example, `/solve my challenge` would become `/solve%20my%20challenge`, as the hex value of the ASCII space character is `0x20`.
