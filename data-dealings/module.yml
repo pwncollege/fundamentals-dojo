@@ -149,7 +149,7 @@ challenges:
     This gets even more obvious when you expand beyond one byte of input, but we'll let you find that out through future challenges!
 
     Now, let's talk about notation.
-    How do you differentiate `11` in decimal, `11` in binary (which equals `3` in decimal), and 11 in hex (which equals `17` in decimal)?
+    How do you differentiate `11` in decimal, `11` in binary (which equals `3` in decimal), and `11` in hex (which equals `17` in decimal)?
     For numerical constants, Python's notation is to prepend binary data with `0b`, hexadecimal with `0x`, and keep decimal as is, resulting in `11 == 0b1011 == 0xb`, `3 == 0b11 == 0x3`, and `17 == 0b10001 == 0x11`.
     But for `bytes`, as in this challenge, you can specify them using _escape sequences_.
     The escape sequence starts with `\x` and is followed by two hex digits, resulting in a single byte with that value being put in the `bytes` constant!
