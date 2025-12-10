@@ -443,7 +443,7 @@ challenges:
     The reason that we might use an encoding like hex is to transfer information via some medium where it is hard to write arbitrary binary code, such as a piece of paper or certain communication protocols.
     However, it is horribly inefficient: it _doubles_ the size of the data by outputting two ASCII hex digits for every byte!
 
-    Hex is inefficient for a similar reason that it convenient: there are only 4 bits available per digit, and since each output character digit takes 8 bits to display (in ASCII), the data size doubles.
+    Hex is inefficient for a similar reason that it's convenient: there are only 4 bits available per digit, and since each output character digit takes 8 bits to display (in ASCII), the data size doubles.
     Luckily, we can increase the efficiency of an encoding by increasing the number of bits we can convey per output character.
 
     The name "base64" comes from the fact that there are 64 characters used in each output character.
