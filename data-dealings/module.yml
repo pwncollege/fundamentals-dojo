@@ -49,7 +49,7 @@ challenges:
 
     1. Look into ways to terminate your terminal input _without_ pressing Enter.
        This is super searchable online!
-    2. Recall, from the Linux Luminarium, how to redirect an `echo` (with arguments to disable newlines) to the stdin of `/challenge/runme`.
+    2. Recall, from the Linux Luminarium, how to redirect an [`echo`](https://pwn.college/linux-luminarium/piping) (with arguments to disable newlines) to the stdin of `/challenge/runme`.
     3. Create a file without a newline, and remember your Linux Luminarium to redirect the file to stdin of `/challenge/runme`.
 
     Good luck!
