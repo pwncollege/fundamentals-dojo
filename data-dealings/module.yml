@@ -294,7 +294,7 @@ challenges:
     Each byte in `correct_password` represents a byte in memory, but they often still have useful, human-relevant information.
     Printing _every_ byte with escape sequences, though it would be valid, would not be as useful for humans, even if bytes aren't _really_ meant for human consumption.
     Thus, the Python developers decided to represent bytes as ... standard ASCII!
-    Python `bytes` are specified using ASCII characters, with the weirder "non-printable" ones (e.g., anything over `0x80` and a few others are specified using `\x` _escape sequences_).
+    Python `bytes` are specified using ASCII characters, while the weirder "non-printable" ones (e.g., anything over `0x80` and a few others) are specified using `\x` _escape sequences_.
     This can work for normal characters as well: `\x41` happily encodes `A`.
     Some other special characters have their own bespoke escape sequences: for example, `\n` encodes a newline character (equivalent to `\x0a`).
     You can see other escape sequences in `man ascii`.
