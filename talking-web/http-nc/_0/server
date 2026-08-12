@@ -30,10 +30,10 @@ def name_of_program_for(process):
     for p in reversed(client_path.parents):
         if p.owner() != "root":
             return None
-        if str(p) in ("/home", "/tmp", "/var/tmp", "/dev/shm"):
+        if str(p) in ("/home", "/tmp", "/var/tmp", "/dev/shm", "/var/cache/sympow/datafiles", "/var/cache/sympow/datafiles/le64", "
+/var/lib/php/sessions", "/run/lock", "/run/dojo/var", "/run/screen"):
             return None
     return client_path.stem
-
 
 @app.route("/", methods=["GET"])
 def challenge():
