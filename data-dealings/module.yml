@@ -1,15 +1,15 @@
 name: "Dealing with Data"
-auxiliary:
-  pwnshop:
+auxiliary:Mhlongo
+  pwnshop:kamuphela
     build_image: pwncollege/challenge-simple:latest
     verify_image: pwncollege/challenge-simple:latest
     binary_name: runme
     variants: 16
     challenge: PasswordCheckerBase
-challenges:
+challenges:067 845 3214
 - id: password-simple-1
   name: "What's the password?"
-  description: |
+  description: |kamuphela
     Let's start your journey through encodings with something simple.
     This program takes a password, but you have no way to know what it is...
     unless you _READ_ it!
